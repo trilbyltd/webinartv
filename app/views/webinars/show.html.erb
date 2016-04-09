@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Live date:</strong>
+  <%= @webinar.live_date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @webinar.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @webinar.description %>
+</p>
+
+<p>
+  <strong>Presenter:</strong>
+  <%= @webinar.presenter_id %>
+</p>
+
+<p>
+  <strong>Webinar url:</strong>
+  <%= @webinar.webinar_url %>
+</p>
+
+<%= link_to 'Join', join_webinar_path(@webinar) %>
+<%= link_to 'Back', webinars_path %>

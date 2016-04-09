@@ -1,0 +1,2 @@
+class WebinarMailer < ApplicationMailer
+end

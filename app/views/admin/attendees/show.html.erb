@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attendee.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @attendee.email %>
+</p>
+
+<p>
+  <strong>Active user:</strong>
+  <%= @attendee.active_user %>
+</p>
+
+<p>
+  <strong>School name:</strong>
+  <%= @attendee.school_name %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @webinars.each do |attendee| %>
+    <tr>
+      <td><%= webinar.live_date %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<%= link_to 'Edit', edit_admin_attendee_path(@attendee) %> |
+<%= link_to 'Back', admin_attendees_path %>

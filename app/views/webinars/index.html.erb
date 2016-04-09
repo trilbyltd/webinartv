@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Webinars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Live date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Presenter</th>
+      <th>Webinar url</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @webinars.each do |webinar| %>
+      <tr>
+        <td><%= webinar.live_date %></td>
+        <td><%= webinar.title %></td>
+        <td><%= webinar.description %></td>
+        <td><%= webinar.presenter_id %></td>
+        <td><%= webinar.webinar_url %></td>
+        <td><%= link_to 'Show', webinar_path(webinar) %></td>
+        <td><%= link_to 'Join', join_webinar_path(webinar) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

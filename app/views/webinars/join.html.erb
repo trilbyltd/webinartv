@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<h1>Join</h1>
+<p>
+  <strong>Live date:</strong>
+  <%= @webinar.live_date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @webinar.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @webinar.description %>
+</p>
+
+<p>
+  <strong>Presenter:</strong>
+  <%= @webinar.presenter_id %>
+</p>
+
+<p>
+  <strong>Webinar url:</strong>
+  <%= @webinar.webinar_url %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @webinar.active %>
+</p>
+
+<%= simple_form_for(@attendee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :active_user %>
+    <%= f.input :school_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Join" %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', webinars_path %>
