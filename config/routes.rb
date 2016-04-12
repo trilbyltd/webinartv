@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :presenters
   root to: 'webinars#index'  
   get 'join(/:id)', to: 'webinars#join', as: :join_webinar
   resources :webinars, only: [:index, :show, :join]

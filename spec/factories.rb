@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :presenter do
+    name "MyString"
+    email "MyString"
+    bio "MyString"
+  end
   factory :webinar_attendee do
     webinar_id 1
     attendee_id 1
