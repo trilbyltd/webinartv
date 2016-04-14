@@ -4,6 +4,7 @@ ruby "2.3.0"
 
 gem "autoprefixer-rails"
 gem "bourbon", "5.0.0.beta.3"
+gem "clearance"
 gem "delayed_job_active_record"
 gem "flutie"
 gem "high_voltage"
