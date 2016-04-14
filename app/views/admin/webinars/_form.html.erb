@@ -5,7 +5,7 @@
     <%= f.input :live_date %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :presenter_id %>
+    <%= f.collection_select(:presenter_id, Presenter.all, :id, :name) %>
     <%= f.input :webinar_url %>
     <%= f.input :active %>
   </div>

@@ -7,3 +7,12 @@
 
 @import "base/base";
 @import "refills/flashes";
+@import "webinars";
+
+body {
+  @include outer-container;
+}
+
+.flashes {
+  @include span-columns(10);
+}

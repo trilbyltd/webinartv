@@ -6,6 +6,7 @@ class WebinarsController < ApplicationController
   end
 
   def show
+    @presenter = Presenter.find(@webinar.presenter_id)
   end
 
   def join

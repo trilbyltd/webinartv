@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Presenters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Bio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presenters.each do |presenter| %>
+      <tr>
+        <td><%= presenter.name %></td>
+        <td><%= presenter.email %></td>
+        <td><%= presenter.bio %></td>
+        <td><%= link_to 'Show', presenter %></td>
+        <td><%= link_to 'Edit', edit_admin_presenter_path(presenter) %></td>
+        <td><%= link_to 'Destroy', presenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Presenter', new_presenter_path %>
