@@ -19,7 +19,7 @@
   <header>
     <% if signed_in? %>
     Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'btn' %>
     <% else %>
     <%= link_to 'Sign in', sign_in_path %>
     <% end %>

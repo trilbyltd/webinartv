@@ -1,16 +1,18 @@
 class WebinarsController < ApplicationController
-  before_action :set_webinar, only: [:show, :edit, :update, :destroy, :join]
+  before_action :set_webinar, only: [:show, :join]
 
   def index
     @webinars = Webinar.active.all
   end
 
   def show
-    @presenter = Presenter.find(@webinar.presenter_id)
+    if @webinar.presenter_id.present?
+      @presenter = Presenter.find(@webinar.presenter_id)  
+    end
   end
 
   def join
-    @attendee = @webinar.attendee.new
+    @attendee = @webinar.attendees.new
   end
 
   private
@@ -21,6 +23,13 @@ class WebinarsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def webinar_params
-      params.require(:webinar).permit(:live_date, :title, :description, :presenter_id, :webinar_url, :active)
+      params.require(:webinar).permit(
+        :live_date, 
+        :title, 
+        :description, 
+        :presenter_id, 
+        :webinar_url, 
+        :active
+        )
     end
 end

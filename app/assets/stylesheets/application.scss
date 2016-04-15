@@ -1,3 +1,7 @@
+/*
+*= require simple_form_extension
+*/
+
 @charset "utf-8";
 
 @import "normalize-rails";
@@ -8,23 +12,32 @@
 @import "base/base";
 @import "refills/flashes";
 
+@import "simple_form_extension/jquery.datetimepicker";
+@import "simple_form_extension/jasny_bootstrap";
+@import "simple_form_extension/bootstrap_slider";
+@import "simple_form_extension/bootstrap_colorpicker";
+
 @import "webinars";
 
 body {
   @include outer-container;
+  background-color: $brand-grey;
 }
 
 header {
-    @include span-columns(12);
-  background-color: #fff;
+  @include outer-container;
+  // background-color: #fff;
 }
+section { 
+  @include span-columns(12);
 
+}
 .flashes {
   @include span-columns(10);
 }
 
 button {
   background-color: $brand-green-dark;
-  color: $brand-grey;
+  color: $brand-red;
   width: $clear-button-width;
 }

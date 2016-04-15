@@ -1,0 +1,16 @@
+<h2>Attendees</h2>
+<table>
+  <tr> 
+    <th>Name</th>
+    <th>Email</th>
+    <th>School Name</th>
+  </tr>
+<tbody>
+<% for @attendees.each do |attendee| %>
+  <tr>
+    <td><%= attendee.name %></td>
+    <td><%= attendee.email %></td>
+    <td><%= attendee.school_name %></td>
+  </tr>
+<% end %>
+</table>

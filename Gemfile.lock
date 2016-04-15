@@ -1,3 +1,21 @@
+GIT
+  remote: git://github.com/glyph-fr/redactor-rails.git
+  revision: 06db8249a4dce4446a61f9e22fd760830c1175e9
+  specs:
+    redactor-rails (0.6.0)
+      mime-types
+      orm_adapter
+
+GIT
+  remote: git://github.com/glyph-fr/simple_form_extension.git
+  revision: 3b0d3f8cffc09135432940512ccabae5e0f6597c
+  specs:
+    simple_form_extension (1.3.20)
+      rails (>= 3.1)
+      redactor-rails
+      selectize-rails
+      simple_form
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -134,6 +152,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -227,6 +246,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selectize-rails (0.12.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.2.1)
@@ -242,7 +262,7 @@ GEM
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     slop (3.6.0)
-    spring (1.6.4)
+    spring (1.7.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (3.6.0)
@@ -274,7 +294,7 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (1.24.2)
+    webmock (1.24.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -317,6 +337,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rails_stdout_logging
   recipient_interceptor
+  redactor-rails!
   refills
   resque
   resque-scheduler
@@ -324,6 +345,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-matchers
   simple_form
+  simple_form_extension!
   simplecov
   spring
   spring-commands-rspec

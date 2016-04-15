@@ -10,7 +10,7 @@
       <p>Presenter: <%= Presenter.find(webinar).name if webinar.presenter_id.present? %></p>
       <p><%= link_to webinar.webinar_url if webinar.live? %></p>
       <p><%= link_to 'Show', webinar_path(webinar) %></p>
-      <p><%= button_to 'Join', join_webinar_path(webinar) %></p>
+      <p><%= link_to 'Join', join_webinar_path(webinar) %></p>
       <% if current_user && current_user.admin? %>
         <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
       <% end %>

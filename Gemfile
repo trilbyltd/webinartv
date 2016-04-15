@@ -23,6 +23,7 @@ gem "resque"
 gem "resque-scheduler"
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
+gem "simple_form_extension", github: "glyph-fr/simple_form_extension"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
 gem "title"
@@ -66,3 +67,5 @@ group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

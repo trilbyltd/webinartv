@@ -1,10 +1,27 @@
 en:
   date:
     formats:
-      default:
-        "%d/%m/%Y"
-      with_weekday:
-        "%a %d/%m/%y"
+      default: "%d/%m/%Y"
+      with_weekday: "%a %d/%m/%y"
+
+  admin:
+    webinars:
+      index:
+
+  helpers:
+    actions:
+      show: 'View #{model}'
+      edit: "Change"
+      back: "Back"
+    links:
+      cancel: "Cancel"
+      destroy: "Remove"
+      save: "Save"
+
+  webinars:
+    index:
+      columns:
+        date: "%a %d/%m/%y"
 
   time:
     formats:
@@ -16,14 +33,4 @@ en:
         "%B %d"
 
   titles:
-    application: Webinartv
-
-  webinars:
-    index:
-      columns:
-        date: Date
-  admin:
-    webinars:
-      index:
-        columns:
-          date: Date
+    application: TrilbyTV Webinars

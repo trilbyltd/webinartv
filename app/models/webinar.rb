@@ -1,7 +1,10 @@
 class Webinar < ActiveRecord::Base
-  has_many :attendees, through: :webinar_attendees
+  has_and_belongs_to_many :attendees, :join_table => "webinar_attendees"
   has_one :presenter
-  
+
+  validates :live_date, presence: true
+  validates :title, presence: true
+
   scope :active, -> { where active: true }
 
   def live?
