@@ -7,12 +7,24 @@
 
 @import "base/base";
 @import "refills/flashes";
+
 @import "webinars";
 
 body {
   @include outer-container;
 }
 
+header {
+    @include span-columns(12);
+  background-color: #fff;
+}
+
 .flashes {
   @include span-columns(10);
+}
+
+button {
+  background-color: $brand-green-dark;
+  color: $brand-grey;
+  width: $clear-button-width;
 }

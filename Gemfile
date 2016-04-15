@@ -4,8 +4,9 @@ ruby "2.3.0"
 
 gem "autoprefixer-rails"
 gem "bourbon", "5.0.0.beta.3"
-gem "clearance"
+gem "clearance", "~> 1.13.0"
 gem "delayed_job_active_record"
+gem "email_validator"
 gem "flutie"
 gem "high_voltage"
 gem "honeybadger"
@@ -62,5 +63,6 @@ group :test do
 end
 
 group :staging, :production do
+  gem "rails_stdout_logging"
   gem "rack-timeout"
 end

@@ -2,9 +2,9 @@ en:
   date:
     formats:
       default:
-        "%m/%d/%Y"
+        "%d/%m/%Y"
       with_weekday:
-        "%a %m/%d/%y"
+        "%a %d/%m/%y"
 
   time:
     formats:
@@ -17,3 +17,13 @@ en:
 
   titles:
     application: Webinartv
+
+  webinars:
+    index:
+      columns:
+        date: Date
+  admin:
+    webinars:
+      index:
+        columns:
+          date: Date

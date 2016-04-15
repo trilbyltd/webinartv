@@ -48,7 +48,7 @@ class Admin::PresentersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_presenter
-      @presenter = Presenter.find(params[:id])
+      @presenter = Presenter.find(params[:id]) if params[:id]
     end
 
     # Only allow a trusted parameter "white list" through.

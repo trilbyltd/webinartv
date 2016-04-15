@@ -48,7 +48,7 @@ class WebinarAttendeesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_webinar_attendee
-      @webinar_attendee = WebinarAttendee.find(params[:id])
+      @webinar_attendee = WebinarAttendee.find(params[:id]) if params[:id]
     end
 
     # Only allow a trusted parameter "white list" through.

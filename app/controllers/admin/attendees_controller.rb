@@ -49,7 +49,7 @@ class Admin::AttendeesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attendee
-      @attendee = Attendee.find(params[:id])
+      @attendee = Attendee.find(params[:id]) if params[:id]
     end
 
     # Only allow a trusted parameter "white list" through.

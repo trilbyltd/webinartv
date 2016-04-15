@@ -1,22 +1,17 @@
 <h1>Listing Webinars</h1>
 
 <% @webinars.each do |webinar| %>
-
-<div class="cards">
-  <div class="card">
-    <div class="card-image">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
-    </div>
-    <div class="card-header">
-      <p><%= webinar.title %></p>
-      <p><%= webinar.live_date %></p>
-    </div>
-    <div class="card-copy">
+<div class="side-image">
+  <div class="images-wrapper">
+    <div class="side-image-content">
+      <h4><%= webinar.title %></h4>
+      <p><%=t(".columns.date", date: l(webinar.live_date, format: :default)) %></p>
       <p><%= webinar.description %></p>
-      <p><%= webinar.presenter_id %></p>
-      <p><%= webinar.webinar_url %></p>
+      <p>Presenter: <%= Presenter.find(webinar).name if webinar.presenter_id.present? %></p>
+      <p><%= link_to webinar.webinar_url if webinar.live? %></p>
       <p><%= link_to 'Show', webinar_path(webinar) %></p>
-      <p><%= link_to 'Join', join_webinar_path(webinar) %></p>
-    </div>
-  </div>  
+      <p><%= button_to 'Join', join_webinar_path(webinar) %></p>
+      <% if current_user && current_user.admin? %>
+        <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
+      <% end %>
 <% end %>

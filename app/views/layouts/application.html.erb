@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
+
+
   <%#
     Configure default and controller-, and view-specific titles in
     config/locales/en.yml. For more see:
@@ -14,20 +16,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <% if signed_in? %>
+  <header>
+    <% if signed_in? %>
     Signed in as: <%= current_user.email %>
     <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% else %>
+    <% else %>
     <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
-
+    <% end %>
+  </header>
+  <section>
     <div id="flash">
       <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
+        <div class="flashes <%= key %>"><%= value %></div>
       <% end %>
     </div>
-  <%= yield %>
-  <%= render "javascript" %>
-  <%= render "css_overrides" %>
+  <section>
+    <%= yield %>
+    <%= render "javascript" %>
+    <%= render "css_overrides" %>
+  </section>
 </body>
 </html>

@@ -18,19 +18,23 @@ $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
+$clear-button-width: 70px;
 
 // Colors
-$blue: #1565c0;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+$brand-green: #49aea3;
+$brand-green-dark: #29615b;
+$brand-aqua: #b3f9f1;
+$brand-aqua-dark: #5ee1d2;
+$brand-grey: #edf0f5;
+$brand-grey-dark: #cdcfd1;
+$brand-red: #e05f5f;
 
 // Font Colors
-$base-font-color: $dark-gray;
-$action-color: $blue;
+$base-font-color: $brand-green-dark;
+$action-color: $brand-aqua;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: $brand-green-dark;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
