@@ -1,10 +1,10 @@
 class CreateWebinars < ActiveRecord::Migration
   def change
     create_table :webinars do |t|
-      t.datetime :live_date
-      t.string :title
+      t.datetime :live_date, null: false
+      t.string :title, null: false
       t.string :description
-      t.integer :presenter_id
+      t.references :presenter, index: true, foreign_key: true
       t.string :webinar_url
       t.boolean :active
 

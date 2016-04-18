@@ -1,8 +1,8 @@
 class CreateWebinarAttendees < ActiveRecord::Migration
   def change
     create_table :webinar_attendees do |t|
-      t.integer :webinar_id
-      t.integer :attendee_id
+      t.references :webinar, index: true, foreign_key: true
+      t.references :attendee, index: true, foreign_key: true
       t.boolean :attended
 
       t.timestamps null: false
