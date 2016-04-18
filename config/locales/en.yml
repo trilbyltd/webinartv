@@ -7,7 +7,12 @@ en:
   admin:
     webinars:
       index:
-
+  
+  attendees:
+    index: 
+      show: "Show"
+      edit: "Edit"
+      destroy: "Remove"
   helpers:
     actions:
       show: 'View #{model}'

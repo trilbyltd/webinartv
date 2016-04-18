@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get '/join(/:id)', to: 'webinars#join', as: :join_webinar
   resources :webinars, only: [:index, :show, :join]
-  resource :attendees, only: :new  
+  resources :attendees
   # delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   # get "/sign_in" => "clearance/sessions#new", as: "sign_in"
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :webinars
       resources :attendees
     end
-    get "/" => redirect("/admin")
+    get "/" => redirect("/admin/webinars")
   end
 
   constraints Clearance::Constraints::SignedIn.new do

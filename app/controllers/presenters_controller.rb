@@ -1,4 +1,4 @@
-class Admin::PresentersController < ApplicationController
+class PresentersController < ApplicationController
   before_action :set_presenter, only: [:show, :edit, :update, :destroy]
 
   # GET /presenters

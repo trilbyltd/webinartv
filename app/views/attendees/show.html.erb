@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @attendee.name %>
@@ -20,16 +18,21 @@
   <%= @attendee.school_name %>
 </p>
 
+<h3>Webinars Registered for: <%= @webinars.count %></h3>
 <table>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Title</th>
+      <th>Attended?</th>
     </tr>
   </thead>
   <tbody>
-  <% @webinars.each do |attendee| %>
+  <% @attendee.webinars.each do |webinar| %>
     <tr>
       <td><%= webinar.live_date %></td>
+      <td><%= webinar.title %></td>
+      <td><%= webinar.attended %></td>
     </tr>
   <% end %>
 </tbody>
@@ -37,3 +40,5 @@
 
 <%= link_to 'Edit', edit_admin_attendee_path(@attendee) %> |
 <%= link_to 'Back', admin_attendees_path %>
+
+<%= debug @webinars %>
