@@ -10,7 +10,6 @@ class Admin::WebinarsController < ApplicationController
     if @webinar.presenter_id.present?
       @presenter = Presenter.find(@webinar.presenter_id)
     end
-    @attendees = @webinar.attendees unless nil?
   end
 
   def new

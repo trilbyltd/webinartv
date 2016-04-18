@@ -1,6 +1,6 @@
 class Webinar < ActiveRecord::Base
   # has_and_belongs_to_many :attendees, :join_table => "webinar_attendees"
-  has_many :webinar_attendees
+  has_many :webinar_attendees, dependent: destroy
   has_many :attendees, through: :webinar_attendees
   has_one :presenter
 
