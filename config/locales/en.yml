@@ -15,7 +15,7 @@ en:
       destroy: "Remove"
   helpers:
     actions:
-      show: 'View #{model}'
+      show: 'View #{model.titleize}'
       edit: "Change"
       back: "Back"
     links:
@@ -31,11 +31,11 @@ en:
   time:
     formats:
       default:
-        "%a, %b %-d, %Y at %r"
+        "%A, %-d %b %Y at %r"
       date:
-        "%b %-d, %Y"
+        "%-d %b %Y"
       short:
-        "%B %d"
+        "%d/%m/%Y %r"
 
   titles:
-    application: TrilbyTV Webinars
+    application: Webinars | TrilbyTV

@@ -17,8 +17,8 @@
         <td><%= presenter.email %></td>
         <td><%= presenter.bio %></td>
         <td><%= link_to 'Show', presenter %></td>
-        <td><%= link_to 'Edit', edit_admin_presenter_path(presenter) %></td>
-        <td><%= link_to 'Destroy', presenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_presenter_path(presenter) %></td>
+        <td><%= link_to t("helpers.links.destroy"), presenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

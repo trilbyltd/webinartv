@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "2.3.0"
 
 gem "autoprefixer-rails"
-gem "bourbon", "5.0.0.beta.3"
+gem "bourbon", "5.0.0.beta.5"
 gem "clearance", "~> 1.13.0"
 gem "delayed_job_active_record"
 gem "email_validator"
@@ -23,7 +23,6 @@ gem "resque"
 gem "resque-scheduler"
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
-gem "simple_form_extension", github: "glyph-fr/simple_form_extension"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
 gem "title"
@@ -43,6 +42,7 @@ group :development, :test do
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "faker", github: "stympy/faker"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.4.0"
@@ -67,5 +67,3 @@ group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
-
-gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

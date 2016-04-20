@@ -1,27 +1,18 @@
 <p>
-  <strong>Live date:</strong>
-  <%= @webinar.live_date %>
+  <strong>Date:</strong>
+  <%= l(@webinar.live_date, format: :default) %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @webinar.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @webinar.description %>
-</p>
+  <h2><%= @webinar.title %></h2>
+  <p><%= @webinar.description %></p>
 
 <p>
   <strong>Presenter:</strong>
   <%= @webinar.presenter_id %>
 </p>
+<%= @webinar.webinar_url %>
 
-<p>
-  <strong>Webinar url:</strong>
-  <%= @webinar.webinar_url %>
-</p>
-
-<%= link_to 'Join', join_webinar_path(@webinar) %>
-<%= link_to 'Back to list', webinars_path %>
+<section class="webinar-controls">
+  <%= link_to 'Register', join_webinar_path(@webinar) %>
+  <%= link_to 'Back to list', webinars_path %>
+</section>

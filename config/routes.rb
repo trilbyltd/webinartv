@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
     namespace :admin do
       resources :webinars
-      resources :attendees
     end
+    resources :attendees
+    resources :presenters
     get "/" => redirect("/admin/webinars")
   end
 
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   end
 
   constraints Clearance::Constraints::SignedOut.new do
-    resources :presenters
     root to: "webinars#index"
   end
 

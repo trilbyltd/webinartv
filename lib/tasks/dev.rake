@@ -9,7 +9,7 @@ if Rails.env.development? || Rails.env.test?
       user = create(
         :user,
         name: "Super User",
-        email: "user@example.com",
+        email: "admin@webinar.tv",
         password: "password",
       )
       user.user.update!(admin: true)

@@ -3,15 +3,8 @@
   <%= l(@webinar.live_date, format: :default) %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @webinar.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @webinar.description %>
-</p>
+  <h2><%= @webinar.title %></h2>
+  <p><%= @webinar.description %></p>
 
 <p>
   <strong>Presenter:</strong>
@@ -28,12 +21,20 @@
   <%= @webinar.active %>
 </p>
 
-<h3>Attendees</h3>
-<% if @webinar.active? %>
-  
-<% else %>
-<p>Webinar is not active yet.</p>
+<% if !@webinar.viewable? %>
+  <%= simple_form_for([:admin, @webinar]) do |f| %>
+    <%= f.hidden_field  :active, value: true %>
+    <%= f.button :submit, "Publish" %>
+  <% end %>
 <% end %>
 
+<% if @webinar.viewable? %>
+  <h3>Attendees</h3>
+  <% if @webinar.active? %>
+    
+  <% else %>
+  <p>Webinar is not active yet.</p>
+  <% end %>
+<% end %>
 <%= link_to t("helpers.actions.edit"), edit_admin_webinar_path(@webinar) %> |
 <%= link_to t("helpers.actions.back"), admin_webinars_path %>

@@ -1,0 +1,11 @@
+  <tr>
+        <td><%= l(webinar.live_date, format: :default) %></td>
+        <td><%= link_to webinar.title, admin_webinar_path(webinar) %></td>
+        <td><%= webinar.description %></td>
+        <td><%= Presenter.find(webinar).name if webinar.presenter_id.present? %></td>
+        <td><%= webinar.active %></td>
+        <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>
+        <td><%= link_to t('helpers.actions.edit'), edit_admin_webinar_path(webinar) %></td>
+        <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    

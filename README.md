@@ -18,6 +18,10 @@ After setting up, you can run the application using [Heroku Local]:
 
 [Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
 
+Local Development has:
+**Admin User***
+admin@webinar.tv
+
 ## Guidelines
 
 Use the following guides for getting things done, programming well, and
@@ -26,3 +30,6 @@ programming in style.
 * [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
 * [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
+
+## Staging and Production
+Both environments are run on Heroku.

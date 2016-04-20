@@ -1,7 +1,3 @@
-/*
-*= require simple_form_extension
-*/
-
 @charset "utf-8";
 
 @import "normalize-rails";
@@ -11,11 +7,6 @@
 
 @import "base/base";
 @import "refills/flashes";
-
-@import "simple_form_extension/jquery.datetimepicker";
-@import "simple_form_extension/jasny-bootstrap";
-@import "simple_form_extension/bootstrap-slider";
-@import "simple_form_extension/bootstrap-colorpicker";
 
 @import "webinars";
 
