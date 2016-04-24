@@ -16,11 +16,6 @@
   <%= @webinar.webinar_url %>
 </p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @webinar.active %>
-</p>
-
 <% if !@webinar.viewable? %>
   <%= simple_form_for([:admin, @webinar]) do |f| %>
     <%= f.hidden_field  :active, value: true %>
@@ -28,13 +23,12 @@
   <% end %>
 <% end %>
 
-<% if @webinar.viewable? %>
-  <h3>Attendees</h3>
-  <% if @webinar.active? %>
-    
-  <% else %>
-  <p>Webinar is not active yet.</p>
-  <% end %>
+<%= link_to t(".edit"), edit_admin_webinar_path(@webinar), class: 'btn' %> |
+<%= link_to t("helpers.actions.back"), admin_webinars_path, class: 'btn' %>
+
+<h3>Attendees</h3>
+<% if @webinar.active? %>
+  <%= render 'admin/webinars/attendees' %>
+<% else %>
+<p>Webinar is not active yet.</p>
 <% end %>
-<%= link_to t("helpers.actions.edit"), edit_admin_webinar_path(@webinar) %> |
-<%= link_to t("helpers.actions.back"), admin_webinars_path %>

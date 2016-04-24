@@ -9,20 +9,23 @@ class WebinarAttendeesController < ApplicationController
   end
 
   def new
-    @webinar_attendee = WebinarAttendee.new
+    @webinar_attendee = @webinar.attendee.new
   end
 
   def edit
   end
 
   def create
-    @webinar_attendee = WebinarAttendee.new(webinar_attendee_params)
-
-    if @webinar_attendee.save
-      redirect_to @webinar_attendee, notice: 'Webinar attendee was successfully created.'
+    @webinar_attendee = @webinar.attendee.new(webinar_attendee_params)
+    @attendee = Attendee.find(email: email)
+    if @attendee? && !@webinar_attendee.registered?
+      if @webinar_attendee.save
+        redirect_to @webinar, notice: 'Webinar attendee was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
-    end
+      render :new, notice: "You've already registered for this webinar"
   end
 
   def update

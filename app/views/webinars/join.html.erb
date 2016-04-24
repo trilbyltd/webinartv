@@ -15,34 +15,24 @@
 </p>
 
 <p>
-  <strong>Presenter:</strong>
-  <%= @presenter.name %>
+  <strong>Presented by </strong><%= @webinar.presenter.name if @webinar.presenter_id?%>
 </p>
 
-<p>
-  <strong>Webinar url:</strong>
-  <%= @webinar.webinar_url %>
-</p>
-
-<p>
-  <strong>Do you already have a TrilbyTV account?</strong>
-  <%= @webinar.active %>
-</p>
-
-<%= simple_form_for(@attendee) do |f| %>
+<aside class="join">
+<%= simple_form_for [@webinar, @attendee] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :email %>
-    <%= f.input :active_user %>
     <%= f.input :school_name %>
+    <%= f.input :active_user, inline_label: t(".active_user") %>
+    <%= f.association %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Join" %>
   </div>
-
 <% end %>
-
+</aside>
 <%= link_to 'Back', webinars_path %>

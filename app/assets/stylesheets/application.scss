@@ -1,3 +1,12 @@
+// Brand Colors
+// $brand-green: #49aea3;
+// $brand-green-dark: #29615b;
+// $brand-aqua: #b3f9f1;
+// $brand-aqua-dark: #5ee1d2;
+// $brand-grey: #edf0f5;
+// $brand-grey-dark: #cdcfd1;
+// $brand-red: #e05f5f;
+
 @charset "utf-8";
 
 @import "normalize-rails";
@@ -8,21 +17,57 @@
 @import "base/base";
 @import "refills/flashes";
 
+@import "utilities";
 @import "webinars";
 
 body {
-  @include outer-container;
+  @include outer-container(100%);
   background-color: $brand-grey;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-
+h1, h2, h3, h4 {
+  color: $brand-aqua-dark;
+}
 header {
-  @include outer-container;
-  // background-color: #fff;
+  background-color: $brand-green;
 }
-section { 
-  @include span-columns(12);
+header nav {
+  display: block;
+  height: 60px; 
+  @include outer-container(90%);
+  h2 {
+   color: #fff;  
+   display: inline; 
+  }
+  
+  ul li.nav-link {
+    display: inline; 
+    line-height: 60px;
+    overflow: hidden;
+    padding-right: 1em;
+    text-align: right;
+    width: 100%;
+    z-index: 9999;
+    color: #fff;
 
+    a {
+      display: inline-block;
+      outline: none;
+      text-decoration: none;
+      color: #fff; 
+      
+      &:focus,
+      &:hover {
+        color: $brand-green-dark;
+      }
+    }
+  }
 }
+
+section {   
+  @include outer-container(90%);
+}
+
 .flashes {
   @include span-columns(10);
 }

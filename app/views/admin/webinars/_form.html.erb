@@ -2,12 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-input">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :live_date %>
-    <%= f.collection_select(:presenter_id, Presenter.all, :id, :name) %>
-    <%= f.input :webinar_url %>
-    <%= f.input :active %>
+    <%= f.input :title, placeholder: "Enter a name for the webinar" %>
+    <%= f.input :description, placeholder: "" %>
+    <%= f.input :live_date, as: :datetime, html5: true %>
+    <%= f.input :presenter_id, collection: Presenter.all %>
+    <%= f.input :webinar_url, label: "Webinar URL", placeholder: "Enter the Google Hangout address" %>
   </div>
 
   <div class="form-actions">

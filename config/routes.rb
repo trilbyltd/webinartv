@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   get '/join(/:id)', to: 'webinars#join', as: :join_webinar
-  resources :webinars, only: [:index, :show, :join]
-  resources :attendees
+  resources :webinars, only: [:index, :show, :join] do
+    resources :attendees, only: [:new]
+  end
+  
+
   # delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   # get "/sign_in" => "clearance/sessions#new", as: "sign_in"
 

@@ -1,6 +1,6 @@
 class Admin::WebinarsController < ApplicationController
   before_action :set_webinar, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:edit, :update, :destroy]
+  before_action :require_login
 
   def index
     @webinars = Webinar.all

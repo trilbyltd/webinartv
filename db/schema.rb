@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415112940) do
+ActiveRecord::Schema.define(version: 20160424211802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,12 +73,12 @@ ActiveRecord::Schema.define(version: 20160415112940) do
   create_table "webinars", force: :cascade do |t|
     t.datetime "live_date"
     t.string   "title"
-    t.string   "description"
+    t.text     "description",                  null: false
     t.integer  "presenter_id"
     t.string   "webinar_url"
-    t.boolean  "active"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "active",       default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end

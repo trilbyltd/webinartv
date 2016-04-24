@@ -4,15 +4,24 @@ en:
       default: "%d/%m/%Y"
       with_weekday: "%a %d/%m/%y"
 
+  application:
+    header:
+      webinars: "Webinars"
+      presenters: "Presenters"
+      attendees: "Attendees"
+      sign_out: "Sign Out"
+      sign_in: "Sign In"
+
   admin:
     webinars:
       index:
+      show: 
+        edit: "Edit Details"
   
   attendees:
     index: 
-      show: "Show"
-      edit: "Edit"
-      destroy: "Remove"
+      show: "View Details"
+      destroy: "Delete"
   helpers:
     actions:
       show: 'View #{model.titleize}'
@@ -27,6 +36,8 @@ en:
     index:
       columns:
         date: "%a %d/%m/%y"
+    join:
+      active_user: "Do you already have a user account?"
 
   time:
     formats:

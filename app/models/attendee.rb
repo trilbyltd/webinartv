@@ -8,4 +8,8 @@ class Attendee < ActiveRecord::Base
   validates_presence_of :email, message: "Please supply your email address so we can send you the webinar information." 
   validates :email, email: { message: "That email doesn't appear to be valid" }
   validates_presence_of :school_name
+  
+  def attended?(webinar)
+    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: self.id).first.attended
+  end
 end

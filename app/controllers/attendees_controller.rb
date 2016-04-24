@@ -1,5 +1,5 @@
 class AttendeesController < ApplicationController
-  before_action :set_attendee, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendee, only: [:show, :update, :destroy]
   before_action :require_login, except: :new
 
   def index
@@ -14,12 +14,10 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.new
   end
 
-  def edit
-  end
-
   def create
-    @attendee = @webinar.attendee.build(attendee_params)
+    @attendee = Attendee.new(attendee_params)
     if @attendee.save
+      WebinarAttendee.create(webinar_id: @webinar.id, attendee_id: @attende.id)
       redirect_to webinars_path, notice: 'Thanks for registering. You should receive a confirmation email shortly.'
     else
       render :new
@@ -47,6 +45,6 @@ class AttendeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def attendee_params
-      params.require(:attendee).permit(:name, :email, :active_user, :school_name)
+      params.require(:attendee).permit(:name, :email, :active_user, :school_name, webinar_ids: [])
     end
 end

@@ -8,11 +8,10 @@ if Rails.env.development? || Rails.env.test?
 
       user = create(
         :user,
-        name: "Super User",
         email: "admin@webinar.tv",
         password: "password",
       )
-      user.user.update!(admin: true)
+      user.update!(admin: true)
 
     end
   end

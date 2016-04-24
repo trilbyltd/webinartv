@@ -4,15 +4,15 @@
 </p>
 
   <h2><%= @webinar.title %></h2>
-  <p><%= @webinar.description %></p>
+  <p><%= @webinar.description.html_safe %></p>
 
 <p>
   <strong>Presenter:</strong>
-  <%= @webinar.presenter_id %>
+  <%= @webinar.presenter.name if @webinar.presenter_id? %>
 </p>
 <%= @webinar.webinar_url %>
 
-<section class="webinar-controls">
-  <%= link_to 'Register', join_webinar_path(@webinar) %>
+<section>
+  <%= link_to 'Register', join_webinar_path(@webinar), class: 'btn' %>
   <%= link_to 'Back to list', webinars_path %>
 </section>

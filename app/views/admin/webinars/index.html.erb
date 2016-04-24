@@ -1,53 +1,7 @@
 <h1>Webinars</h1>
 
-<%= link_to 'Schedule new Webinar', new_admin_webinar_path %>
-<table>
-  <thead>
-    <tr>
-      <th>Live date</th>
-      <th>Title</th>
-      <th>Presenter</th>
-      <th>Published</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @webinars.upcoming.each do |webinar|  %>
-      <tr>
-        <td><%= l(webinar.live_date, format: :short) %></td>
-        <td><%= link_to webinar.title, admin_webinar_path(webinar) %></td>
-        <td><%= webinar.presenter.name if webinar.presenter_id.present? %></td>
-        <td><%= webinar.active %></td>
-        <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>
-        <td><%= link_to t('helpers.actions.edit'), edit_admin_webinar_path(webinar) %></td>
-        <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'Schedule new Webinar', new_admin_webinar_path, class: 'btn' %>
 
-<h2>Past Webinars</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Live date</th>
-      <th>Title</th>
-      <th>Presenter</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @webinars.past.each do |webinar|  %>
-      <tr>
-        <td><%= l(webinar.live_date, format: :date) %></td>
-        <td><%= link_to webinar.title, admin_webinar_path(webinar) %></td>
-        <td><%= Presenter.find(webinar).name if webinar.presenter_id.present? %></td>
-        <td><%= webinar.active %></td>
-        <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>
-        <td><%= link_to t('helpers.actions.edit'), edit_admin_webinar_path(webinar) %></td>
-        <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'admin/webinars/live', webinars: @webinars.upcoming %>
+
+<%= render 'admin/webinars/past', webinars: @webinars.past %>

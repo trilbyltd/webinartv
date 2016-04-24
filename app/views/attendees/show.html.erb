@@ -32,13 +32,12 @@
     <tr>
       <td><%= webinar.live_date %></td>
       <td><%= webinar.title %></td>
-      <td><%= webinar.attended %></td>
+      <td><%= WebinarAttendee.find(webinar).attended %></td>
     </tr>
   <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Edit', edit_admin_attendee_path(@attendee) %> |
-<%= link_to 'Back', admin_attendees_path %>
+<%= link_to 'Back', attendees_path %>
 
 <%= debug @webinars %>

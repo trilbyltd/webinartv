@@ -70,3 +70,7 @@ button.clear {
       font-size: 0.7em;
       max-width: $clear-button-width;
     }
+
+aside.join {
+  @include span-columns(4);
+}
