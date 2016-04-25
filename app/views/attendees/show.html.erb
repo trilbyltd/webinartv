@@ -18,26 +18,26 @@
   <%= @attendee.school_name %>
 </p>
 
-<h3>Webinars Registered for: <%= @webinars.count %></h3>
+<h3>Registered for: <%= @webinars.count %> webinars</h3>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Date</th>
       <th>Title</th>
+      <th>Registered?</th>
       <th>Attended?</th>
     </tr>
   </thead>
   <tbody>
   <% @attendee.webinars.each do |webinar| %>
     <tr>
-      <td><%= webinar.live_date %></td>
+      <td><%= l(webinar.live_date, format: :short) %></td>
       <td><%= webinar.title %></td>
-      <td><%= WebinarAttendee.find(webinar).attended %></td>
+      <td><%= @attendee.registered?(webinar) %></td>
+      <td><%= @attendee.attended?(webinar) %></td>
     </tr>
   <% end %>
 </tbody>
 </table>
 
 <%= link_to 'Back', attendees_path %>
-
-<%= debug @webinars %>

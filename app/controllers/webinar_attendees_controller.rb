@@ -1,41 +1,21 @@
 class WebinarAttendeesController < ApplicationController
   before_action :set_webinar_attendee, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @webinar_attendees = WebinarAttendee.all
-  end
-
-  def show
-  end
-
+  
   def new
-    @webinar_attendee = @webinar.attendee.new
-  end
-
-  def edit
+    @webinar_attendee = WebninarAttendee.new
   end
 
   def create
-    @webinar_attendee = @webinar.attendee.new(webinar_attendee_params)
-    @attendee = Attendee.find(email: email)
-    if @attendee? && !@webinar_attendee.registered?
-      if @webinar_attendee.save
-        redirect_to @webinar, notice: 'Webinar attendee was successfully created.'
-      else
-        render :new
-      end
+    @attendee = Attendee.create_with(:attendees_attributes).find_or_create_by!(email: [:attendees_attributes][:email])
+    @webinar = Webinar.find(params[:attendee][:webinar_id])
+    if @attendee.save
+      @attendee.register(@webinar)
+      redirect_to webinars_path, notice: 'Thank you for registering for this webinar.'
     else
-      render :new, notice: "You've already registered for this webinar"
-  end
-
-  def update
-    if @webinar_attendee.update(webinar_attendee_params)
-      redirect_to @webinar_attendee, notice: 'Webinar attendee was successfully updated.'
-    else
-      render :edit
+      redirect_to join_webinar_path(@webinar)
     end
   end
-
+  
   def destroy
     @webinar_attendee.destroy
     redirect_to webinar_attendees_url, notice: 'Webinar attendee was successfully destroyed.'
@@ -49,6 +29,6 @@ class WebinarAttendeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def webinar_attendee_params
-      params.require(:webinar_attendee).permit(:webinar_id, :attendee_id, :attended)
+      params.require(:webinar_attendee).permit(:webinar_id, :attendee_id, :attended, attendees_attributes: [:id, :name, :email, :school_name, :active] )
     end
 end

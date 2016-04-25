@@ -12,13 +12,19 @@ class AttendeesController < ApplicationController
 
   def new
     @attendee = Attendee.new
+    @webinar_attendees = @attendee.webinar_attendees.build
   end
 
   def create
-    @attendee = Attendee.new(attendee_params)
+    @attendee = Attendee.create_with(name: attendee_params[:name], 
+      email: attendee_params[:email], 
+      school_name: attendee_params[:school_name]).find_or_create_by!(email: attendee_params[:email])
     if @attendee.save
-      WebinarAttendee.create(webinar_id: @webinar.id, attendee_id: @attende.id)
-      redirect_to webinars_path, notice: 'Thanks for registering. You should receive a confirmation email shortly.'
+      @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
+      @attendee.register(@webinar)
+      puts attendee_params.inspect
+      # @attendee.webinar_attendees.build(params[:webinar_attendees_attributes])
+      redirect_to webinar_path(@webinar), notice: 'Thanks for registering. You should receive a confirmation email shortly.'
     else
       render :new
     end
@@ -45,6 +51,12 @@ class AttendeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def attendee_params
-      params.require(:attendee).permit(:name, :email, :active_user, :school_name, webinar_ids: [])
+      params.require(:attendee).
+      permit(:name, 
+        :email, 
+        :active_user, 
+        :school_name, 
+        webinar_attendees_attributes: [ :webinar_id ] 
+        )
     end
 end

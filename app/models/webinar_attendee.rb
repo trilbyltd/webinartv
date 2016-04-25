@@ -2,9 +2,12 @@ class WebinarAttendee < ActiveRecord::Base
   belongs_to :webinar
   belongs_to :attendee
 
+  accepts_nested_attributes_for :attendee
+
   validates_presence_of :webinar_id
   validates_presence_of :attendee_id
 
+  validates_uniqueness_of :attendee_id, scope: :webinar_id
 
   def attended!
     self.update!(attended: true)

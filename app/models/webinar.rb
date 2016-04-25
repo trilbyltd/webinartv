@@ -1,7 +1,6 @@
 class Webinar < ActiveRecord::Base
   has_many :attendees, through: :webinar_attendees
   has_many :webinar_attendees, dependent: :destroy
-
   belongs_to :presenter
 
   validates :live_date, presence: true
@@ -30,7 +29,7 @@ class Webinar < ActiveRecord::Base
       return true
     end
   end
-
+  
   def activate!
     self.update!(active: true)
   end

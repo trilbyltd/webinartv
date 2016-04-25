@@ -12,7 +12,8 @@ class WebinarsController < ApplicationController
   end
 
   def join
-    @attendee = @webinar.attendees.new
+    @attendee = Attendee.new
+    @webinar_attendee = WebinarAttendee.new
   end
 
   private

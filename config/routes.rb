@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :webinars, only: [:index, :show, :join] do
     resources :attendees, only: [:new]
   end
-  
+  resources :webinar_attendees, only: :create
 
   # delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   # get "/sign_in" => "clearance/sessions#new", as: "sign_in"

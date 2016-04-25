@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424211802) do
+ActiveRecord::Schema.define(version: 20160425125308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160424211802) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "attendees", ["email"], name: "index_attendees_on_email", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -69,6 +71,10 @@ ActiveRecord::Schema.define(version: 20160424211802) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "webinar_attendees", ["attendee_id"], name: "index_webinar_attendees_on_attendee_id", using: :btree
+  add_index "webinar_attendees", ["webinar_id", "attendee_id"], name: "index_webinar_attendees_on_webinar_id_and_attendee_id", unique: true, using: :btree
+  add_index "webinar_attendees", ["webinar_id"], name: "index_webinar_attendees_on_webinar_id", using: :btree
 
   create_table "webinars", force: :cascade do |t|
     t.datetime "live_date"
