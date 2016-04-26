@@ -7,7 +7,6 @@ require "rspec/rails"
 require "capybara/webkit"
 # require "capybara/email/rspec"
 
-
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
 
 module Features
@@ -20,6 +19,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
+  Capybara.default_selector = :css
 end
 
 ActiveRecord::Migration.maintain_test_schema!

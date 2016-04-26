@@ -14,9 +14,9 @@
     <ul class="right">
       <% if signed_in? %>
         <li class="nav-link">Signed in as: <%= current_user.email %>
-        <li class="nav-link"><%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+        <li class="nav-link"><%= link_to t("layouts.application.sign_out"), sign_out_path, method: :delete %>
       <% else %>
-        <li class="nav-link"><%= link_to t(".sign_in"), sign_in_path %>
+        <li class="nav-link"><%= link_to t("layouts.application.sign_in"), sign_in_path %>
       <% end %>
       </ul>
     </nav>

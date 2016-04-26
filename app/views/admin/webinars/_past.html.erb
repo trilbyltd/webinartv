@@ -11,7 +11,7 @@
   <tbody>
     <% webinars.each do |webinar|  %>
       <tr>
-        <td><%= l(webinar.live_date, format: :date) %></td>
+        <td><%= l(webinar.live_date, format: :short) %></td>
         <td><%= link_to webinar.title, admin_webinar_path(webinar) %></td>
         <td><%= webinar.presenter.name if webinar.presenter_id.present? %></td>
         <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>

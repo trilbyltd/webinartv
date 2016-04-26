@@ -68,8 +68,16 @@ section {
   @include outer-container(90%);
 }
 
+section .full-width {
+ @include outer-container(100%); 
+}
+
 .flashes {
-  @include span-columns(10);
+  @include outer-container(90%);
+  color: $brand-aqua;
+  .flash-notice {
+    border: 1px solid $brand-aqua-dark;
+  }
 }
 
 button {

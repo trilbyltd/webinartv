@@ -1,20 +1,38 @@
 Rails.application.routes.draw do
+  resources :passwords,
+      controller: 'clearance/passwords',
+      only: [:create, :new]
+  resource :session,
+      controller: 'clearance/sessions',
+      only: [:create]
 
-  get '/join(/:id)', to: 'webinars#join', as: :join_webinar
-  resources :webinars, only: [:index, :show, :join] do
-    resources :attendees, only: [:new]
+  resources :users,
+  controller: 'clearance/users',
+  only: Clearance.configuration.user_actions do
+    resource :password,
+      controller: 'clearance/passwords',
+      only: [:create, :edit, :update]
   end
-  resources :webinar_attendees, only: :create
+  
+  resources :webinars, only: [:index, :show, :join]
+  resources :attendees, only: [:new, :create]
+  # resources :webinar_attendees, only: [:create, :new]
 
-  # delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-  # get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-
+  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  if Clearance.configuration.allow_sign_up?
+    get '/sign_up' => 'clearance/users#new', as: 'sign_up'
+  end
+  get '/join(/:id)', to: 'webinars#join', as: :join_webinar
+  
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
     namespace :admin do
       resources :webinars
     end
     resources :attendees
     resources :presenters
+    resources :users
+
     get "/" => redirect("/admin/webinars")
   end
 

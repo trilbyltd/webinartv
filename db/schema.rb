@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425125308) do
+ActiveRecord::Schema.define(version: 20160426194032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendees", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",        null: false
+    t.string   "email",       null: false
     t.boolean  "active_user"
     t.string   "school_name"
     t.datetime "created_at",  null: false
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20160425125308) do
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "webinar_attendees", force: :cascade do |t|
-    t.integer  "webinar_id"
-    t.integer  "attendee_id"
+    t.integer  "webinar_id",  null: false
+    t.integer  "attendee_id", null: false
     t.boolean  "attended"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 20160425125308) do
   add_index "webinar_attendees", ["webinar_id"], name: "index_webinar_attendees_on_webinar_id", using: :btree
 
   create_table "webinars", force: :cascade do |t|
-    t.datetime "live_date"
-    t.string   "title"
-    t.text     "description",                  null: false
+    t.datetime "live_date",                    null: false
+    t.string   "title",                        null: false
+    t.text     "description"
     t.integer  "presenter_id"
     t.string   "webinar_url"
     t.boolean  "active",       default: false

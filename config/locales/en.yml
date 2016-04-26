@@ -31,6 +31,9 @@ en:
       cancel: "Cancel"
       destroy: "Remove"
       save: "Save"
+    submit:
+      attendee:
+        create: "Join"
 
   webinars:
     index:
@@ -38,15 +41,17 @@ en:
         date: "%a %d/%m/%y"
     join:
       active_user: "Do you already have a user account?"
+      submit: "Join"
 
   time:
     formats:
       default:
-        "%A, %-d %b %Y at %r"
+        "%A, %-d %b %Y at %R"
       date:
-        "%-d %b %Y"
+        "%d/%m/%Y %R"
       short:
-        "%d/%m/%Y %r"
+        "%d/%m/%Y"
 
   titles:
-    application: Webinars | TrilbyTV
+    application: "TrilbyTV Webinars"
+    

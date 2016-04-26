@@ -1,6 +1,6 @@
 class AttendeesController < ApplicationController
   before_action :set_attendee, only: [:show, :update, :destroy]
-  before_action :require_login, except: :new
+  before_action :require_login, except: [:new, :create]
 
   def index
     @attendees = Attendee.all
@@ -18,15 +18,13 @@ class AttendeesController < ApplicationController
   def create
     @attendee = Attendee.create_with(name: attendee_params[:name], 
       email: attendee_params[:email], 
-      school_name: attendee_params[:school_name]).find_or_create_by!(email: attendee_params[:email])
+      school_name: attendee_params[:school_name]).find_or_create_by(email: attendee_params[:email])
+    @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
     if @attendee.save
-      @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
       @attendee.register(@webinar)
-      puts attendee_params.inspect
-      # @attendee.webinar_attendees.build(params[:webinar_attendees_attributes])
       redirect_to webinar_path(@webinar), notice: 'Thanks for registering. You should receive a confirmation email shortly.'
     else
-      render :new
+      redirect_to join_webinar_path(@webinar), notice: "Unable to complete registration. Please try again."
     end
   end
 

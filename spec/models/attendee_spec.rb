@@ -18,6 +18,21 @@ describe Attendee do
       should allow_value("dhh@nonopinionated.com").for(:email) 
       should_not allow_value("blah").for(:email).with_message("That email doesn't appear to be valid")
     end
-
   end
+
+  context "with a live webinar" do
+    let(:webinar) { create(:webinar, :live) }
+    let(:attendee) { create(:attendee) }
+    it "should register" do
+      attendee.register(webinar)
+      expect(attendee.registered?(webinar)).to be true
+    end
+
+    it "should mark as attended" do
+      attendee.register(webinar)
+      attendee.attended(webinar)
+      expect(attendee.attended?(webinar)).to be true
+    end
+  end
+
 end

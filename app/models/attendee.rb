@@ -8,7 +8,7 @@ class Attendee < ActiveRecord::Base
   validates_presence_of :name, message: "Please provide your name"
   validates_presence_of :email, message: "Please supply your email address so we can send you the webinar information." 
   validates :email, email: { message: "That email doesn't appear to be valid" }
-  
+  validates :school_name, presence: true  
   default_scope { order('name asc') }
   
   def register(webinar)
