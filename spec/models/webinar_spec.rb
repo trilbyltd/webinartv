@@ -30,9 +30,9 @@ describe Webinar do
       webinar.activate!
       expect(webinar.active).to be true
       # should validate_presence_of(:description)
-      should be_valid
-      should validate_presence_of(:presenter_id)
-      should validate_presence_of(:webinar_url)
+      expect(webinar).to be_valid
+      # should validate_presence_of(:presenter_id)
+      # should validate_presence_of(:webinar_url)
     end
   end
 end
