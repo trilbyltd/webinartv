@@ -22,7 +22,8 @@ class AttendeesController < ApplicationController
     @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
     if @attendee.save
       @attendee.register(@webinar)
-      redirect_to webinar_path(@webinar), notice: 'Thanks for registering. You should receive a confirmation email shortly.'
+      WebinarMailer.webinar_registration(@attendee, @webinar).deliver_later
+      redirect_to webinar_path(@webinar), notice: "Thanks for registering. A confirmation email has been sent to: #{@attendee.email}"
     else
       redirect_to join_webinar_path(@webinar), notice: "Unable to complete registration. Please try again."
     end
