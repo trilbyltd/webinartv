@@ -8,16 +8,19 @@
       <time><%= l(webinar.live_date, format: :default) %></time>
     </div>
   </div>
-  <h3>Description</h3>
-  <p><%= webinar.description %></p>
-  <p>Presenter: <%= Presenter.find(webinar).name if webinar.presenter_id.present? %></p>
-  <p><%= link_to webinar.webinar_url if webinar.live? %></p>
-  <section class="webinar-controls">
-    <p><%= link_to 'Show', webinar_path(webinar) %></p>
-    <p><%= link_to 'Join', join_webinar_path(webinar) %></p>
-    <% if current_user && current_user.admin? %>
-      <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
-    <% end %>
-  </section>
+  <div class="webinar-content-wrapper">
+    <div class="webinar-content">
+      <p><%= webinar.description %></p>
+      <p><strong>Presenter:</strong> <%= Presenter.find(webinar).name if webinar.presenter_id.present? %></p>
+      <p><%= link_to webinar.webinar_url if webinar.live? %></p>
+      <section class="webinar-controls">
+        <%= link_to 'Show', webinar_path(webinar), class: 'btn' %>
+        <%= link_to 'Join', join_webinar_path(webinar), class: 'btn' %>
+        <% if current_user && current_user.admin? %>
+          <p><%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %></p>
+        <% end %>
+      </section>
+    </div>
+  </div>
 </div>
 <% end %>

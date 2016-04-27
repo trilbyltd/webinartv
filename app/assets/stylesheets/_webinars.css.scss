@@ -38,11 +38,14 @@
 
     @include media($large-screen) {
       @include span-columns(8);
-      padding: 4em 4em 8em 4em;
+      // padding: 4em 4em 8em 4em;
     }
 
     h1 {
       margin-bottom: 0.9em;
+    }
+    h2 {
+      color: $brand-green-dark;
     }
 
     h4 {
@@ -62,8 +65,24 @@
     }
   }
 
+  .webinar-content-wrapper {
+    
+    @include media($large-screen) {
+      @include span-columns(12);
+      padding: 4em 4em 8em 4em;
+    }
+    
+    .webinar-content {
+
+    }
+
   @include reset-display();
 }
+
+
+  @include reset-display();
+}
+
 
 button.clear {
       @include position(absolute, 5px 5px auto auto);

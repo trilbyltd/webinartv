@@ -17,71 +17,8 @@
 @import "base/base";
 @import "refills/flashes";
 
+@import "global";
+@import "trilbytv";
 @import "utilities";
 @import "webinars";
 
-body {
-  @include outer-container(100%);
-  background-color: $brand-grey;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-h1, h2, h3, h4 {
-  color: $brand-aqua-dark;
-}
-header {
-  background-color: $brand-green;
-}
-header nav {
-  display: block;
-  height: 60px; 
-  @include outer-container(90%);
-  h2 {
-   color: #fff;  
-   display: inline; 
-  }
-  
-  ul li.nav-link {
-    display: inline; 
-    line-height: 60px;
-    overflow: hidden;
-    padding-right: 1em;
-    text-align: right;
-    width: 100%;
-    z-index: 9999;
-    color: #fff;
-
-    a {
-      display: inline-block;
-      outline: none;
-      text-decoration: none;
-      color: #fff; 
-      
-      &:focus,
-      &:hover {
-        color: $brand-green-dark;
-      }
-    }
-  }
-}
-
-section {   
-  @include outer-container(90%);
-}
-
-section .full-width {
- @include outer-container(100%); 
-}
-
-.flashes {
-  @include outer-container(90%);
-  color: $brand-aqua;
-  .flash-notice {
-    border: 1px solid $brand-aqua-dark;
-  }
-}
-
-button {
-  background-color: $brand-green-dark;
-  color: $brand-red;
-  width: $clear-button-width;
-}

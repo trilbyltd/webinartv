@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   get '/join(/:id)', to: 'webinars#join', as: :join_webinar
   
-  constraints Clearance::Constraints::SignedIn.new(&:admin?) do
+  constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
     namespace :admin do
       resources :webinars
     end
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :presenters
     resources :users
 
-    get "/" => redirect("/admin/webinars")
+    get "/admin" => redirect("/admin/webinars")
   end
 
   constraints Clearance::Constraints::SignedIn.new do
