@@ -5,19 +5,15 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Bio</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @presenters.each do |presenter| %>
       <tr>
-        <td><%= presenter.name %></td>
+        <td><%= link_to presenter.name, edit_presenter_path(presenter) %></td>
         <td><%= presenter.email %></td>
-        <td><%= presenter.bio %></td>
-        <td><%= link_to 'Show', presenter %></td>
-        <td><%= link_to 'Edit', edit_presenter_path(presenter) %></td>
         <td><%= link_to t("helpers.links.destroy"), presenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

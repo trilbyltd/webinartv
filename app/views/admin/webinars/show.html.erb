@@ -1,10 +1,11 @@
+<h2><%= @webinar.title %></h2>
+<p><%= @webinar.description %></p>
+
 <p>
   <strong>Live date:</strong>
   <%= l(@webinar.live_date, format: :default) %>
 </p>
 
-  <h2><%= @webinar.title %></h2>
-  <p><%= @webinar.description %></p>
 
 <p>
   <strong>Presenter:</strong>
@@ -13,7 +14,7 @@
 
 <p>
   <strong>Webinar url:</strong>
-  <%= @webinar.webinar_url %>
+  <%= link_to @webinar.webinar_url %>
 </p>
 
 <% if !@webinar.viewable? %>
@@ -32,3 +33,8 @@
 <% else %>
 <p>Webinar is not active yet.</p>
 <% end %>
+
+<h4>Attendee Email List</h4>
+<% @webinar.attendees.each do |a| %>
+  <%= a.email %>,
+  <% end %>

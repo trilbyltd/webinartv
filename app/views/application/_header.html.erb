@@ -3,18 +3,15 @@
       
       <ul class="left">
       <li class="nav-link"><%= link_to "TrilbyTV Webinars", root_path %>
-      <% if signed_in? && current_user.admin? %>
-        <li class="nav-link">
-          <%= link_to admin_webinars_path do %>
-            <% t(".webinars") %>
-          <% end %>
-        <li class="nav-link"><%= link_to t(".attendees"), attendees_path %>
-        <li class="nav-link"><%= link_to t(".presenters"), presenters_path %>
-      <% end %>
-    </ul>
-    <ul class="right">
       <% if signed_in? %>
-        <li class="nav-link">Signed in as: <%= current_user.email %>
+        <% if current_user.admin? %>
+          <li class="nav-link">
+            <%= link_to admin_webinars_path do %>
+              <% t(".webinars") %>
+            <% end %>
+          <li class="nav-link"><%= link_to t(".attendees"), attendees_path %>
+          <li class="nav-link"><%= link_to t(".presenters"), presenters_path %>
+        <% end %>
         <li class="nav-link"><%= link_to t("layouts.application.sign_out"), sign_out_path, method: :delete %>
       <% else %>
         <li class="nav-link"><%= link_to t("layouts.application.sign_in"), sign_in_path %>
