@@ -11,7 +11,7 @@ RSpec.feature "Visitor registers for webinar" do
     click_button("Join")
 
     expect(current_path).to eq webinar_path(webinar)
-    expect(page).to have_content("Thanks for registering. You should receive a confirmation email shortly.")
+    expect(page).to have_content("Thanks for registering. A confirmation email has been sent to: john@example.com")
   end
 
   scenario "with valid mixed-case email and password " do
