@@ -1,7 +1,8 @@
-<h1>Join</h1>
+<h1>Register for Webinar</h1>
+<p>If you'd like to register for this webinar, please enter your details below.</p>
 <p>
   <strong>Live date:</strong>
-  <%= @webinar.live_date %>
+  <%= l(@webinar.live_date, format: :default) %>
 </p>
 
 <p>
@@ -32,8 +33,8 @@
     <% end %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit, t("webinars.join.submit") %>
+    <%= f.button :submit, t("webinars.join") %>
   </div>
 <% end %>
+<p><%= link_to 'Back to list', webinars_path %>
 </section>
-<%= link_to 'Back to list', webinars_path %>

@@ -15,8 +15,6 @@
   }
 
   .images-wrapper {
-    // @include background(url('https:
-//raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png'), linear-gradient($side-image-background-top, $side-image-background-bottom), no-repeat $side-image-background-top scroll);
     background-color: $side-image-background-top;
     background-size: cover;
     border-bottom: $side-image-border;
@@ -77,12 +75,10 @@
     }
 
   @include reset-display();
-}
-
+  }
 
   @include reset-display();
 }
-
 
 button.clear {
       @include position(absolute, 5px 5px auto auto);
@@ -90,6 +86,9 @@ button.clear {
       max-width: $clear-button-width;
     }
 
-aside.join {
-  @include span-columns(4);
+section.join {
+  @include span-columns(12);
+  .join-form {
+    // @include span-columns();
+  }
 }

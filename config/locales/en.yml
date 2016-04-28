@@ -37,11 +37,14 @@ en:
 
   webinars:
     index:
+      show: "See more"
+      join: "Register"
       columns:
         date: "%a %d/%m/%y"
     join:
       active_user: "Do you already have a user account?"
       submit: "Join"
+
 
   time:
     formats:

@@ -2,18 +2,14 @@ class WebinarsController < ApplicationController
   before_action :set_webinar, only: [:show, :join]
 
   def index
-    @webinars = Webinar.active
+    @webinars = Webinar.active.includes(:presenter).all
   end
 
   def show
-    if @webinar.presenter_id.present?
-      @presenter = Presenter.find(@webinar.presenter_id)  
-    end
   end
 
   def join
     @attendee = Attendee.new
-    @webinar_attendee = WebinarAttendee.new
   end
 
   private

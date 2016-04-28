@@ -3,7 +3,7 @@ class Admin::WebinarsController < ApplicationController
   before_action :require_login
 
   def index
-    @webinars = Webinar.all
+    @webinars = Webinar.includes(:presenter).all
   end
 
   def show
