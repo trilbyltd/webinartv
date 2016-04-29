@@ -4,6 +4,3 @@ database:
 test:
   override:
     - COVERAGE=true bin/rake
-deployment:
-  staging:
-    branch: master
