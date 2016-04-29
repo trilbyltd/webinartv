@@ -1,17 +1,23 @@
 language: ruby
 sudo: false
 cache: bundler
-script: bundle exec rake
+branches:
+  only:
+    - master
+    - staging
 env:
   matrix:
   - DATABASE_ADAPTER=postgresql
 before_install:
-- echo '--colour' > ~/.rspec
+  - echo '--colour' > ~/.rspec
 services:
-- postgresql
-- redis-server
+  - postgresql
+  - redis-server
 before_script:
-- cp config/database.yml.travis config/database.yml
-- psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+script: 
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 notifications:
   email: false
