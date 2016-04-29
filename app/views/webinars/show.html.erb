@@ -9,9 +9,7 @@
   <strong>Presenter:</strong>
   <%= @webinar.presenter.name %>
 </p>
-<%= @webinar.webinar_url %>
 <br />
 <section class="full-width">
-  <%= link_to 'Register', join_webinar_path(@webinar), class: 'btn' %><br />
-  <%= link_to 'Back to list', webinars_path %>
+  <p><%= link_to 'Register', join_webinar_path(@webinar), class: 'btn' %> | <%= link_to 'Back to list', webinars_path %></p>
 </section>

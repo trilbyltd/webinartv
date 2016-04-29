@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Presented by </strong><%= @webinar.presenter.name if @webinar.presenter_id?%>
+  <strong>Presented by </strong><%= @webinar.presenter.name %>
 </p>
 
 <section class="join">
@@ -33,8 +33,8 @@
     <% end %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit, t("webinars.join") %>
+    <p><%= f.button :submit, t("webinars.join") %></p>
   </div>
 <% end %>
-<p><%= link_to 'Back to list', webinars_path %>
+<p><%= link_to 'Back to list', webinars_path %></p>
 </section>
