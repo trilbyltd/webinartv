@@ -19,6 +19,8 @@ en:
         edit: "Edit Details"
       edit:
         submit: "Submit"
+      form:
+        submit: "Save"
   
   attendees:
     index: 

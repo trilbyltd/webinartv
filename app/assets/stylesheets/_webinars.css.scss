@@ -36,7 +36,6 @@
 
     @include media($large-screen) {
       @include span-columns(8);
-      // padding: 4em 4em 8em 4em;
     }
 
     h1 {
@@ -64,11 +63,12 @@
   }
 
   .webinar-content-wrapper {
-    
+    background-color: #fff;
+    padding: 1em 1em 1em 1em;
+
     @include media($large-screen) {
       @include span-columns(12);
-      padding: 1em 1em 4em 1em;
-      background-color: #fff;
+      padding: 1em 1em 2em 1em;
     }
     
     .webinar-content {
