@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 164fb0adcb86c11b9df2957edc0e1415fc37652b
+  revision: b31eefd4800f9433396b1113306195dd9ae9ee2b
   specs:
     faker (1.6.3)
       i18n (~> 0.5)
@@ -63,7 +63,7 @@ GEM
     bundler-audit (0.5.0)
       bundler (~> 1.2)
       thor (~> 0.18)
-    byebug (8.2.4)
+    byebug (8.2.5)
     capybara (2.7.0)
       addressable
       mime-types (>= 1.16)
@@ -74,7 +74,7 @@ GEM
     capybara-webkit (1.10.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
-    clearance (1.13.0)
+    clearance (1.14.0)
       bcrypt
       email_validator (~> 1.4)
       rails (>= 3.1)
@@ -82,7 +82,7 @@ GEM
     concurrent-ruby (1.0.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    database_cleaner (1.5.2)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     delayed_job (4.1.1)
       activesupport (>= 3.0, < 5.0)
@@ -113,7 +113,7 @@ GEM
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
     high_voltage (3.0.0)
-    honeybadger (2.5.3)
+    honeybadger (2.6.0)
     i18n (0.7.0)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
@@ -135,11 +135,11 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     mono_logger (1.1.0)
-    multi_json (1.11.2)
+    multi_json (1.11.3)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)
-    newrelic_rpm (3.15.1.316)
+    newrelic_rpm (3.15.2.317)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
@@ -205,11 +205,11 @@ GEM
       redis-namespace (~> 1.3)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
-    resque-scheduler (4.1.0)
+    resque-scheduler (4.2.0)
       mono_logger (~> 1.0)
       redis (~> 3.0)
       resque (~> 1.25)
-      rufus-scheduler (~> 3.0)
+      rufus-scheduler (~> 3.2)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -269,7 +269,7 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.2)
     timecop (0.8.1)
-    title (0.0.5)
+    title (0.0.7)
       i18n
       rails (>= 3.1)
     tzinfo (1.2.2)
@@ -283,7 +283,7 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (1.24.4)
+    webmock (2.0.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -299,8 +299,8 @@ DEPENDENCIES
   bourbon (= 5.0.0.beta.5)
   bullet
   bundler-audit (>= 0.5.0)
-  capybara-webkit
-  clearance (~> 1.13.0)
+  capybara-webkit (~> 1.10.1)
+  clearance (~> 1.13)
   database_cleaner
   delayed_job_active_record
   dotenv-rails
@@ -346,5 +346,8 @@ DEPENDENCIES
   web-console
   webmock
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.11.2
+   1.12.1

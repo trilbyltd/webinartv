@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
   
-  resources :webinars, only: [:index, :show, :join]
+  resources :webinars, only: [:index, :show]
   resources :attendees, only: [:new, :create]
   # resources :webinar_attendees, only: [:create, :new]
 
@@ -25,7 +25,8 @@ Rails.application.routes.draw do
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'
   end
 
-  get '/join(/:id)', to: 'webinars#join', as: :join_webinar
+  get '/join(/:id)', to: 'webinars#show', as: :join_webinar
+  get '/admin' => redirect("/admin/webninars")  
   
   constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
     namespace :admin do

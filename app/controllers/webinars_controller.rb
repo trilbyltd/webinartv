@@ -6,9 +6,6 @@ class WebinarsController < ApplicationController
   end
 
   def show
-  end
-
-  def join
     @attendee = Attendee.new
   end
 

@@ -4,12 +4,12 @@
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
-  $side-image-background-top: #B5EBEB;
-  $side-image-background-bottom: #5DAC5D;
-  $side-image-content-background: #F9F9F9;
+  $side-image-background-top: $brand-green;
+  $side-image-background-bottom: $brand-green-dark;
+  $side-image-content-background: $brand-aqua-dark;
   $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
   background: $side-image-content-background;
-
+  margin: 16px 0;
   @include media($large-screen) {
     @include row(table);
   }
@@ -19,8 +19,8 @@
     background-size: cover;
     border-bottom: $side-image-border;
     display: block;
-    min-height: 12em;
-    padding: 3em;
+    min-height: 8em;
+    padding: 16px;
 
     @include media($large-screen) {
       @include span-columns(4);
@@ -67,7 +67,7 @@
     
     @include media($large-screen) {
       @include span-columns(12);
-      padding: 4em 4em 8em 4em;
+      padding: 1em 1em 4em 1em;
     }
     
     .webinar-content {
