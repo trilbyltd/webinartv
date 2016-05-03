@@ -5,10 +5,13 @@ class Attendee < ActiveRecord::Base
 
   accepts_nested_attributes_for :webinar_attendees
 
-  validates_presence_of :name, message: "Please provide your name"
-  validates_presence_of :email, message: "Please supply your email address so we can send you the webinar information." 
+  validates :name, presence: { message: "Please provide your name" }
+  validates :email, presence: { message: "Please supply your email address so we can send you the webinar information." }
   validates :email, email: { message: "That email doesn't appear to be valid" }
-  validates :school_name, presence: true  
+  validates :school_name, presence: { message: "Please let us know where you're from" } 
+  default_scope { order('name asc') }
+  validates :contact_number, presence: { message: "We may need to call you about the webinar" } 
+
   default_scope { order('name asc') }
   
   def register(webinar)

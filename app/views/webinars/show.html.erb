@@ -1,8 +1,6 @@
-<h1>Register for Webinar</h1>
+<h1>Register for <%= @webinar.title %></h1>
 <p>If you'd like to register for this webinar, please enter your details below.</p>
-<h2><%= @webinar.title %></h2>
-
-<p>
+<p><strong>Description:</strong>
 <%= @webinar.description.html_safe %>
 </p>
 <p>
@@ -11,7 +9,7 @@
 </p>
 
 <p>
-  <strong>Presented by </strong><%= @webinar.presenter.name %>
+  <strong>Presented by: </strong><%= @webinar.presenter.name %>
 </p>
 
 <section class="join">
@@ -22,13 +20,15 @@
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :school_name %>
+    <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
+    <%= f.input :notes %>
     <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
     <%= f.fields_for :webinar_attendees_attributes do |w| %>
       <%= w.hidden_field :webinar_id, value: @webinar.id %>    
     <% end %>
   </div>
   <div class="form-actions">
-    <p><%= f.button :submit, t("webinars.join") %></p>
+    <p><%= f.button :submit, t(".submit") %></p>
   </div>
 <% end %>
 <p><%= link_to 'Back to list', webinars_path %></p>
