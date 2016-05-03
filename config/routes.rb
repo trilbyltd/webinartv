@@ -16,18 +16,17 @@ Rails.application.routes.draw do
   
   resources :webinars, only: [:index, :show]
   resources :attendees, only: [:new, :create]
-  # resources :webinar_attendees, only: [:create, :new]
-
+  
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get '/join(/:id)', to: 'webinars#show', as: :join_webinar
+  get '/admin' => redirect("/admin/webninars")  
   
+  # resources :webinar_attendees, only: [:create, :new]  
   if Clearance.configuration.allow_sign_up?
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'
   end
 
-  get '/join(/:id)', to: 'webinars#show', as: :join_webinar
-  get '/admin' => redirect("/admin/webninars")  
-  
   constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
     namespace :admin do
       resources :webinars
