@@ -12,11 +12,12 @@ h1 {
   margin-bottom: 20px;
 }
 header {
-  background-color: $brand-green;
+  background-color: #fff;
 }
 header nav {
   display: block;
-  height: 60px; 
+  height: auto; 
+  padding: 8px 0;
   @include outer-container(90%);
   h2 {
    color: #fff;  
@@ -25,20 +26,19 @@ header nav {
   
   ul li.nav-link {
     display: inline; 
-    line-height: 60px;
+    // line-height: 60px;
     overflow: hidden;
-    padding-right: 1em;
+    padding: 40px 1em 40px 0;
     text-align: right;
     width: 100%;
     z-index: 9999;
     color: #fff;
-
     a {
       display: inline-block;
       outline: none;
       text-decoration: none;
-      color: #fff; 
-      
+      color: $brand-green; 
+      line-height: 1.2;
       &:focus,
       &:hover {
         color: $brand-green-dark;
@@ -49,6 +49,7 @@ header nav {
 
 section {   
   @include outer-container(90%);
+  padding-top: 40px;
 }
 
 section .full-width {

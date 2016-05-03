@@ -17,6 +17,8 @@ en:
       index:
       show: 
         edit: "Edit Details"
+      edit:
+        submit: "Submit"
   
   attendees:
     index: 
@@ -37,14 +39,13 @@ en:
 
   webinars:
     index:
-      show: "See more"
       join: "Register"
-      columns:
-        date: "%a %d/%m/%y"
-    join:
+    show: 
       active_user: "Do you already have a user account?"
       submit: "Join"
-
+      
+    columns:
+      date: "%a %d/%m/%y"  
 
   time:
     formats:

@@ -4,6 +4,9 @@
     <th>Email</th>
     <th>School/Company</th>
     <th>Attended?</th>
+    <th>Telephone</th>
+    <th>Notes</th>
+    
   </tr>
   <% @webinar.attendees.each do |attendee| %>
     <tr>
@@ -11,6 +14,8 @@
       <td><%= attendee.email %>&nbsp;<%= link_to image_tag('email.jpg'), "mailto:#{attendee.email}" %></td>
       <td><%= attendee.school_name %></td>
       <td><%= attendee.attended?(@webinar) %></td>
+      <td><%= attendee.contact_number %></td>
+      <td><%= attendee.notes %></td>
     </tr>
     <% end %>
   </table>

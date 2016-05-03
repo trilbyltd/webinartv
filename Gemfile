@@ -4,7 +4,7 @@ ruby "2.3.1"
 
 gem "autoprefixer-rails"
 gem "bourbon", "5.0.0.beta.5"
-gem "clearance", "~> 1.13.0"
+gem "clearance", "~> 1.13"
 gem "delayed_job_active_record"
 gem "email_validator"
 gem "flutie"
@@ -54,7 +54,7 @@ group :development, :staging do
 end
 
 group :test do
-  gem "capybara-webkit"
+  gem "capybara-webkit", "~> 1.10.1"
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
