@@ -16,16 +16,16 @@ class Webinar < ActiveRecord::Base
   scope :active, -> { where active: true }
   default_scope { order('live_date asc') }
   
-  def self.upcoming
+  def self.future
      where('live_date >= ?', Time.now) 
   end
 
   def self.past
      where('live_date < ?', Time.now) 
-  end
+  end  
 
   def live?
-    if live_date > Time.now - 20.minutes
+    if live_date > Time.now
       return true
     end
   end
@@ -38,8 +38,14 @@ class Webinar < ActiveRecord::Base
     self.update!(active: true)
   end
 
+  def future?
+    if self.live_date >  Time.now
+      return true
+    end
+  end
+
   def viewable?
-    # valid? :view 
+    valid? :publish
   end
 
   private

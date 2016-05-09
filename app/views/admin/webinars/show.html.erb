@@ -14,7 +14,7 @@
 
 <p>
   <strong>Webinar URL:</strong>
-  <%= link_to @webinar.webinar_url, @webinar.webinar_url %>
+  <%= link_to @webinar.webinar_url, @webinar.webinar_url, target: :blank %>
 </p>
 
 <% if !@webinar.viewable? %>
