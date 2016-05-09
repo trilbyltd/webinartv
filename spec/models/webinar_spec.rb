@@ -31,8 +31,6 @@ describe Webinar do
       expect(webinar.active).to be true
       should validate_presence_of(:description).on(:publish)
       expect(webinar).to be_valid
-      # should validate_presence_of(:presenter_id)
-      # should validate_presence_of(:webinar_url)
     end
     it "hides Publish button" do
       webinar = create(:webinar, :live)

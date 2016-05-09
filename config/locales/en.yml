@@ -16,18 +16,21 @@ en:
       webinars: "Webinars"
       presenters: "Presenters"
       attendees: "Attendees"
-      sign_out: "Sign Out"
-      sign_in: "Sign In"
+      sign_out: "Log Out"
+      sign_in: "Log In"
 
   admin:
     webinars:
       index:
       show: 
         edit: "Edit Details"
+        publish: "Publish"
       edit:
         submit: "Submit"
+        publish: "Publish"
       form:
         submit: "Save"
+        
   
   attendees:
     index: 

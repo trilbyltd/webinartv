@@ -8,15 +8,12 @@ class Webinar < ActiveRecord::Base
   validates_presence_of :presenter_id, on: :publish
   validates_presence_of :webinar_url, on: :publish
   validates_presence_of :description, on: :publish
-  validate :webinar_cant_be_in_the_past, on: :publish
+  validate :webinar_cant_be_in_the_past
   
-  # validates :description, presence: true, if: :active? #Proc.new { |a| a.active? }
-  # validates :webinar_url, presence: true, if: :active? #Proc.new { |a| a.active? }
-
   scope :active, -> { where active: true }
   default_scope { order('live_date asc') }
   
-  def self.future
+  def self.upcoming
      where('live_date >= ?', Time.now) 
   end
 
@@ -25,7 +22,7 @@ class Webinar < ActiveRecord::Base
   end  
 
   def live?
-    if live_date > Time.now
+    if live_date > Time.now && active?
       return true
     end
   end
@@ -36,12 +33,6 @@ class Webinar < ActiveRecord::Base
 
   def activate!
     self.update!(active: true)
-  end
-
-  def future?
-    if self.live_date >  Time.now
-      return true
-    end
   end
 
   def viewable?
@@ -55,7 +46,7 @@ class Webinar < ActiveRecord::Base
   end
 
   def webinar_cant_be_in_the_past
-    if !live_date.future?
+    if !live_date.blank? and live_date < Time.now
       errors.add(:live_date, "You can't schedule a webinar in the past")
     end
   end

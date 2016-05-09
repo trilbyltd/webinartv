@@ -23,7 +23,7 @@ class Admin::WebinarsController < ApplicationController
     @webinar = Webinar.new(webinar_params)
 
     if @webinar.save
-      redirect_to admin_webinars_path, notice: 'Webinar was successfully created.'
+      redirect_to admin_webinar, notice: 'Webinar was successfully created.'
     else
       render :new
     end
@@ -31,14 +31,17 @@ class Admin::WebinarsController < ApplicationController
 
   def publish
     @webinar.attributes = webinar_params
-    @webinar.save(context: publish)
-    @webinar.activate!
-    respond_with @webinar
+    if @webinar.save(context: :publish)
+      @webinar.activate!
+      respond_with @webinar
+    else
+      render :show, notice: 'Unable to publish. Please try again.'
+    end
   end
   
   def update
     if @webinar.update(webinar_params)
-      redirect_to admin_webinars_path, notice: 'Webinar was successfully updated.'
+      redirect_to admin_webinar_path(@webinar), notice: 'Webinar was successfully updated.'
     else
       render :edit
     end

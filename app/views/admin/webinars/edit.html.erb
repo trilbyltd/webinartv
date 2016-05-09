@@ -2,12 +2,5 @@
 
 <%= render 'form' %>
 
-<% if !@webinar.viewable? %>
-  <%= simple_form_for([:admin, @webinar]) do |f| %>
-    <%= f.hidden_field  :active, value: true %>
-    <%= f.button :submit, "Publish" %>
-  <% end %>
-<% end %>
-
 <%= link_to 'View Public Page', @webinar %> |
 <%= link_to 'Back', admin_webinars_path %>

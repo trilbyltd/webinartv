@@ -1,5 +1,5 @@
 <h1>Webinars</h1>
 
-<%= render 'admin/webinars/live', webinars: @webinars.future %>
+<%= render 'admin/webinars/live', webinars: @webinars.upcoming %>
 <%= link_to 'Schedule new Webinar', new_admin_webinar_path, class: 'btn' %>
 <%= render 'admin/webinars/past', webinars: @webinars.past %>
