@@ -5,11 +5,14 @@ class Webinar < ActiveRecord::Base
 
   validates :live_date, presence: true
   validates :title, presence: { message: "Please provide a title" }
-  validates_presence_of :presenter_id, on: :publish
-  validates_presence_of :webinar_url, on: :publish
-  validates_presence_of :description, on: :publish
   validate :webinar_cant_be_in_the_past
   
+  with_options on: :publish do
+    validates :presenter_id, presence: true
+    validates :webinar_url, presence: true
+    validates :description, presence: true
+  end
+
   scope :active, -> { where active: true }
   default_scope { order('live_date asc') }
   
