@@ -11,6 +11,7 @@ gem "flutie"
 gem "high_voltage"
 gem "honeybadger"
 gem "jquery-rails"
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem "neat", "~> 1.7.0"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"

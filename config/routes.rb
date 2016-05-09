@@ -29,7 +29,9 @@ Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
     namespace :admin do
-      resources :webinars
+      resources :webinars do
+        patch 'publish'
+      end
     end
     resources :attendees
     resources :presenters

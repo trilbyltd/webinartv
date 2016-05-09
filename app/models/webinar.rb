@@ -5,10 +5,10 @@ class Webinar < ActiveRecord::Base
 
   validates :live_date, presence: true
   validates :title, presence: { message: "Please provide a title" }
-  validates_presence_of :presenter_id, if: :active?
-  validates_presence_of :webinar_url, if: :active?
-  validates_presence_of :description, if: :active?
-  validate :webinar_cant_be_in_the_past
+  validates_presence_of :presenter_id, on: :publish
+  validates_presence_of :webinar_url, on: :publish
+  validates_presence_of :description, on: :publish
+  validate :webinar_cant_be_in_the_past, on: :publish
   
   # validates :description, presence: true, if: :active? #Proc.new { |a| a.active? }
   # validates :webinar_url, presence: true, if: :active? #Proc.new { |a| a.active? }
@@ -49,7 +49,7 @@ class Webinar < ActiveRecord::Base
   end
 
   def webinar_cant_be_in_the_past
-    if !live_date.blank? and live_date < Time.now
+    if !live_date.future?
       errors.add(:live_date, "You can't schedule a webinar in the past")
     end
   end

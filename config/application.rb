@@ -25,5 +25,7 @@ module Webinartv
     config.active_job.queue_adapter = :resque
     config.i18n.default_locale = :en
     config.i18n.fallbacks = [:en]
+    config.time_zone = 'London'
+    # config.active_record.default_timezone = ':local'
   end
 end

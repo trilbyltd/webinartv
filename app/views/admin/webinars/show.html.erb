@@ -18,7 +18,7 @@
 </p>
 
 <% if !@webinar.viewable? %>
-  <%= simple_form_for([:admin, @webinar]) do |f| %>
+  <%= simple_form_for(@webinar, url: admin_webinar_publish_path(@webinar)) do |f| %>
     <%= f.hidden_field  :active, value: true %>
     <%= f.button :submit, "Publish" %>
   <% end %>

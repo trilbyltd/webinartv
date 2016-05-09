@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: b31eefd4800f9433396b1113306195dd9ae9ee2b
   specs:
@@ -134,6 +143,8 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     mono_logger (1.1.0)
     multi_json (1.11.3)
     neat (1.7.4)
@@ -302,6 +313,7 @@ DEPENDENCIES
   capybara-webkit (~> 1.10.1)
   clearance (~> 1.13)
   database_cleaner
+  datetimepicker-rails!
   delayed_job_active_record
   dotenv-rails
   email_validator

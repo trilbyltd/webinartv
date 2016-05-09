@@ -1,5 +1,5 @@
 class Admin::WebinarsController < ApplicationController
-  before_action :set_webinar, only: [:show, :edit, :update, :destroy]
+  before_action :set_webinar, only: [:show, :edit, :update, :publish, :destroy]
   before_action :require_login
 
   def index
@@ -29,7 +29,13 @@ class Admin::WebinarsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /webinars/1
+  def publish
+    @webinar.attributes = webinar_params
+    @webinar.save(context: publish)
+    @webinar.activate!
+    respond_with @webinar
+  end
+  
   def update
     if @webinar.update(webinar_params)
       redirect_to admin_webinars_path, notice: 'Webinar was successfully updated.'
