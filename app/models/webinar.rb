@@ -43,7 +43,8 @@ class Webinar < ActiveRecord::Base
   private
 
   def webinar_cant_be_in_the_past
-    return if !live_date.blank? && live_date > Time.now
-    errors.add(:live_date, "You can't schedule a webinar in the past")
+    if live_date.present? && live_date < Time.now
+      errors.add(:live_date, "can't schedule a webinar in the past") 
+    end
   end
 end

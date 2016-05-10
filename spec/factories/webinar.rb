@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:title) { |i| "Webinar #{i}" }
 
     trait :past do
-      live_date Faker::Date.between(3.months.ago, Date.today)
+      live_date Faker::Date.between(3.months.ago, Time.now)
     end
 
     trait :publishable do
