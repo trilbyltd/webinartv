@@ -16,11 +16,10 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    @attendee = Attendee.create_with(name: attendee_params[:name], school_name: attendee_params[:school_name]).find_or_create_by(email: attendee_params[:email], contact_number: attendee_params[:contact_number], notes: attendee_params[:notes], active_user: attendee_params[:active_user])
+    @attendee = Attendee.create_with(name: attendee_params[:name], school_name: attendee_params[:school_name], contact_number: attendee_params[:contact_number], notes: attendee_params[:notes], active_user: attendee_params[:active_user]).find_or_create_by(email: attendee_params[:email])
     @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
     if @attendee.save
-      @attendee.register(@webinar)
-      WebinarMailer.webinar_registration(@attendee, @webinar).deliver_later
+      @attendee.register_and_email(@webinar)
       redirect_to webinar_path(@webinar), notice: "Thanks for registering. A confirmation email has been sent to: #{@attendee.email}"
     else
       render 'webinars/show', notice: "Unable to complete registration. Please try again."

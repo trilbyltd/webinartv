@@ -19,6 +19,11 @@ class Attendee < ActiveRecord::Base
     WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).present?
   end
 
+  def register_and_email(webinar)
+    self.register(webinar)
+    WebinarMailer.webinar_registration(self, webinar).deliver_later  
+  end
+
   def attended(webinar)
     WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).first.update!(attended: true)
   end
