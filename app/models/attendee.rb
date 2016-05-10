@@ -21,7 +21,7 @@ class Attendee < ActiveRecord::Base
 
   def register_and_email(webinar)
     self.register(webinar)
-    WebinarMailer.webinar_registration(self, webinar).deliver_later  
+    WebinarMailerJob.perform_now(self, webinar)
   end
 
   def attended(webinar)
