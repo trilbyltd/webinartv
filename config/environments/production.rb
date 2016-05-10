@@ -23,13 +23,3 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV.fetch("APPLICATION_HOST") }
 end
 Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
-
-ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => '587',
-  :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
-  :enable_starttls_auto => true
-}
