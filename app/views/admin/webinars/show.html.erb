@@ -14,27 +14,26 @@
 
 <p>
   <strong>Webinar URL:</strong>
-  <%= link_to @webinar.webinar_url, @webinar.webinar_url %>
+  <%= link_to @webinar.webinar_url, @webinar.webinar_url, target: :blank %>
 </p>
-
-<% if !@webinar.viewable? %>
-  <%= simple_form_for([:admin, @webinar]) do |f| %>
-    <%= f.hidden_field  :active, value: true %>
-    <%= f.button :submit, "Publish" %>
-  <% end %>
-<% end %>
 
 <%= link_to t(".edit"), edit_admin_webinar_path(@webinar), class: 'btn' %> |
 <%= link_to t("helpers.actions.back"), admin_webinars_path, class: 'btn' %>
 
 <h3>Attendees</h3>
-<% if @webinar.active? %>
+<% if !@webinar.active? %>
+  <p>Webinar is not active yet.</p>
+  <% if @webinar.viewable? %>
+    <%= simple_form_for([:admin, @webinar], url: admin_webinar_publish_path(@webinar)) do |f| %>
+      <%= f.button :submit, t(".publish") %>
+    <% end %>
+    <% end %>
+  <% else %>
   <%= render 'admin/webinars/attendees' %>
-<% else %>
-<p>Webinar is not active yet.</p>
 <% end %>
 
 <h4>Attendee Email List</h4>
+<p>You can use this in your email To field</p>
 <% @webinar.attendees.each do |a| %>
   <%= a.email %>,
-  <% end %>
+<% end %>

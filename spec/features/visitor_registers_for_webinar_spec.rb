@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Visitor registers for webinar" do
+feature "Visitor registers for webinar" do
   let(:webinar) { create(:webinar, :live) }
   
   scenario "with valid details and valid email" do

@@ -21,7 +21,7 @@
     <%= f.input :email %>
     <%= f.input :school_name %>
     <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
-    <%= f.input :notes %>
+    <%= f.input :notes, input_html: { rows: 4 } %>
     <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
     <%= f.fields_for :webinar_attendees_attributes do |w| %>
       <%= w.hidden_field :webinar_id, value: @webinar.id %>    

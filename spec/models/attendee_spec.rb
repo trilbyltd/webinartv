@@ -17,7 +17,7 @@ describe Attendee do
   
     it "should validate format of data" do
       should allow_value("dhh@nonopinionated.com").for(:email) 
-      should_not allow_value("blah").for(:email).with_message("That email doesn't appear to be valid")
+      should_not allow_value("blah").for(:email).with_message("Email doesn't appear to be valid")
     end
   end
 
