@@ -22,6 +22,7 @@ en:
   admin:
     webinars:
       index:
+      new: "Schedule new Webinar"
       show: 
         edit: "Edit Details"
         publish: "Publish"
@@ -48,6 +49,8 @@ en:
     submit:
       attendee:
         create: "Join"
+      webinar:
+        create: "Save"
 
   webinars:
     index:
