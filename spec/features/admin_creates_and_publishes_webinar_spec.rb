@@ -7,6 +7,7 @@ RSpec.feature "Admin creates a webinar" do
   let(:presenter) {create(:presenter) }
   
   scenario "with basic details then updates and publishes" do    
+    presenter = create(:presenter)
     sign_in_with(user.email, user.password)
     visit edit_admin_webinar_path(webinar)
     fill_in "Webinar URL", with: "http://www.google.com"
@@ -15,7 +16,7 @@ RSpec.feature "Admin creates a webinar" do
     click_button("Save")
     expect(page).to have_content("Webinar was successfully updated.")
     visit admin_webinar_path(webinar)
-    expect(page).to have_text t("admin.webinars.show.publish")
+    expect(page).to have_button t("admin.webinars.show.publish")
     click_button("Publish")
     expect(webinar.active?).to be true
   end

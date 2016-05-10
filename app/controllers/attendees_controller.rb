@@ -16,11 +16,7 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    @attendee = Attendee.create_with(name: attendee_params[:name], 
-      school_name: attendee_params[:school_name]).find_or_create_by(email: attendee_params[:email],
-      contact_number: attendee_params[:contact_number],
-      notes: attendee_params[:notes],
-      active_user: attendee_params[:active_user])
+    @attendee = Attendee.create_with(name: attendee_params[:name], school_name: attendee_params[:school_name]).find_or_create_by(email: attendee_params[:email], contact_number: attendee_params[:contact_number], notes: attendee_params[:notes], active_user: attendee_params[:active_user])
     @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
     if @attendee.save
       @attendee.register(@webinar)

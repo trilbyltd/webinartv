@@ -4,9 +4,9 @@ class Webinar < ActiveRecord::Base
   belongs_to :presenter
 
   validates :live_date, presence: true
-  validates :title, presence: { message: "Please provide a title" }
+  validates :title, presence: { message: 'Please provide a title' }
   validate :webinar_cant_be_in_the_past
-  
+
   with_options on: :publish do
     validates :presenter_id, presence: true
     validates :webinar_url, presence: true
@@ -15,27 +15,25 @@ class Webinar < ActiveRecord::Base
 
   scope :active, -> { where active: true }
   default_scope { order('live_date asc') }
-  
+
   def self.upcoming
-     where('live_date >= ?', Time.now) 
+    where('live_date >= ?', Time.now)
   end
 
   def self.past
-     where('live_date < ?', Time.now) 
-  end  
+    where('live_date < ?', Time.now)
+  end
 
   def live?
-    if live_date > Time.now && active?
-      return true
-    end
+    return true if live_date > Time.now && active?
   end
-  
+
   def active?
-    self.active == true
+    active == true
   end
 
   def activate!
-    self.update!(active: true)
+    update!(active: true)
   end
 
   def viewable?
@@ -44,14 +42,8 @@ class Webinar < ActiveRecord::Base
 
   private
 
-  def webinar_cant_be_published
-      # errors.add :webinar, "Please complete all the required fields"
-  end
-
   def webinar_cant_be_in_the_past
-    if !live_date.blank? and live_date < Time.now
-      errors.add(:live_date, "You can't schedule a webinar in the past")
-    end
+    return if !live_date.blank? && live_date > Time.now
+    errors.add(:live_date, "You can't schedule a webinar in the past")
   end
-
 end

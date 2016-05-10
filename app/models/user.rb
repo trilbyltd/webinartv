@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   private
 
   def adminitize!
-    self.update!(admin: true)
+    update!(admin: true)
   end
 end
