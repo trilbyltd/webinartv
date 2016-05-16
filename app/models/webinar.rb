@@ -13,8 +13,8 @@ class Webinar < ActiveRecord::Base
     validates :description, presence: true
   end
 
-  scope :active, -> { where active: true }
   default_scope { order('live_date asc') }
+  scope :active, -> { where active: true }
 
   def self.upcoming
     where('live_date >= ?', Time.now)
