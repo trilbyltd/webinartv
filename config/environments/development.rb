@@ -11,7 +11,11 @@ Rails.application.configure do
   end
   # Send emails to mailcatcher
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025, :domain => "localhost:3000" }
+  config.action_mailer.smtp_settings = { 
+    :address => "127.0.0.1", 
+    :port => 1025, 
+    :domain => "localhost:3000" 
+  }
   # Send emails to Letter Opener
   # config.action_mailer.delivery_method = :letter_opener
   config.active_support.deprecation = :log
