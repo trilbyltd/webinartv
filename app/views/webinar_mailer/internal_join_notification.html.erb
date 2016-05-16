@@ -1,0 +1,10 @@
+<p>FOR INFORMATION ONLY</p>
+<p><%= @attendee.name %> registered for the <%= @webinar.title %> webinar on <%= l(@webinar.live_date, format: :default) %></p>
+  <b>Name:</b> <%= @attendee.name %><br />
+  <b>School:</b> <%= @attendee.school_name %><br />
+  <b>Email:</b> <%= @attendee.email %><br />
+  <b>Telephone:</b> <%= @attendee.contact_number %><br />
+  <b>Active User?</b> <%= @attendee.active_user %><br />
+  <b>Notes:</b><br />
+  <%= @attendee.notes %>  
+</p>

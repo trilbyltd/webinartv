@@ -7,18 +7,17 @@
       <th>Email</th>
       <th>Active user</th>
       <th>School name</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @attendees.each do |attendee| %>
       <tr>
-        <td><%= attendee.name %></td>
+        <td><%= link_to attendee.name, attendee  %></td>
         <td><%= attendee.email %></td>
         <td><%= attendee.active_user %></td>
         <td><%= attendee.school_name %></td>
-        <td><%= link_to t(".show"), attendee %></td>
         <td><%= link_to t('.destroy'), attendee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

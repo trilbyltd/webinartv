@@ -64,12 +64,10 @@ en:
 
   time:
     formats:
-      default:
-        "%A, %-d %b %Y at %R"
-      date:
-        "%d/%m/%Y %R"
-      short:
-        "%d/%m/%Y"
+      default: "%A, %-d %b %Y at %R"
+      date: "%d/%m/%Y %R"
+      short: "%d/%m/%Y"
+      full_tz: "%A, %-d %b %Y at %R (%Z)"
 
   titles:
     application: "Book yourself on a Webinar"
