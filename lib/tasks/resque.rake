@@ -8,7 +8,7 @@ namespace :resque do
     require 'resque'  
     ENV['QUEUE'] ||= '*'
     
-    Resque.redis = 'localhost:6379' unless Rails.env == ['production', 'staging']
+    Resque.redis = 'localhost:6379' if Rails.env == 'development'
 
     #for redistogo on heroku http://stackoverflow.com/questions/2611747/rails-resque-workers-fail-with-pgerror-server-closed-the-connection-unexpectedl
     Resque.before_fork = Proc.new do |job|
