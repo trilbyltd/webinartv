@@ -6,7 +6,7 @@ class WebinarsController < ApplicationController
   end
 
   def show
-    @attendee = Attendee.new
+    @attendee = @webinar.attendees.new
   end
 
   private

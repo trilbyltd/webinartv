@@ -7,7 +7,6 @@ class AttendeesController < ApplicationController
   end
 
   def show
-    @webinars = @attendee.webinars
   end
 
   def new
@@ -16,8 +15,9 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    @attendee = Attendee.create_with(name: attendee_params[:name], school_name: attendee_params[:school_name], contact_number: attendee_params[:contact_number], notes: attendee_params[:notes], active_user: attendee_params[:active_user]).find_or_create_by(email: attendee_params[:email])
-    @webinar = Webinar.find(attendee_params[:webinar_attendees_attributes][:webinar_id])
+    @attendee = Attendee.find_or_initialize_by(email: attendee_params[:email])
+    @webinar = Webinar.find(attendee_params[:webinar_id])
+    @attendee.attributes = attendee_params.except(:webinar_id)
     if @attendee.save
       @attendee.register_and_email(@webinar)
       redirect_to webinar_path(@webinar), notice: "Thanks for registering. A confirmation email has been sent to: #{@attendee.email}"
@@ -28,15 +28,15 @@ class AttendeesController < ApplicationController
 
   def update
     if @attendee.update(attendee_params)
-      redirect_to @attendee, notice: 'Attendee was successfully updated.'
+      redirect_to @attendee, notice: 'Attendee details were updated.'
     else
-      render :edit
+      render 'webinars/show'
     end
   end
 
   def destroy
     @attendee.destroy
-    redirect_to attendees_url, notice: 'Attendee was successfully destroyed.'
+    redirect_to attendees_url, notice: 'Attendee was successfully deleted.'
   end
 
   private
@@ -54,7 +54,7 @@ class AttendeesController < ApplicationController
         :school_name, 
         :contact_number,
         :notes,
-        webinar_attendees_attributes: [ :webinar_id ]
+        :webinar_id
         )
     end
 end

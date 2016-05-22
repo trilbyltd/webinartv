@@ -2,6 +2,7 @@ class Webinar < ActiveRecord::Base
   has_many :attendees, through: :webinar_attendees
   has_many :webinar_attendees, dependent: :destroy
   belongs_to :presenter
+  accepts_nested_attributes_for :attendees
 
   validates :live_date, presence: true
   validates :title, presence: { message: 'Please provide a title' }
