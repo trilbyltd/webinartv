@@ -22,7 +22,6 @@ gem "recipient_interceptor"
 gem "resque"
 gem "resque-scheduler"
 gem "sass-rails", "~> 5.0"
-gem 'sendgrid-rails'
 gem "simple_form"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
