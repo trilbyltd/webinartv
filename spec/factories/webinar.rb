@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :webinar do
-    live_date Faker::Date.between(Time.now, 3.months.from_now)
+    live_date Faker::Date.between(1.day.from_now, 3.months.from_now)
     sequence(:title) { |i| "Webinar #{i}" }
 
     trait :past do

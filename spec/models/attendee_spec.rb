@@ -34,6 +34,13 @@ describe Attendee do
       attendee.attended(webinar)
       expect(attendee.attended?(webinar)).to be true
     end
+
+    it "should send an email" do
+      ActiveJob::Base.queue_adapter = :test
+      attendee.register_and_email(webinar)
+      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 2
+
+    end
   end
 
 end

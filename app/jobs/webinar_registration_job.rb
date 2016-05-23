@@ -1,4 +1,4 @@
-class WebinarMailerJob < ActiveJob::Base
+class WebinarRegistrationJob < ActiveJob::Base
   queue_as :mailer
 
   def perform(attendee, webinar)
