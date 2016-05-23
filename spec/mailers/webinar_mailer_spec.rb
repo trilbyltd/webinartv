@@ -6,14 +6,19 @@ RSpec.describe WebinarMailer, type: :mailer do
   let(:webinar) { create(:webinar, :live) }
   
   it 'enqueues a job' do
-    ActiveJob::Base.queue_adapter = :test
     expect {
       WebinarMailer.webinar_registration(attendee, webinar).deliver_later
-    }.to have_enqueued_job.on_queue('mailer')
+    }.to have_enqueued_job.on_queue('mailers')
+
   end
 
-  it 'delivers an email' do
-    expect { WebinarMailer.webinar_registration(attendee, webinar).deliver_now }.to change { ActionMailer::Base.deliveries.count }.by(1)
+  it 'delivers 2 emails' do
+    expect { 
+      perform_enqueued_jobs do
+        WebinarMailer.webinar_registration(attendee, webinar).deliver_now
+        WebinarMailer.internal_join_notification(attendee, webinar).deliver_now
+        end
+      }.to change { ActionMailer::Base.deliveries.count }.by(2)
   end
 
   describe 'instructions' do
