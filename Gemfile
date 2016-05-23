@@ -67,5 +67,4 @@ end
 group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
-  gem "sendgrid"
 end
