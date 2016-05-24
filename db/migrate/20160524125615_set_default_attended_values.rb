@@ -1,6 +1,6 @@
 class SetDefaultAttendedValues < ActiveRecord::Migration
   def up
-    WebinarAttendee.all.each { |wa| wa.attened = false if wa.attended = nil }
+    WebinarAttendee.all.each { |wa| wa.attened = false if wa.attended == nil }
   end
 
   def down

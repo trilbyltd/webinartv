@@ -15,6 +15,10 @@
       <td><%= attendee.attended?(@webinar) %></td>
       <td><%= attendee.contact_number %></td>
       <td><%= attendee.notes %></td>
+      <td><%= if @webinar.live_date < Time.now %>
+        <%= simple_form_for([:admin, @webinar], url: webinar_attendee_attended_path(@webinar)) do |f| %>
+      <%= f.button :submit, t(".publish") %>
+    <% end %>
     </tr>
     <% end %>
   </table>

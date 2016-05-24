@@ -1,5 +1,5 @@
 class WebinarAttendeesController < ApplicationController
-  before_action :set_webinar_attendee, only: [:show, :edit, :update, :destroy]
+  before_action :set_webinar_attendee, only: [:show, :edit, :update, :destroy, :attended]
   
   def new
     @webinar_attendee = WebninarAttendee.new
@@ -19,6 +19,12 @@ class WebinarAttendeesController < ApplicationController
   def destroy
     @webinar_attendee.destroy
     redirect_to webinar_attendees_url, notice: 'Webinar attendee was successfully destroyed.'
+  end
+
+  def attended
+    @webinar = Webinar.find(params[:webinar_id])
+    @webinar_attendee.update!(attended: true)
+    redirect_to admin_webinar_path(@webinar)
   end
 
   private

@@ -12,7 +12,7 @@ class Attendee < ActiveRecord::Base
   default_scope { order('name asc') }
 
   def register(webinar)
-    webinar_attendees.create(webinar_id: webinar.id, attendee_id: id)
+    webinar_attendees.create(webinar_id: webinar.id, attendee_id: id, attended: false)
   end
 
   def registered?(webinar)
