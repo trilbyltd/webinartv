@@ -31,6 +31,9 @@ en:
         publish: "Publish"
       form:
         submit: "Save"
+      attendees:
+        attended: "Mark Attended"
+
         
   
   attendees:

@@ -24,8 +24,8 @@ class Attendee < ActiveRecord::Base
     WebinarRegistrationJob.perform_now(self, webinar)
   end
 
-  def attended(webinar)
-    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).first.update!(attended: true)
+  def webinar_attendance(webinar)
+    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).first
   end
 
   def attended?(webinar)

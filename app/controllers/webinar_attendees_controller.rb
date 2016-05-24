@@ -20,13 +20,13 @@ class WebinarAttendeesController < ApplicationController
     @webinar_attendee.destroy
     redirect_to webinar_attendees_url, notice: 'Webinar attendee was successfully destroyed.'
   end
-
+  
   def attended
-    @webinar = Webinar.find(params[:webinar_id])
+    @webinar_attendee = WebinarAttendee.find(params[:webinar_attendee_id])
     @webinar_attendee.update!(attended: true)
-    redirect_to admin_webinar_path(@webinar)
-  end
+    redirect_to admin_webinar_path(@webinar_attendee.webinar), notice: 'Attendee marked as attended'
 
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_webinar_attendee

@@ -20,7 +20,7 @@
     border-bottom: $side-image-border;
     display: block;
     min-height: 8em;
-    padding: 16px;
+    padding: 20px;
 
     @include media($large-screen) {
       @include span-columns(4);
@@ -32,7 +32,8 @@
 
   .side-image-content {
     @include span-columns(12);
-    padding: 1em 1em 4em 1em;
+    font: 'Gibson-Light', $base-font-family;
+    color: #ffffff;
 
     @include media($large-screen) {
       @include span-columns(8);
@@ -41,10 +42,10 @@
     h1 {
       margin-bottom: 0.9em;
     }
-    h2 {
-      color: $brand-green-dark;
-    }
 
+    h2 {
+      color: #ffffff;
+    }
     h4 {
       background: #BBB;
       color: white;

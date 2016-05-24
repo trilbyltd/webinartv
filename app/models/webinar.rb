@@ -12,7 +12,7 @@ class Webinar < ActiveRecord::Base
     validates :presenter_id, presence: true
     validates :webinar_url, presence: true
     validates :description, presence: true
-  end
+  end  
 
   default_scope { order('live_date asc') }
   scope :active, -> { where active: true }
@@ -39,6 +39,10 @@ class Webinar < ActiveRecord::Base
 
   def viewable?
     valid? :publish
+  end
+
+  def attendable(attendee)
+    return true if live_date.past? && WebinarAttendee.find(attendee_id: attendee.id, webinar_id: self.id).attended == false
   end
 
   private
