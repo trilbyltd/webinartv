@@ -16,7 +16,7 @@
         <td><%= webinar.presenter.name if webinar.presenter_id.present? %></td>
         <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>
         <td><%= link_to t('helpers.actions.edit'), edit_admin_webinar_path(webinar) %></td>
-        <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' }, class: :'btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

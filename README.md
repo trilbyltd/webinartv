@@ -1,5 +1,5 @@
 # Webinartv
-https://travis-ci.org/trilbyltd/webinartv.svg
+![https://travis-ci.org/trilbyltd/webinartv](https://travis-ci.org/trilbyltd/webinartv.svg)
 ## Getting Started
 
 After you have cloned this repo, run this setup script to set up your machine
@@ -19,8 +19,13 @@ After setting up, you can run the application using [Heroku Local]:
 [Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
 
 Local Development has:
-**Admin User***
+**Admin User**
 admin@webinar.tv
+
+## Running Tests
+Run:
+
+    % bin/rspec  
 
 ## Guidelines
 
@@ -33,3 +38,8 @@ programming in style.
 
 ## Staging and Production
 Both environments are run on Heroku.
+Use 
+
+    % bin/deploy [staging/heroku]  
+
+to deploy to your Heroku app, migrate the database and restart the dynos

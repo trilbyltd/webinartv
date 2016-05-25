@@ -40,10 +40,10 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label
+    b.use :hint,  wrap_with: { tag: :span, class: :'help-hint' }
     b.use :error, wrap_with: { tag: :span, class: :error }
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :input
-
+    
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:

@@ -8,10 +8,10 @@ class WebinarAttendee < ActiveRecord::Base
   validates_uniqueness_of :attendee_id, scope: :webinar_id
 
   def attended!
-    self.update!(attended: true)
+    update!(attended: true)
   end
 
   def registered?(webinar, attendee)
-    return false if WebinarAttendee.find(webinar_id: webinar.id ,attendee_id: attendee.id ).empty?
+    return false if WebinarAttendee.find(webinar_id: webinar.id, attendee_id: attendee.id).empty?
   end
 end

@@ -1,23 +1,24 @@
-<h2>Whether you're new to TrilbyTV, a little curious, or looking to get more out of the easiest digital signage platform, our webinars will help get you there.</h2>
+<p>If you are new to TrilbyTV or just want some help getting started then join Ben and Neil for this webinar. We will showcase new features and take you through the process of using TrilbyTV. These are open webinars with plenty of time for Q&amp;A. If you want to join one of the next sessions just sign up here.</p>
 <% @webinars.upcoming.each do |webinar| %>
 <div class="side-image">
-  <div class="images-wrapper">
-    <div class="side-image-content">
-      <h3><%= webinar.title %></h3>
+  <div class="images-wrapper">  
+  <%= link_to webinar do %>
+    <div class="side-image-content">  
+      <h2><%= webinar.title %></h3>
       <time><%= l(webinar.live_date, format: :default) %></time>
     </div>
+  <% end %>
   </div>
   <div class="webinar-content-wrapper">
     <div class="webinar-content">
       <p><%= webinar.description %></p>
-      <p><strong>Presenter:</strong> <%= webinar.presenter.name %></p>
-      <section class="webinar-controls">
+      <p><span class="label">Presenter:</span> <%= webinar.presenter.name %></p>
         <%= link_to t(".join"), webinar_path(webinar), class: 'btn' %>
         <% if current_user && current_user.admin? %>
-          <p><%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %></p>
+          <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
         <% end %>
-      </section>
     </div>
   </div>
 </div>
 <% end %>
+If you can’t make any of the listed dates, drop us an email and we’ll arrange a webinar just for you.

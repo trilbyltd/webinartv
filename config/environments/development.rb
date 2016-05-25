@@ -9,11 +9,8 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
   end
-  # Send emails to mailcatcher
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025, :domain => "localhost:3000" }
-  # Send emails to Letter Opener
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025, domain: "localhost:3000" }
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
   config.assets.debug = true

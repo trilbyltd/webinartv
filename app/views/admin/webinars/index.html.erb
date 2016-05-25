@@ -1,5 +1,8 @@
-<h1>Webinars</h1>
-
-<%= render 'admin/webinars/live', webinars: @webinars.upcoming %>
-<%= link_to 'Schedule new Webinar', new_admin_webinar_path, class: 'btn' %>
-<%= render 'admin/webinars/past', webinars: @webinars.past %>
+<h1>Manage Webinars</h1>
+<section class="first">
+  <%= render 'admin/webinars/live', webinars: @webinars.upcoming %>
+</section>
+<%= link_to t("admin.webinars.new"), new_admin_webinar_path, class: 'btn' %>
+<section>
+  <%= render 'admin/webinars/past', webinars: @webinars.past %>
+</section>

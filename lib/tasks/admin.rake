@@ -6,5 +6,4 @@ namespace :admin do
     user.toggle!(:admin)
     print "#{user.email}'s admin status is now #{user.admin}\n"
   end
-
 end

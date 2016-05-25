@@ -17,7 +17,7 @@ describe Attendee do
   
     it "should validate format of data" do
       should allow_value("dhh@nonopinionated.com").for(:email) 
-      should_not allow_value("blah").for(:email).with_message("That email doesn't appear to be valid")
+      should_not allow_value("blah").for(:email).with_message("Email doesn't appear to be valid")
     end
   end
 
@@ -33,6 +33,13 @@ describe Attendee do
       attendee.register(webinar)
       attendee.attended(webinar)
       expect(attendee.attended?(webinar)).to be true
+    end
+
+    it "should send an email" do
+      ActiveJob::Base.queue_adapter = :test
+      attendee.register_and_email(webinar)
+      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 2
+
     end
   end
 

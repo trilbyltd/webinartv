@@ -6,7 +6,7 @@
     <th>Attended?</th>
     <th>Telephone</th>
     <th>Notes</th>
-    
+    <th>Mark as Attended</th>
   </tr>
   <% @webinar.attendees.each do |attendee| %>
     <tr>
@@ -16,6 +16,12 @@
       <td><%= attendee.attended?(@webinar) %></td>
       <td><%= attendee.contact_number %></td>
       <td><%= attendee.notes %></td>
+      <td><% if @webinar.attendable(attendee) %>
+            <%= form_for :mark_as_attended, url: webinar_attendee_attended_path(attendee.webinar_attendance(@webinar)), html: { method: :patch } do |form| %>
+            <%= form.submit "Mark attended" %>
+            <% end %>
+        <% end %>
+      </td>
     </tr>
-    <% end %>
+  <% end %>
   </table>

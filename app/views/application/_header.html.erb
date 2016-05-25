@@ -1,8 +1,7 @@
   <header>
     <nav>
-      
+      <%= link_to image_tag("email/TTV_logo.png", width: 230), root_path %>
       <ul class="left">
-      <%= link_to image_tag("TrilbyTV_logo_180.png", width: 240), root_path %>
       <% if signed_in? %>
         <% if current_user.admin? %>
           <li class="nav-link">
@@ -18,7 +17,7 @@
       <% end %>
       </ul>
       <ul class="right">
-        <li class="nav-link"><a href="//www.trilbytv.co.uk" >Back to TrilbyTV.co.uk</a>
+        <li class="nav-link"><a href="//www.trilbytv.co.uk" >Back to www.trilbytv.co.uk</a>
       </ul>
     </nav>
   </header>

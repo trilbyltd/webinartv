@@ -13,6 +13,6 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
   config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: "www.example.com" }
-  config.active_job.queue_adapter = :inline
+  config.active_job.queue_adapter = :test
   config.middleware.use Clearance::BackDoor
 end

@@ -6,5 +6,8 @@ FactoryGirl.define do
   factory :user do
     email
     password "password"
+    trait :admin do
+      admin true
+    end
   end
 end

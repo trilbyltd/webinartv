@@ -1,35 +1,29 @@
-<h1>Register for <%= @webinar.title %></h1>
+<h2>Register for <%= @webinar.title %></h2>
 <p>If you'd like to register for this webinar, please enter your details below.</p>
-<p><strong>Description:</strong>
-<%= @webinar.description.html_safe %>
-</p>
-<p>
-  <strong>Date:</strong>
-  <time><%= l(@webinar.live_date, format: :default) %></time>
-</p>
 
-<p>
-  <strong>Presented by: </strong><%= @webinar.presenter.name %>
-</p>
+<%= render 'shared/webinar_detail' %>
 
-<section class="join">
-<%= simple_form_for @attendee do |f| %>
-  <%= f.error_notification %>
-  
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :school_name %>
-    <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
-    <%= f.input :notes %>
-    <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
-    <%= f.fields_for :webinar_attendees_attributes do |w| %>
-      <%= w.hidden_field :webinar_id, value: @webinar.id %>    
-    <% end %>
-  </div>
-  <div class="form-actions">
-    <p><%= f.button :submit, t(".submit") %></p>
-  </div>
+<% if @webinar.live? %>
+  <div class="join-form first">
+    <%= simple_form_for @attendee do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :school_name %>
+      <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
+      <%= f.input :notes, input_html: { rows: 4 } %>
+      <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
+      <%= f.hidden_field :webinar_id, value: @webinar.id %>
+    </div>
+    <div class="form-actions">
+      <p><%= f.button :submit, t(".submit") %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>Sorry, this webinar has already passed. Why not check the list for upcoming webinars.</p>
 <% end %>
+
 <p><%= link_to 'Back to list', webinars_path %></p>
-</section>
+</div>

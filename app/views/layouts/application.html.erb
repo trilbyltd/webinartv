@@ -4,21 +4,24 @@
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
+  <link rel="icon" href="favicon.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <%#
     Configure default and controller-, and view-specific titles in
     config/locales/en.yml. For more see:
     https://github.com/calebthompson/title#usage
   %>
-  <title><%= title %></title>
+  <title><%= title %> | TrilbyTV</title>
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
   <%= render "header" %>
   <%= render "flashes" %>
-  <section>
+  <section class="content">
     <%= yield %>
   </section>
+  <%= render "footer" %>
   <%= render "javascript" %>
   <%= render "css_overrides" %>
 </body>

@@ -1,13 +1,25 @@
+// Neat Overrides
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: 1200px; 
+
 // Breakpoints
 $medium-screen: 600px;
 $large-screen: 900px;
+$x-large-screen: 1200px;
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
+$large-screen-down: new-breakpoint(max-width $x-large-screen 8);
+$large-screen-up: new-breakpoint(min-width $large-screen 8);
+
 
 // Typography
-$base-font-family: "canada type gibson", Helvetica Neue, $font-stack-helvetica;
+$base-font-family: "canada-type-gibson", arial, $font-stack-system;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
-$base-font-size: 1.2em;
+$base-font-size: 18px;
 
 // Line height
 $base-line-height: 1.5;
@@ -31,7 +43,7 @@ $brand-red: #e05f5f;
 
 // Font Colors
 $base-font-color: $brand-green-dark;
-$action-color: $brand-aqua-dark;
+$action-color: $brand-green;
 
 // Border
 $base-border-color: $brand-green-dark;

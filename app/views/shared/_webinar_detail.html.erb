@@ -1,0 +1,9 @@
+<p><%= @webinar.description %></p>
+
+<p><span class="label">Live date:</span>
+  <time><%= l(@webinar.live_date, format: :default) %></time>
+</p>
+
+<p><span class="label">Presenter:</span>
+  <%= @webinar.presenter.name if @webinar.presenter.present? %>
+</p>
