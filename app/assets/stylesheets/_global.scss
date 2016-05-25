@@ -2,6 +2,7 @@ body {
   @include outer-container(100%);
   background-color: $brand-grey;
   font-weight: 200;
+  // height: 100%;
 }
 h1, h2, h3, h4 {
   color: $brand-green-dark;
@@ -75,19 +76,17 @@ header nav {
 section {   
   @include outer-container(1200px);
   padding-top: 40px;
-  
+
   @include media($large-screen-down) {
     margin-left: 20px;
     margin-right: 20px;
   }
-
   @include reset-display();
   
   .first {
     padding-top: 0;
   }
 }
-
 section .full-width {
  @include outer-container(100%); 
 }
@@ -112,12 +111,19 @@ section .full-width {
 label {
   font-weight: 400;
 }
+.site-footer, .content:after {
+  height: 40px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 
 footer {
   background-color: $brand-green-dark;
   color: #ffffff;
   font-weight:200;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  height: 45px;
   section {
     padding-top: 10px;
   }
