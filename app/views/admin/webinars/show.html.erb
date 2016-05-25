@@ -1,15 +1,4 @@
-<h2><%= @webinar.title %></h2>
-<p><%= @webinar.description %></p>
-
-<p><span class="label">Live date:</span>
-  <time><%= l(@webinar.live_date, format: :default) %></time>
-</p>
-
-
-<p><span class="label">Presenter:</span>
-  <%= @presenter.name if @presenter.present? %>
-</p>
-
+<%= render 'shared/webinar_detail' %>
 <p><span class="label">Webinar URL:</span>
   <%= link_to @webinar.webinar_url, @webinar.webinar_url, target: :blank %>
 </p>

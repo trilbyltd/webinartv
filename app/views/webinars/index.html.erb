@@ -1,11 +1,13 @@
 <p>Whether you're new to TrilbyTV, a little curious, or looking to get more out of the easiest digital signage platform, our webinars will help get you there.</p>
 <% @webinars.upcoming.each do |webinar| %>
 <div class="side-image">
-  <div class="images-wrapper">
-    <div class="side-image-content">
+  <div class="images-wrapper">  
+  <%= link_to webinar do %>
+    <div class="side-image-content">  
       <h2><%= webinar.title %></h3>
       <time><%= l(webinar.live_date, format: :default) %></time>
     </div>
+  <% end %>
   </div>
   <div class="webinar-content-wrapper">
     <div class="webinar-content">
