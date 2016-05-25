@@ -10,7 +10,7 @@
   $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
   background: $side-image-content-background;
   margin: 16px 0;
-
+  min-height: 250px;
   @include media($large-screen) {
     @include row(table);
   }

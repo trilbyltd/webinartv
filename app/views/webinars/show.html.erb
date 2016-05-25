@@ -3,22 +3,27 @@
 
 <%= render 'shared/webinar_detail' %>
 
-<div class="join-form first">
-  <%= simple_form_for @attendee do |f| %>
-  <%= f.error_notification %>
+<% if @webinar.live? %>
+  <div class="join-form first">
+    <%= simple_form_for @attendee do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :school_name %>
-    <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
-    <%= f.input :notes, input_html: { rows: 4 } %>
-    <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
-    <%= f.hidden_field :webinar_id, value: @webinar.id %>
-  </div>
-  <div class="form-actions">
-    <p><%= f.button :submit, t(".submit") %></p>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :school_name %>
+      <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
+      <%= f.input :notes, input_html: { rows: 4 } %>
+      <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
+      <%= f.hidden_field :webinar_id, value: @webinar.id %>
+    </div>
+    <div class="form-actions">
+      <p><%= f.button :submit, t(".submit") %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>Sorry, this webinar has already passed. Why not check the list for upcoming webinars.</p>
 <% end %>
+
 <p><%= link_to 'Back to list', webinars_path %></p>
 </div>

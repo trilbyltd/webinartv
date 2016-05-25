@@ -112,3 +112,13 @@ section .full-width {
 label {
   font-weight: 400;
 }
+
+footer {
+  background-color: $brand-green-dark;
+  color: #ffffff;
+  font-weight:200;
+  padding-bottom: 10px;
+  section {
+    padding-top: 10px;
+  }
+}
