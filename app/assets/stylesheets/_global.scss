@@ -1,8 +1,11 @@
+html, body {
+    height: 100%;
+}
 body {
   @include outer-container(100%);
   background-color: $brand-grey;
   font-weight: 200;
-  // height: 100%;
+  // min-height: 100vh;
 }
 h1, h2, h3, h4 {
   color: $brand-green-dark;
@@ -76,6 +79,7 @@ header nav {
 section {   
   @include outer-container(1200px);
   padding-top: 40px;
+  padding-bottom: 40px;
 
   @include media($large-screen-down) {
     margin-left: 20px;
@@ -89,6 +93,28 @@ section {
 }
 section .full-width {
  @include outer-container(100%); 
+}
+section .content {
+  height: 100%;
+  min-height: 100%;
+  margin-bottom: -120px;
+}
+section .content:after {
+  content: "";
+  display: block;
+}
+.site-footer, section .content:after {
+    height: 120px; 
+}
+.site-footer {
+  background-color: $brand-green-dark;
+  color: #ffffff;
+  font-weight:200;
+}
+
+footer {
+  padding-bottom: 20px;
+  height: 45px;
 }
 
 .flashes {
@@ -110,21 +136,4 @@ section .full-width {
 }
 label {
   font-weight: 400;
-}
-.site-footer, .content:after {
-  height: 40px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-footer {
-  background-color: $brand-green-dark;
-  color: #ffffff;
-  font-weight:200;
-  padding-bottom: 20px;
-  height: 45px;
-  section {
-    padding-top: 10px;
-  }
 }
