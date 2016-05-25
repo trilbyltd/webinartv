@@ -1,25 +1,23 @@
 <h2><%= @webinar.title %></h2>
 <p><%= @webinar.description %></p>
 
-<p>
-  <strong>Live date:</strong>
-  <%= l(@webinar.live_date, format: :default) %>
+<p><span class="label">Live date:</span>
+  <time><%= l(@webinar.live_date, format: :default) %></time>
 </p>
 
 
-<p>
-  <strong>Presenter:</strong>
+<p><span class="label">Presenter:</span>
   <%= @presenter.name if @presenter.present? %>
 </p>
 
-<p>
-  <strong>Webinar URL:</strong>
+<p><span class="label">Webinar URL:</span>
   <%= link_to @webinar.webinar_url, @webinar.webinar_url, target: :blank %>
 </p>
 
-<%= link_to t(".edit"), edit_admin_webinar_path(@webinar), class: 'btn' %> |
+<%= link_to t(".edit"), edit_admin_webinar_path(@webinar), class: 'btn' %>
 <%= link_to t("helpers.actions.back"), admin_webinars_path, class: 'btn' %>
 
+<section>
 <h3>Attendees</h3>
 <% if !@webinar.active? %>
   <p>Webinar is not active yet.</p>
@@ -37,3 +35,4 @@
 <% @webinar.attendees.each do |a| %>
   <%= a.email %>,
 <% end %>
+</section>

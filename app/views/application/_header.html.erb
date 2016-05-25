@@ -1,8 +1,7 @@
   <header>
     <nav>
-      
+      <%= link_to image_tag("email/TTV_logo.png", width: 230), root_path %>
       <ul class="left">
-      <%= link_to image_tag("TrilbyTV_logo_180.png", width: 240), root_path %>
       <% if signed_in? %>
         <% if current_user.admin? %>
           <li class="nav-link">
@@ -12,7 +11,6 @@
           <li class="nav-link"><%= link_to t(".attendees"), attendees_path %>
           <li class="nav-link"><%= link_to t(".presenters"), presenters_path %>
         <% end %>
-        <li class="nav-link"><%= link_to t('passwords.edit.title'), edit_user_password_path(current_user) %>
         <li class="nav-link"><%= link_to sign_out_path, method: :delete do %>
           <%= t("layouts.application.sign_out") %>
           <% end %>

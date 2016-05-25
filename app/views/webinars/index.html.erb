@@ -13,7 +13,7 @@
       <p><span class="label">Presenter:</span> <%= webinar.presenter.name %></p>
         <%= link_to t(".join"), webinar_path(webinar), class: 'btn' %>
         <% if current_user && current_user.admin? %>
-          <p><%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %></p>
+          <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
         <% end %>
     </div>
   </div>
