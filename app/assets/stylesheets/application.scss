@@ -21,4 +21,62 @@
 @import "trilbytv";
 @import "utilities";
 @import "webinars";
+@import "prefooter";
 
+
+.page-title {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.title, .page-title {
+  font-size: 50px;
+  color: #49aea3;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.line-title-container {
+  overflow: hidden;
+}
+
+.line-title {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+
+  span {
+  font-size: 15px;
+  letter-spacing: 5px;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  }
+  &::before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  &::after { 
+    left: 100%;
+    margin-left: 15px;
+  }
+  &::before, &::after {
+    border-top: 1px solid #49aea3;
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 420px;
+    position: absolute;
+    top: 10px;
+    width: 600px;
+  }
+}
+
+.clearblock, .colourblock, .prefooter {
+    width: 100%;
+    margin: 0;
+    display: block;
+}

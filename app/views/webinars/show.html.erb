@@ -5,7 +5,7 @@
 
 <% if @webinar.live? %>
   <div class="join-form first">
-    <%= simple_form_for @attendee do |f| %>
+    <%= simple_form_for [@webinar, @attendee] do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
@@ -27,3 +27,5 @@
 
 <p><%= link_to 'Back to list', webinars_path %></p>
 </div>
+</section>
+<%= render 'prefooter' %>

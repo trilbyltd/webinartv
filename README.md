@@ -22,10 +22,18 @@ Local Development has:
 **Admin User**
 admin@webinar.tv
 
+You may also want to tweak some environment variables in ````.env````
+
 ## Running Tests
 Run:
 
     % bin/rspec  
+
+or
+
+    % bin/rake
+
+which also runs ````bundler-audit```` to check for vulnerable gems
 
 ## Guidelines
 

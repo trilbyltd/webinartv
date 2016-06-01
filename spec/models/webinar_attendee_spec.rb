@@ -4,7 +4,7 @@ describe WebinarAttendee do
   context "associations" do
     let(:attendee) { create(:attendee) }
     let(:webinar) { create(:webinar, :live) }
-    let(:webinar_attendee) { WebinarAttendee.create(webinar_id: webinar.id, attendee_id: attendee.id)}
+    let(:webinar_attendee) { WebinarAttendee.create(webinar: webinar, attendee: attendee)}
         
     it "before attending, it should exist" do
       expect(webinar_attendee).to be_valid

@@ -14,8 +14,9 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
   
-  resources :webinars, only: [:index, :show]
-  resources :attendees, only: [:new, :create ]
+  resources :webinars, only: [:index, :show] do
+    resources :attendees, only: [:new, :create ]
+  end
   
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

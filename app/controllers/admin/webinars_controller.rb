@@ -29,7 +29,7 @@ class Admin::WebinarsController < ApplicationController
   end
 
   def publish
-    @webinar = Webinar.find(params[:webinar_id])
+    @webinar = Webinar.find(params[:webinar_id]) if params[:webinar_id]
     if @webinar.activate!
       redirect_to @webinar, notice: 'Webinar is now public.'
     else

@@ -13,11 +13,11 @@ class Attendee < ActiveRecord::Base
   default_scope { order('name asc') }
 
   def register(webinar)
-    webinar_attendees.create(webinar_id: webinar.id, attendee_id: id, attended: false)
+    webinar_attendees.create(webinar: webinar, attendee: self, attended: false)
   end
 
   def registered?(webinar)
-    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).present?
+    WebinarAttendee.where(webinar: webinar, attendee: self).present?
   end
 
   def register_and_email(webinar)
@@ -26,14 +26,14 @@ class Attendee < ActiveRecord::Base
   end
 
   def webinar_attendance(webinar)
-    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).first.attended?
+    WebinarAttendee.where(webinar: webinar, attendee: self).first.attended?
   end
 
   def attended(webinar)
-    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).first.update!(attended: true)
+    WebinarAttendee.where(webinar: webinar, attendee: self).first.update!(attended: true)
   end
 
   def attended?(webinar)
-    WebinarAttendee.where(webinar_id: webinar.id, attendee_id: id).take.attended?
+    WebinarAttendee.where(webinar: webinar, attendee: self).take.attended?
   end
 end

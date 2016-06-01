@@ -1,10 +1,18 @@
-<p>If you are new to TrilbyTV or just want some help getting started then join Ben and Neil for this webinar. We will showcase new features and take you through the process of using TrilbyTV. These are open webinars with plenty of time for Q&amp;A. If you want to join one of the next sessions just sign up here.</p>
+<div class="colourblock">
+  <h2 class="title page-title">Webinars</h2>
+</div>
+<div class="line-title-container">
+  <div class="line-title mtop-30">
+    <span class="line-title">Learn More About TrilbyTV</span>
+  </div>
+</div>
+<h3>If you are new to TrilbyTV or just want some help getting started then join Ben and Neil for this webinar. We will showcase new features and take you through the process of using TrilbyTV. These are open webinars with plenty of time for Q&amp;A. If you want to join one of the next sessions just sign up here.</h3>
 <% @webinars.upcoming.each do |webinar| %>
 <div class="side-image">
   <div class="images-wrapper">  
   <%= link_to webinar do %>
     <div class="side-image-content">  
-      <h2><%= webinar.title %></h3>
+      <h2><%= webinar.title %></h2>
       <time><%= l(webinar.live_date, format: :default) %></time>
     </div>
   <% end %>
@@ -22,3 +30,5 @@
 </div>
 <% end %>
 If you can’t make any of the listed dates, drop us an email and we’ll arrange a webinar just for you.
+</section>
+<%= render 'prefooter' %>
