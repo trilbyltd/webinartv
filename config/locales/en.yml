@@ -26,6 +26,7 @@ en:
       show: 
         edit: "Edit Details"
         publish: "Publish"
+        ics: "Add to Calendar"
       edit:
         submit: "Submit"
         publish: "Publish"

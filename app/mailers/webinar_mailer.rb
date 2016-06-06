@@ -5,6 +5,7 @@ class WebinarMailer < ApplicationMailer
     @webinar = webinar
     attachments.inline['TTV_logo.png'] = File.read('app/assets/images/email/TTV_logo.png')
     attachments.inline['twitter.png'] = File.read('app/assets/images/email/twitter_icon.png')
+    attachments['event.ics'] = { mime_type: 'application/ics', content: @webinar.to_ics }
     mail(
       to: "#{@attendee.name} <#{@attendee.email}>",
       subject: "Your Webinar Registration: #{@webinar.title}"
@@ -18,9 +19,8 @@ class WebinarMailer < ApplicationMailer
     attachments.inline['twitter.png'] = File.read('app/assets/images/email/twitter_icon.png')
     mail(
       to: ENV["INTERNAL_EMAIL"],
-      subject: "Your Webinar Registration: #{@webinar.title}"
+      subject: "Webinar Registration: #{@webinar.title} (#{l(webinar.live_date, format: :short)})"
       )
   end
 
 end
-
