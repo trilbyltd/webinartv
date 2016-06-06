@@ -1,7 +1,7 @@
 class Admin::WebinarsController < ApplicationController
-  before_action :set_webinar, only: [:show, :edit, :update, :publish, :destroy]
+  before_action :set_webinar, only: [:show, :edit, :update, :publish, :destroy, :download]
   before_action :require_login
-
+  
   def index
     @webinars = Webinar.includes(:presenter).all
   end
@@ -10,6 +10,17 @@ class Admin::WebinarsController < ApplicationController
     if @webinar.presenter_id.present?
       @presenter = Presenter.find(@webinar.presenter_id)
     end
+    respond_to do |format|
+      format.html
+      format.ics do
+        render :text => @webinar.to_ics
+      end
+    end
+  end
+
+  def download
+    @webinar = Webinar.find(params[:webinar_id]) if params[:webinar_id]
+    
   end
 
   def new

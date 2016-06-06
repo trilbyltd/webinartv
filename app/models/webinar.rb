@@ -44,6 +44,21 @@ class Webinar < ActiveRecord::Base
   def attendable(attendee)
     return true if live_date.past? && WebinarAttendee.find(attendee: attendee, webinar: self).attended == false
   end
+  
+  def to_ics
+    calendar = Icalendar::Calendar.new
+    event = Icalendar::Event.new
+    event.dtstart = self.live_date
+    event.dtend = event.dtstart + 1.hour
+    event.summary = self.description
+    event.alarm do |a|
+        a.action = "DISPLAY"
+        a.trigger = "-P0DT0H15M0S"
+        a.description = "Reminder"
+    end
+    calendar.add_event(event)
+    calendar.to_ical
+  end
 
   private
 
