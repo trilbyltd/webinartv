@@ -209,6 +209,8 @@ GEM
       redis (~> 3.0)
       resque (~> 1.25)
       rufus-scheduler (~> 3.2)
+    rollbar (2.11.4)
+      multi_json
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -333,6 +335,7 @@ DEPENDENCIES
   refills
   resque
   resque-scheduler
+  rollbar
   rspec-rails (~> 3.4.0)
   rspec_junit_formatter (= 0.2.2)
   sass-rails (~> 5.0)
