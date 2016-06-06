@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :webinars do
         patch 'publish'
+        get 'download'
         # resources :attendees, only: :attended
       end
     end

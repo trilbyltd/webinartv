@@ -35,6 +35,10 @@ RSpec.describe WebinarMailer, type: :mailer do
     it 'renders the sender email' do
       expect(mail.from).to eql(['noreply@webinars.trilbytv.co.uk'])
     end
+    
+    it '3 contains attachments' do
+      expect(mail.attachments.count).to eq(3)
+    end
   end
 
 end
