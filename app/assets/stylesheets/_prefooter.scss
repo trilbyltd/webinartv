@@ -1,10 +1,13 @@
 .holder {
     max-width: 984px;
-    min-width: 984px;
     height: auto;
     display: block;
     padding: 0 20px 0 20px;
     margin: 0 auto;
+
+    @include media($large-screen) {
+      width: 984px;
+    }
 }
 text-block p {
     line-height: 30px;
@@ -12,7 +15,6 @@ text-block p {
     font-weight: 300;
 }
 .text-block, .image-block {
-    width: 500px;
     height: auto;
     display: inline-block;
     padding: 0;
@@ -24,15 +26,20 @@ text-block p {
   background-image: image-url("prefooter.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
-  padding: 140px 0 140px 0;
+  background-position: left top;
 
+  @include media($large-screen){
+    padding: 140px 0 140px 0;
+  }
   h1 {
+    @include media($large-screen) {
+      font-size: 80px;
+    }
       display: block;
       margin: 0;
       line-height: 80px;
       padding: 0 0 50px 0;
-      font-size: 80px;
+      font-size: 48px;
       color: #FFF;
       font-weight: 300;
       text-align: left;
@@ -54,7 +61,9 @@ text-block p {
       margin: 0;
   }
   .text-block {
-    width: 600px;
+    @include media($large-screen){
+      width: 600px;
+    }
   }
   .holder {
     min-height: 480px;

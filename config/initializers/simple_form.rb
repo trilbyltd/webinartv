@@ -40,7 +40,7 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label
-    b.use :hint,  wrap_with: { tag: :span, class: :'help-hint' }
+    b.use :hint,  wrap_with: { tag: :p, class: :'help-hint' }
     b.use :error, wrap_with: { tag: :span, class: :error }
     b.use :input
     

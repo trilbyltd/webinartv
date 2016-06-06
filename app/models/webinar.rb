@@ -50,7 +50,8 @@ class Webinar < ActiveRecord::Base
     event = Icalendar::Event.new
     event.dtstart = self.live_date
     event.dtend = event.dtstart + 1.hour
-    event.summary = self.description
+    event.summary = self.title
+    event.description = self.description
     event.alarm do |a|
         a.action = "DISPLAY"
         a.trigger = "-P0DT0H15M0S"
