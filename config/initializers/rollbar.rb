@@ -40,13 +40,6 @@ Rollbar.configure do |config|
   #  Thread.new { Rollbar.process_from_async_handler(payload) }
   # }
 
-  # Enable asynchronous reporting (using sucker_punch)
-  # config.use_sucker_punch
-
-  # Enable delayed reporting (using Sidekiq)
-  # config.use_sidekiq
-  # You can supply custom Sidekiq options:
-  # config.use_sidekiq 'queue' => 'default'
 
   # If you run your staging application instance in production environment then
   # you'll want to override the environment reported by `Rails.env` with an
