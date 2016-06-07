@@ -6,4 +6,8 @@ class Presenter < ActiveRecord::Base
   validates :bio, presence: true
 
   default_scope { order('name asc') }
+
+  def to_s
+    name
+  end
 end

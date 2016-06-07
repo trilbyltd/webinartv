@@ -73,6 +73,22 @@ en:
       short: "%d/%m/%Y"
       full_tz: "%A, %-d %b %Y at %R (%Z)"
 
-  titles:
-    application: "Book yourself on a Webinar"
+  title:
+    application: 'TrilbyTV'
+    default: 'Webinars'
+    webinars:
+      index: 'Book yourself on a webinar'
+      show: '%{webinar}'
+    admin/webinars:
+        index: 'Manage Webinars'
+        show: 'Viewing %{webinar}'
+        edit: 'Edit %{webinar}'
+    attendees:
+      index: 'Manage Attendees'
+      show: '%{attendee} - Attendees'
+      edit: 'Edit %{attendee}'
+    presenters:
+      index: 'Manage Presenters'
+      show: '%{presenter} - Presenters'
+      edit: 'Edit %{presenter}'
     
