@@ -20,6 +20,7 @@ text-block p {
     padding: 0;
     margin: 0 auto;
     vertical-align: bottom;
+    z-index: 2;
 }
 .prefooter {
   color: #FFF;
@@ -80,5 +81,10 @@ text-block p {
     padding: 14px;
     background-color: #fff;
     border-radius: 40px;
+    opacity: 0.85;
+
+    &:hover, &:focus {
+      opacity: 1;
+    }
   }
 }
