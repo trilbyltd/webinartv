@@ -17,11 +17,10 @@
     <% end %>
   <% else %>
   <%= render 'admin/webinars/attendees' %>
-<% end %>
-
-<h4>Attendee Email List</h4>
-<p>You can use this in your email To field</p>
-<% @webinar.attendees.each do |a| %>
-  <%= a.email %>,
+  <h4>Attendee Email List</h4>
+  <p>You can use this in your email To field</p>
+  <% @webinar.attendees.each do |a| %>
+    <%= a.email %>,
+  <% end %>
 <% end %>
 </section>
