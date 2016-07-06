@@ -1,5 +1,5 @@
 class Admin::WebinarsController < ApplicationController
-  before_action :set_webinar, only: [:show, :edit, :update, :publish, :destroy, :download]
+  before_action :set_webinar, only: [:show, :edit, :update, :publish, :destroy, :download, :duplicate]
   before_action :require_login
   
   def index
@@ -23,6 +23,12 @@ class Admin::WebinarsController < ApplicationController
     
   end
 
+  def duplicate
+    @existing_webinar = Webinar.find(params[:webinar_id])
+    @webinar = Webinar.new(@existing_webinar.attributes)
+    render :new
+  end
+
   def new
     @webinar = Webinar.new
   end
@@ -33,7 +39,7 @@ class Admin::WebinarsController < ApplicationController
   def create
     @webinar = Webinar.new(webinar_params)
     if @webinar.save
-      redirect_to admin_webinars_path, notice: 'Webinar was successfully created.'
+      redirect_to admin_webinar_path(@webinar), notice: 'Webinar was successfully created.'
     else
       render :new
     end

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :webinars do
         patch 'publish'
         get 'download'
+        get 'duplicate'
         # resources :attendees, only: :attended
       end
     end
