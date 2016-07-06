@@ -6,10 +6,10 @@ feature "Admin creates a webinar" do
     presenter = create(:presenter)
     live_date = 1.week.from_now
     visit_admin_dashboard_as_admin
-    date = (Time.now + 1.week).strftime("%d/%m/%Y %H:%M")
-    create_webinar(title: "MyWebinar", live_date: date, presenter: presenter.name)
+    date = (Time.now + 1.week)
+    create_webinar(title: "MyWebinar", live_date: date.strftime("%d/%m/%Y %H:%M"), presenter: presenter.name)
     expect(page).to have_text("MyWebinar")
-    expect(page).to have_text(date)
+    expect(page).to have_text(date.strftime("%A, %-d %b %Y at %R"))
     expect(page).to have_text(presenter.name)
     expect(page).to have_content("Webinar was successfully created.")
   end
