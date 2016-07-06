@@ -7,7 +7,7 @@
       <th>Presenter</th>
       <th>Published</th>
       <th>Attendees</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +19,7 @@
         <td><%= webinar.active %></td>
         <td><%= webinar.attendees.count %>
         <td><%= link_to "Public Page", webinar_path(webinar) if webinar.active? %></td>
+        <td><%= link_to "Duplicate", admin_webinar_duplicate_path(webinar) %></td>
         <td><%= link_to t('helpers.actions.edit'), edit_admin_webinar_path(webinar) %></td>
         <td><%= button_to t('helpers.links.destroy'), [:admin, webinar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
