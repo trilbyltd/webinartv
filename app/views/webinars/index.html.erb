@@ -7,27 +7,41 @@
   </div>
 </div>
 <h3>If you are new to TrilbyTV or just want some help getting started then join Ben and Neil for this webinar. We will showcase new features and take you through the process of using TrilbyTV. These are open webinars with plenty of time for Q&amp;A. If you want to join one of the next sessions just sign up here.</h3>
-<% @webinars.upcoming.each do |webinar| %>
+<% if @webinars.empty? %>
 <div class="side-image">
-  <div class="images-wrapper">  
-  <%= link_to webinar do %>
-    <div class="side-image-content">  
-      <h2><%= webinar.title %></h2>
-      <time><%= l(webinar.live_date, format: :default) %></time>
-    </div>
-  <% end %>
+  <div class="images-wrapper">
+    <div class="side-image-content"></div>
   </div>
   <div class="webinar-content-wrapper">
     <div class="webinar-content">
-      <p><%= webinar.description %></p>
-      <p><span class="label">Presenter:</span> <%= webinar.presenter.name %></p>
-        <%= link_to t(".join"), webinar_path(webinar), class: 'btn' %>
-        <% if current_user && current_user.admin? %>
-          <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
-        <% end %>
+      <p>There aren't any scheduled webinars currently.</p>
+      <p>Please check back another time, or email us to request one <a href="mailto:info@trilbytv.co.uk?Subject=Webinars">info@trilbytv.co.uk</a></p>
     </div>
   </div>
 </div>
+<% else %>
+  <% @webinars.each do |webinar| %>
+  <div class="side-image">
+    <div class="images-wrapper">  
+    <%= link_to webinar do %>
+      <div class="side-image-content">  
+        <h2><%= webinar.title %></h2>
+        <time><%= l(webinar.live_date, format: :default) %></time>
+      </div>
+    <% end %>
+    </div>
+    <div class="webinar-content-wrapper">
+      <div class="webinar-content">
+        <p><%= webinar.description %></p>
+        <p><span class="label">Presenter:</span> <%= webinar.presenter.name %></p>
+          <%= link_to t(".join"), webinar_path(webinar), class: 'btn' %>
+          <% if current_user && current_user.admin? %>
+            <%= link_to 'Edit Webinar Details', edit_admin_webinar_path(webinar) %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 <% end %>
 If you can’t make any of the listed dates, drop us an email and we’ll arrange a webinar just for you.
 </section>

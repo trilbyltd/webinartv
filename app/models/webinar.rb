@@ -17,6 +17,10 @@ class Webinar < ActiveRecord::Base
   default_scope { order('live_date asc') }
   scope :active, -> { where active: true }
 
+  def to_s
+    "#{title} (#{live_date.strftime("%d/%m/%Y")})"
+  end
+
   def self.upcoming
     where('live_date >= ?', Time.now)
   end

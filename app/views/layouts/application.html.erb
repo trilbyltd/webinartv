@@ -6,12 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="icon" href="/favicon.png" sizes="96x96" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <%#
-    Configure default and controller-, and view-specific titles in
-    config/locales/en.yml. For more see:
-    https://github.com/calebthompson/title#usage
-  %>
-  <title><%= title %> | TrilbyTV</title>
+  <title><%= page_title %><%= " — #{t 'title.application'}" if page_title %></title>
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>

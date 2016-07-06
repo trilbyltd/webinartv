@@ -12,6 +12,10 @@ class Attendee < ActiveRecord::Base
 
   default_scope { order('name asc') }
 
+  def to_s
+    name
+  end
+
   def register(webinar)
     webinar_attendees.create(webinar: webinar, attendee: self, attended: false)
   end
