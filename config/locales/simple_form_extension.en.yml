@@ -16,10 +16,10 @@ en:
         format:
           js: 'H:i'
           rails: '%H:%M'    
-      datetime:
+      date_time:
         format:
-          js: 'Y/m/d H:i'
-          rails: '%Y/%m/%d %H:%M'
+          js: 'd/m/Y H:i'
+          rails: '%d/%m/%Y/ %H:%M'
       shared:
         week_start_day: 0
       selectize:

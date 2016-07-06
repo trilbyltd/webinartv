@@ -19,3 +19,10 @@
   script.onload = callback;
   head.appendChild(script);
 })();
+
+$(function() {
+  $('.datetimepicker-trigger').datetimepicker({
+  format: 'dd-mm-yyyy hh:ii'
+  });
+
+});

@@ -162,9 +162,4 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
-  config.wrapper_mappings = {
-    datetime: :vertical_form,
-    date: :vertical_form,
-    time: :vertical_form
-  }  
 end

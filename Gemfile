@@ -12,6 +12,7 @@ gem "flutie"
 gem "high_voltage"
 gem "icalendar"
 gem "jquery-rails"
+gem 'jquery-ui-rails'
 gem "neat", "~> 1.7.0"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
