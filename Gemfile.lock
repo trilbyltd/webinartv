@@ -1,6 +1,14 @@
 GIT
+  remote: git://github.com/glyph-fr/redactor-rails.git
+  revision: 2da8b5deac143f6a074d9d040040644e0659a783
+  specs:
+    redactor-rails (0.6.0)
+      mime-types
+      orm_adapter
+
+GIT
   remote: https://github.com/stympy/faker.git
-  revision: 888cbb5f534fc1c6abc94ef15af46743e6f52add
+  revision: 2150404750c7a8178234373f179d7a34ae2f342a
   specs:
     faker (1.6.3)
       i18n (~> 0.5)
@@ -45,9 +53,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.3.6.2)
       execjs
-    awesome_print (1.6.1)
+    awesome_print (1.7.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -57,13 +65,13 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
-    bullet (5.0.0)
+    bullet (5.1.0)
       activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.9.0)
+      uniform_notifier (~> 1.10.0)
     bundler-audit (0.5.0)
       bundler (~> 1.2)
       thor (~> 0.18)
-    byebug (8.2.5)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -74,11 +82,18 @@ GEM
     capybara-webkit (1.10.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
-    clearance (1.14.0)
+    clearance (1.14.1)
       bcrypt
       email_validator (~> 1.4)
       rails (>= 3.1)
     coderay (1.1.1)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -93,13 +108,15 @@ GEM
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     flutie (2.0.0)
+    font-awesome-rails (4.6.3.0)
+      railties (>= 3.2, < 5.1)
     formulaic (0.3.0)
       activesupport
       capybara
@@ -108,7 +125,6 @@ GEM
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
     high_voltage (3.0.0)
-    honeybadger (2.6.0)
     i18n (0.7.0)
     icalendar (2.3.0)
     jquery-rails (4.1.1)
@@ -123,13 +139,13 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
-    mime-types (3.0)
+    mime-types (3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0221)
+    mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.8.4)
+    minitest (5.9.0)
     mono_logger (1.1.0)
-    multi_json (1.12.0)
+    multi_json (1.12.1)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)
@@ -138,14 +154,15 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     normalize-rails (3.0.3)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.3.0)
-      byebug (~> 8.0)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
@@ -153,10 +170,10 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
-    rack-canonical-host (0.2.1)
+    rack-canonical-host (0.2.2)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
-    rack-mini-profiler (0.9.9.2)
+    rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
     rack-protection (1.5.3)
       rack
@@ -188,7 +205,7 @@ GEM
       activesupport (= 4.2.6)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.1.2)
+    rake (11.2.2)
     recipient_interceptor (0.1.2)
       mail
     redis (3.3.0)
@@ -204,12 +221,12 @@ GEM
     resque-rollbar (0.4.0)
       resque
       rollbar (>= 1.4)
-    resque-scheduler (4.2.0)
+    resque-scheduler (4.2.1)
       mono_logger (~> 1.0)
-      redis (~> 3.0)
-      resque (~> 1.25)
+      redis (~> 3.3)
+      resque (~> 1.26)
       rufus-scheduler (~> 3.2)
-    rollbar (2.11.4)
+    rollbar (2.11.5)
       multi_json
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
@@ -240,11 +257,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selectize-rails (0.12.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simple_form_extension (1.3.23)
+      rails (>= 3.1)
+      redactor-rails
+      selectize-rails
+      simple_form
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -258,7 +281,7 @@ GEM
     spring (1.7.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
-    sprockets (3.6.0)
+    sprockets (3.6.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-es6 (0.9.0)
@@ -271,7 +294,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.2)
+    tilt (2.0.5)
     timecop (0.8.1)
     title (0.0.7)
       i18n
@@ -280,14 +303,14 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
-    uniform_notifier (1.9.0)
+    uniform_notifier (1.10.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    web-console (3.1.1)
+    web-console (3.3.0)
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (2.0.1)
+    webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -305,15 +328,16 @@ DEPENDENCIES
   bundler-audit (>= 0.5.0)
   capybara-webkit (~> 1.10.1)
   clearance (~> 1.13)
+  coffee-rails (~> 4.0.0)
   database_cleaner
   dotenv-rails
   email_validator
   factory_girl_rails
   faker!
   flutie
+  font-awesome-rails
   formulaic
   high_voltage
-  honeybadger
   icalendar
   jquery-rails
   launchy
@@ -331,6 +355,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rails_stdout_logging
   recipient_interceptor
+  redactor-rails!
   refills
   resque
   resque-rollbar
@@ -341,6 +366,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-matchers
   simple_form
+  simple_form_extension
   simplecov
   spring
   spring-commands-rspec

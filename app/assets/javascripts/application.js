@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require simple_form_extension
 //= require_tree .
 
 (function() {

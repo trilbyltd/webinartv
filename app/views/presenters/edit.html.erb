@@ -1,6 +1,5 @@
-<h1>Editing Presenter</h1>
+<h1><%= t('title.presenters.edit') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @presenter %> |
-<%= link_to 'Back', presenters_path %>
+<%= link_to t('helpers.actions.back'), presenters_path %>

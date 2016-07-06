@@ -5,10 +5,11 @@ ruby "2.3.1"
 gem "autoprefixer-rails"
 gem "bourbon", "5.0.0.beta.5"
 gem "clearance", "~> 1.13"
+gem 'coffee-rails', '~> 4.0.0'
 gem "email_validator"
+gem "font-awesome-rails"
 gem "flutie"
 gem "high_voltage"
-gem "honeybadger"
 gem "icalendar"
 gem "jquery-rails"
 gem "neat", "~> 1.7.0"
@@ -25,6 +26,7 @@ gem 'resque-rollbar'
 gem "rollbar"
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
+gem "simple_form_extension"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
 gem "title"
@@ -70,3 +72,5 @@ group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

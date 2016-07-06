@@ -33,7 +33,7 @@ class Admin::WebinarsController < ApplicationController
   def create
     @webinar = Webinar.new(webinar_params)
     if @webinar.save
-      redirect_to admin_webinars_path, notice: 'Webinar was successfully created.'
+      redirect_to admin_webinar_path(@webinar), notice: 'Webinar was successfully created.'
     else
       render :new
     end
