@@ -1,16 +1,4 @@
 en:
-  date:
-    formats:
-      default: "%d/%m/%Y"
-      with_weekday: "%a %d/%m/%y"
-  datepicker:
-    dformat: '%d/%m/%Y'             # display format of the date (this is the default, can be ommited)
-    pformat: 'DD/MM/YYYY'           # picking format of the date (this is the default, can be ommited)
-  timepicker:
-    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
-    pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
-  dayViewHeaderFormat: 'MMMM YYYY'  # picking format of the time (this is the default, can be ommited)
-
   application:
     header:
       webinars: "Webinars"
@@ -18,29 +6,6 @@ en:
       attendees: "Attendees"
       sign_out: "Log Out"
       sign_in: "Log In"
-
-  admin:
-    webinars:
-      index:
-      new: "Schedule new Webinar"
-      show: 
-        edit: "Edit Details"
-        publish: "Publish"
-        ics: "Add to Calendar"
-      edit:
-        submit: "Submit"
-        publish: "Publish"
-      form:
-        submit: "Save"
-      attendees:
-        attended: "Mark Attended"
-
-        
-  
-  attendees:
-    index: 
-      show: "View Details"
-      destroy: "Delete"
   helpers:
     actions:
       show: 'View #{model.titleize}'
@@ -55,23 +20,12 @@ en:
         create: "Join"
       webinar:
         create: "Save"
-
-  webinars:
-    index:
-      join: "Register"
-    show: 
-      active_user: "Do you already have a user account?"
-      submit: "Join"
-      
-    columns:
-      date: "%a %d/%m/%y"  
-
-  time:
-    formats:
-      default: "%A, %-d %b %Y at %R"
-      date: "%d/%m/%Y %R"
-      short: "%d/%m/%Y"
-      full_tz: "%A, %-d %b %Y at %R (%Z)"
+  activerecord:
+    models:
+      user: 'Users'
+      presenters: 'Presenters'
+      webinars: 'Webinars'
+      attendees: 'Attendees'
 
   title:
     application: 'TrilbyTV'
@@ -92,3 +46,50 @@ en:
       show: '%{presenter} - Presenters'
       edit: 'Edit %{presenter}'
     
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      with_weekday: "%a %d/%m/%y"
+  datepicker:
+    dformat: '%d/%m/%Y'         # display format of the date (this is the default, can be ommited)
+    pformat: 'DD/MM/YYYY'       # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'               # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:mm'            # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'MMMM YYYY'  # picking format of the time (this is the default, can be ommited)
+
+  admin:
+    webinars:
+      index:
+      new: "Schedule new Webinar"
+      show: 
+        edit: "Edit Details"
+        publish: "Publish"
+        ics: "Add to Calendar"
+      edit:
+        submit: "Save"
+        publish: "Publish"
+      form:
+        submit: "Save"
+      attendees:
+        attended: "Mark Attended"
+  attendees:
+    index: 
+    show: "View Details"
+    destroy: "Delete"
+  webinars:
+    index:
+      join: "Register"
+    show: 
+      active_user: "Do you already have a user account?"
+      submit: "Join" 
+    columns:
+      date: "%a %d/%m/%y"  
+
+  time:
+    formats:
+      default: "%A, %-d %b %Y at %R"
+      date: "%d/%m/%Y %R"
+      short: "%d/%m/%Y"
+      full_tz: "%A, %-d %b %Y at %R (%Z)"

@@ -1,3 +1,10 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require simple_form_extension
+*/
+
 // Brand Colors
 // $brand-green: #49aea3;
 // $brand-green-dark: #29615b;
@@ -18,12 +25,14 @@
 @import "refills/flashes";
 @import "font-awesome";
 
+// @import "jquery-ui/datepicker";
+@import "font-awesome";
+
 @import "global";
 @import "trilbytv";
 @import "utilities";
 @import "webinars";
 @import "prefooter";
-
 
 .page-title {
   margin: 50px 0;
