@@ -74,4 +74,4 @@ group :staging, :production do
   gem "rack-timeout"
 end
 
-gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
+gem 'redactor-rails', git: 'https://github.com/glyph-fr/redactor-rails'

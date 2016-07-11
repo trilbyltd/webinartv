@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/glyph-fr/redactor-rails.git
+  remote: https://github.com/glyph-fr/redactor-rails
   revision: 2da8b5deac143f6a074d9d040040644e0659a783
   specs:
     redactor-rails (0.6.0)
