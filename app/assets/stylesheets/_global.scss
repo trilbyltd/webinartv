@@ -31,9 +31,9 @@ p {
   line-height: 1.4;
 }
 header {
-  background-color: #fff;
 
 }
+
 header nav {
   display: block; 
   padding: 20px 0;
@@ -136,6 +136,13 @@ footer {
     padding: 10px 36px;
     margin-right: 10px;
 }
+.btn-danger {
+  background-color: $brand-red;
+  &:hover {
+    background-color: darken($brand-red, 25%)
+  }
+}
+
 label {
   font-weight: 400;
 }

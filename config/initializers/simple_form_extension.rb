@@ -7,7 +7,7 @@ SimpleForm.setup do |config|
 
     b.wrapper tag: 'div', class: "input-group" do |ba|
       ba.use :icon, wrap_with: { tag: 'span', class: 'input-group-addon' }
-      ba.use :input, class: 'form-control'
+      ba.use :input #, class: 'form-control'
     end
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }

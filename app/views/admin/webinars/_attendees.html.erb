@@ -8,20 +8,33 @@
     <th>Notes</th>
     <th>Mark as Attended</th>
   </tr>
-  <% @webinar.attendees.each do |attendee| %>
+  <% if !@attendees.nil? %>
+    <% @webinar.attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.name %></td>
+        <td><%= attendee.email %>&nbsp;<%= link_to image_tag('email.jpg'), "mailto:#{attendee.email}" %></td>
+        <td><%= attendee.school_name %></td>
+        <td><%= attendee.attended?(@webinar) %></td>
+        <td><%= attendee.contact_number %></td>
+        <td><%= attendee.notes %></td>
+        <td><% if @webinar.attendable(attendee) %>
+              <%= form_for :mark_as_attended, url: webinar_attendee_attended_path(attendee.webinar_attendance(@webinar)), html: { method: :patch } do |form| %>
+              <%= form.submit "Mark attended" %>
+              <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <h3>Attendee Email List</h3>
+    <p>You can use this in your email To field</p>
+    <% @webinar.attendees.each do |a| %>
+      <%= a.email %>,
+    <% end %>
+  <% else %>
     <tr>
-      <td><%= attendee.name %></td>
-      <td><%= attendee.email %>&nbsp;<%= link_to image_tag('email.jpg'), "mailto:#{attendee.email}" %></td>
-      <td><%= attendee.school_name %></td>
-      <td><%= attendee.attended?(@webinar) %></td>
-      <td><%= attendee.contact_number %></td>
-      <td><%= attendee.notes %></td>
-      <td><% if @webinar.attendable(attendee) %>
-            <%= form_for :mark_as_attended, url: webinar_attendee_attended_path(attendee.webinar_attendance(@webinar)), html: { method: :patch } do |form| %>
-            <%= form.submit "Mark attended" %>
-            <% end %>
-        <% end %>
-      </td>
+      <td colspan="7"><p>No attendees registered</p></td>
     </tr>
-  <% end %>
   </table>
+<% end %>
+

@@ -64,7 +64,7 @@ class Admin::WebinarsController < ApplicationController
 
   def destroy
     @webinar.destroy
-    redirect_to admin_webinars_path, notice: 'Webinar was successfully destroyed.'
+    redirect_to admin_webinars_path, notice: 'Webinar was successfully deleted.'
   end
 
   private

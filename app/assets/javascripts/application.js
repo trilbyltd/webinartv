@@ -21,8 +21,7 @@
 })();
 
 $(function() {
-  $('.datetimepicker-trigger').datetimepicker({
-  format: 'dd-mm-yyyy hh:ii'
+  $('.date_time').datetimepicker({
+  format: 'd-m-Y H:i'
   });
-
 });

@@ -91,5 +91,5 @@ en:
     formats:
       default: "%A, %-d %b %Y at %R"
       date: "%d/%m/%Y %R"
-      short: "%d/%m/%Y"
+      short: "%d/%m/%y"
       full_tz: "%A, %-d %b %Y at %R (%Z)"
