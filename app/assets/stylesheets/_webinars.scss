@@ -1,3 +1,7 @@
+.application-header {
+  background-color: #ffffff;
+}
+
 .side-image {  
   $base-line-height: 1.4em !default;
   $dark-gray: #333 !default;
@@ -79,4 +83,7 @@ button.clear {
   @include media($medium-screen){
     @include span-columns(8);  
   }
+}
+.multiple-select-wrapper {
+  display: inline-block;
 }

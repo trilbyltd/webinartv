@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require simple_form_extension
 //= require_tree .
 
 (function() {
@@ -18,3 +19,9 @@
   script.onload = callback;
   head.appendChild(script);
 })();
+
+$(function() {
+  $('.date_time').datetimepicker({
+  format: 'd-m-Y H:i'
+  });
+});

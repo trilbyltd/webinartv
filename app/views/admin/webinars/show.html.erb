@@ -18,10 +18,7 @@
     <% end %>
   <% else %>
   <%= render 'admin/webinars/attendees' %>
-  <h4>Attendee Email List</h4>
-  <p>You can use this in your email To field</p>
-  <% @webinar.attendees.each do |a| %>
-    <%= a.email %>,
-  <% end %>
 <% end %>
 </section>
+<%= button_to t('helpers.links.destroy'), [:admin, @webinar], method: :delete, data: { confirm: 'Are you sure you want to delete this record?' }, class: "btn btn-danger" %>
+<%= link_to t("helpers.actions.back"), admin_webinars_path %>

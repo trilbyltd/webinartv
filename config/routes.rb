@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  resources :passwords,
-      controller: 'clearance/passwords',
-      only: [:create, :new]
-  resource :session,
-      controller: 'clearance/sessions',
-      only: [:create]
-
+  
   resources :users,
   controller: 'clearance/users',
   only: Clearance.configuration.user_actions do
@@ -18,6 +12,9 @@ Rails.application.routes.draw do
     resources :attendees, only: [:new, :create ]
   end
   
+  resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
+  resource :session, controller: 'clearance/sessions', only: [:create]
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get '/join(/:id)', to: 'webinars#show', as: :join_webinar
@@ -27,7 +24,7 @@ Rails.application.routes.draw do
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'
   end
 
-  constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
+  # constraints Clearance::Constraints::SignedIn.new { |a| a.admin?} do
     namespace :admin do
       resources :webinars do
         patch 'publish'
@@ -44,7 +41,7 @@ Rails.application.routes.draw do
     resources :users
 
     get "/admin" => redirect("/admin/webinars")
-  end
+  # end
 
   constraints Clearance::Constraints::SignedIn.new do
     get "/" => redirect("/webinars")   

@@ -6,11 +6,17 @@
     <th>School Name</th>
   </tr>
 <tbody>
-<% for @attendees.each do |attendee| %>
-  <tr>
-    <td><%= attendee.name %></td>
-    <td><%= attendee.email %></td>
-    <td><%= attendee.school_name %></td>
-  </tr>
+<% if !@attendees.nil? %>
+  <% for @attendees.each do |attendee| %>
+    <tr>
+      <td><%= attendee.name %></td>
+      <td><%= attendee.email %></td>
+      <td><%= attendee.school_name %></td>
+    </tr>
+  <% end %>
+<% else %>
+    <tr>
+      <td colspan="3">No attendees registered</td>
+    </tr>
 <% end %>
 </table>

@@ -10,15 +10,19 @@ en:
         change: "Change image"
       date:
         format:
-          js: 'Y/m/d'
+          js: 'd/m/Y'
           rails: '%Y/%m/%d'
       time:
         format:
           js: 'H:i'
           rails: '%H:%M'    
+      date_time:
+        format:
+          js: 'd/m/Y H:i'
+          rails: '%Y/%m/%d %H:%M'
       datetime:
         format:
-          js: 'Y/m/d H:i'
+          js: 'd/m/Y H:i'
           rails: '%Y/%m/%d %H:%M'
       shared:
         week_start_day: 0

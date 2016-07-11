@@ -2,15 +2,16 @@ require "rails_helper"
 require "support/features/clearance_helpers"
 
 feature "Admin creates a webinar" do
+  
   scenario "from the dashboard" do    
     presenter = create(:presenter)
-    live_date = 1.week.from_now
+    date = Time.now + 1.week
     visit_admin_dashboard_as_admin
-    date = (Time.now + 1.week)
-    create_webinar(title: "MyWebinar", live_date: date.strftime("%d/%m/%Y %H:%M"), presenter: presenter.name)
+    
+    create_webinar(title: "MyWebinar", live_date: date.strftime("%d/%m/%Y %H:%M"))
     expect(page).to have_text("MyWebinar")
     expect(page).to have_text(date.strftime("%A, %-d %b %Y at %R"))
-    expect(page).to have_text(presenter.name)
+    # expect(page).to have_text(presenter.name)
     expect(page).to have_content("Webinar was successfully created.")
   end
 
@@ -27,8 +28,9 @@ feature "Admin creates a webinar" do
   def create_webinar(**options)
     attributes = attributes_for(:webinar).merge(options)
     click_on t("admin.webinars.new")
-
-    fill_form_and_submit(:webinar, :new, attributes)
+    fill_in('webinar_title', with: attributes[:title] )
+    fill_in('webinar_live_date', with: attributes[:live_date])
+    click_on submit(:webinar)
   end
 
 end
