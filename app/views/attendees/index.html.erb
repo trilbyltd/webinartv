@@ -18,7 +18,7 @@
         <td><%= attendee.email %></td>
         <td><%= attendee.active_user %></td>
         <td><%= attendee.school_name %></td>
-        <td><%= link_to t('.destroy'), attendee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('attendees.destroy'), attendee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
