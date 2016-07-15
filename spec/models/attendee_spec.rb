@@ -1,6 +1,16 @@
 require 'rails_helper'
+RSpec.configure do |config|
+  # clean out the queue after each spec
+  config.after(:each) do
+    ActiveJob::Base.queue_adapter.enqueued_jobs = []
+    ActiveJob::Base.queue_adapter.performed_jobs = []
+  end
+end
 
 describe Attendee do
+  include ActiveJob::TestHelper
+  include Capybara::Email::DSL
+
   it 'has a valid factory' do
     expect(build(:attendee)).to be_valid
   end
@@ -35,11 +45,22 @@ describe Attendee do
       expect(attendee.attended?(webinar)).to be true
     end
 
-    it "should send an email" do
-      ActiveJob::Base.queue_adapter = :test
-      attendee.register_and_email(webinar)
-      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 2
+    it "should enqueue the email job" do
+        attendee.register_and_email(webinar)
+        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 1
+    end
 
+    it "should send an email once the job is performed" do
+      ActiveJob::Base.queue_adapter = :test
+      
+      perform_enqueued_jobs do
+        attendee.register_and_email(webinar)
+        expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 0
+        expect { attendee.register_and_email(webinar) }.to change { ActionMailer::Base.deliveries.count }.by(2)
+      end
+      open_email(attendee.email)
+      expect(current_email).to have_content(webinar.title)
+      expect(current_email).to have_content(l(webinar.live_date, format: :default))
     end
   end
 

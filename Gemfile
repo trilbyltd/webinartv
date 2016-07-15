@@ -60,6 +60,7 @@ end
 
 group :test do
   gem "capybara-webkit", "~> 1.10.1"
+  gem "capybara-email"
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
