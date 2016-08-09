@@ -1,0 +1,12 @@
+.input {
+  margin-bottom: $small-spacing;    
+}
+#{$all-text-inputs},
+select[multiple] {
+  margin-bottom: 0;
+  &_with_errors #{$all-text-inputs} {
+    border-color: #e05f5f;
+  }
+
+}
+

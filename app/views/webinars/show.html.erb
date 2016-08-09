@@ -9,7 +9,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name %>
+      <%= f.input :name, required: true %>
       <%= f.input :email %>
       <%= f.input :school_name %>
       <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
