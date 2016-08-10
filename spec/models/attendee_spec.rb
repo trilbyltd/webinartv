@@ -22,7 +22,6 @@ describe Attendee do
       should validate_presence_of(:name).with_message('Please provide your name')
       should validate_presence_of(:email).with_message('Please supply your email address so we can send you the webinar information.')
       should validate_presence_of(:school_name).with_message("Please let us know where you're from")
-      should validate_presence_of(:contact_number).with_message("We may need to call you about the webinar")
     end
   
     it "should validate format of data" do

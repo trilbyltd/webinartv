@@ -9,11 +9,11 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name, required: true %>
-      <%= f.input :email %>
-      <%= f.input :school_name %>
-      <%= f.input :contact_number, hint: "In case we need to call you with joining instructions" %>
-      <%= f.input :notes, input_html: { rows: 4 } %>
+      <%= f.input :name %>
+      <%= f.input :email  %>
+      <%= f.input :school_name  %>
+      <%= f.input :contact_number, hint: "In case we need to call you with joining instructions or provide any webinar assistance" %>
+      <%= f.input :notes, input_html: { rows: 3 } %>
       <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
       <%= f.hidden_field :webinar_id, value: @webinar.id %>
     </div>
@@ -25,7 +25,7 @@
   <p>Sorry, this webinar has already passed. Why not check the list for upcoming webinars.</p>
 <% end %>
 
-<p><%= link_to 'Back to list', webinars_path %></p>
+<p><%= link_to t('.back'), webinars_path %></p>
 </div>
 </section>
 <%= render 'prefooter' %>

@@ -82,8 +82,9 @@ en:
     index:
       join: "Register"
     show: 
-      active_user: "Do you already have a user account?"
-      submit: "Join" 
+      active_user: "Do you already have a TrilbyTV user account?"
+      submit: "Register Me" 
+      back: "Back to webinars list"
     columns:
       date: "%a %d/%m/%y"  
 

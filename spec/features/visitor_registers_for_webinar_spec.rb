@@ -9,7 +9,7 @@ feature "Visitor registers for webinar" do
     fill_in "Email", with: "john@example.com" 
     fill_in "School name", with: "Fake School"
     fill_in "Contact number", with: "01234 567890"
-    click_button("Join")
+    click_button(t("webinars.show.submit"))
 
     expect(current_path).to eq webinar_path(webinar)
     expect(page).to have_content("Thanks for registering. A confirmation email has been sent to: john@example.com")

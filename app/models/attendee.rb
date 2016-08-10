@@ -7,8 +7,7 @@ class Attendee < ActiveRecord::Base
   validates :email, presence: { message: 'Please supply your email address so we can send you the webinar information.' }
   validates :email, email: { message: 'Email doesn\'t appear to be valid' }
   validates :school_name, presence: { message: 'Please let us know where you\'re from' }
-  validates :contact_number, { presence: { message: 'We may need to call you about the webinar' },
-                               length: { maximum: 20 } }
+  validates :contact_number, { length: { maximum: 20 } }
 
   default_scope { order('name asc') }
 
