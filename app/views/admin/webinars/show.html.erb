@@ -1,9 +1,9 @@
 <h1><%= @webinar.title %></h1>
 <%= render 'shared/webinar_detail' %>
 <p><span class="label">Webinar URL:</span>
-  <%=h link_to @webinar.webinar_url, @webinar.webinar_url, target: :blank %>
+<%= link_to safe_url(@webinar.webinar_url), safe_url(@webinar.webinar_url) , target: :blank%>
 </p>
-<p><%=h link_to t(".ics"), controller: 'admin/webinars', action: :show, format: :ics %></p>
+<p><%= link_to t(".ics"), controller: 'admin/webinars', action: :show, format: :ics %></p>
 <%= link_to t(".edit"), edit_admin_webinar_path(@webinar), class: 'btn' %>
 <%= link_to t("helpers.actions.back"), admin_webinars_path, class: 'btn' %>
 

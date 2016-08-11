@@ -4,4 +4,8 @@ module ApplicationHelper
     content_for (:title) { page_title}
   end
 
+  def safe_url(url)
+    "".html_safe + url
+  end
+
 end

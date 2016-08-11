@@ -66,7 +66,7 @@ en:
       show: 
         edit: "Edit Details"
         publish: "Publish"
-        ics: "Add to Calendar"
+        ics: "Download ICS"
       edit:
         submit: "Save"
         publish: "Publish"
