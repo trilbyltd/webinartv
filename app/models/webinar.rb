@@ -54,7 +54,7 @@ class Webinar < ActiveRecord::Base
     event = Icalendar::Event.new
     event.dtstart = self.live_date
     event.dtend = event.dtstart + 1.hour
-    event.summary = self.title
+    event.summary = self.title + " (Webinar)"
     event.description = self.description
     event.alarm do |a|
         a.action = "DISPLAY"

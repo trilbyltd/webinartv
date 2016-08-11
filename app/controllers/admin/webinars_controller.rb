@@ -13,14 +13,13 @@ class Admin::WebinarsController < ApplicationController
     respond_to do |format|
       format.html
       format.ics do
-        render :text => @webinar.to_ics
+        render text: @webinar.to_ics
       end
     end
   end
 
   def download
     @webinar = Webinar.find(params[:webinar_id]) if params[:webinar_id]
-    
   end
 
   def duplicate
