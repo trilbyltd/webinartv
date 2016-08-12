@@ -13,7 +13,7 @@ class Admin::WebinarsController < ApplicationController
     respond_to do |format|
       format.html
       format.ics do
-        render text: h(@webinar.to_ics)
+        render text: "".html_safe + @webinar.to_ics
       end
     end
   end
