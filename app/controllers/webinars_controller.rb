@@ -11,7 +11,11 @@ class WebinarsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_webinar
-      @webinar = Webinar.find(params[:id]) if params[:id]
-    end
+  def set_webinar
+    @webinar = Webinar.find(params[:id]) if params[:id]
+    rescue ActiveRecord::RecordNotFound => e
+      # @webinar = Webinar.new(title: 'Webinar Not Found', live_date: Time.now)
+      # render 'error'
+      redirect_to webinars_path, alert: "Sorry, we can't find that any details for that webinar. It may have already passed. Please select from the available webinars below"
+  end
 end

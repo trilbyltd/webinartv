@@ -1,6 +1,7 @@
 class WebinarAttendeesController < ApplicationController
   before_action :set_webinar_attendee, only: [:show, :edit, :update, :destroy, :attended]
-  
+  before_action :require_login, except: [:new, :create]
+
   def new
     @webinar_attendee = WebninarAttendee.new
   end

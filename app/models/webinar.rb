@@ -18,7 +18,11 @@ class Webinar < ActiveRecord::Base
   scope :active, -> { where active: true }
 
   def to_s
-    "#{title} (#{live_date.strftime("%d/%m/%Y")})"
+    if live_date?
+      "#{title} (#{live_date.strftime("%d/%m/%Y")})"
+    else
+      "#{title}"
+    end
   end
 
   def self.upcoming
