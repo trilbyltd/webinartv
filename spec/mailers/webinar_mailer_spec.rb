@@ -5,18 +5,23 @@ RSpec.describe WebinarMailer, type: :mailer do
   let(:attendee) { create(:attendee) }
   let(:webinar) { create(:webinar, :live) }
   
-  it 'enqueues a job' do
+  it 'enqueues a job when sent later' do
     expect {
       WebinarMailer.webinar_registration(attendee, webinar).deliver_later
     }.to have_enqueued_job.on_queue('mailers')
-
   end
 
-  it 'delivers 2 emails' do
+  it 'deliveres emails' do
+    WebinarMailer.webinar_registration(attendee, webinar).deliver_now
+    WebinarMailer.internal_join_notification(attendee, webinar).deliver_now
+    expect(ActionMailer::Base.deliveries.count).to eq 2
+  end
+
+  it 'queued job delivers 2 emails' do
     expect { 
       perform_enqueued_jobs do
-        WebinarMailer.webinar_registration(attendee, webinar).deliver_now
-        WebinarMailer.internal_join_notification(attendee, webinar).deliver_now
+        WebinarMailer.webinar_registration(attendee, webinar).deliver_later
+        WebinarMailer.internal_join_notification(attendee, webinar).deliver_later
         end
       }.to change { ActionMailer::Base.deliveries.count }.by(2)
   end

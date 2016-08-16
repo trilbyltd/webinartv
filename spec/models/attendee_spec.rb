@@ -45,7 +45,7 @@ describe Attendee do
     end
 
     it "should enqueue the email job" do
-        attendee.register_and_email(webinar)
+        WebinarRegistrationJob.perform_later(attendee, webinar)
         expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 1
     end
 
