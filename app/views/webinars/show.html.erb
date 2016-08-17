@@ -1,24 +1,26 @@
-<h2>Register for <%= @webinar.title %></h2>
-<p>If you'd like to register for this webinar, please enter your details below.</p>
+<article>
+  <h2>Register for <%= @webinar.title %></h2>
+  </p>
 
-<%= render 'shared/webinar_detail' %>
-
+  <%= render 'shared/webinar_detail' %>
+  <p>If you'd like to register for this webinar, please enter your details below.</p>
+</article>
 <% if @webinar.live? %>
   <div class="join-form first">
-    <%= simple_form_for [@webinar, @attendee] do |f| %>
+  <%= simple_form_for [@webinar, @attendee] do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :email  %>
-      <%= f.input :school_name  %>
-      <%= f.input :contact_number, hint: "In case we need to call you with joining instructions or provide any webinar assistance" %>
-      <%= f.input :notes, input_html: { rows: 3 } %>
-      <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
-      <%= f.hidden_field :webinar_id, value: @webinar.id %>
+    <%= f.input :name %>
+    <%= f.input :email  %>
+    <%= f.input :school_name, label: "School Name"  %>
+    <%= f.input :contact_number, hint: "In case we need to call you with joining instructions or provide any webinar assistance" %>
+    <%= f.input :notes, input_html: { rows: 3 } %>
+    <%= f.input :active_user, label: false, inline_label: t(".active_user") %>
+    <%= f.hidden_field :webinar_id, value: @webinar.id %>
     </div>
     <div class="form-actions">
-      <p><%= f.button :submit, t(".submit") %></p>
+    <p><%= f.button :submit, t(".submit") %></p>
     </div>
   <% end %>
 <% else %>

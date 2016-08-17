@@ -21,7 +21,8 @@
 </div>
 <% else %>
   <% @webinars.each do |webinar| %>
-  <div class="side-image">
+  <article>
+    <div class="side-image">
     <div class="images-wrapper">  
     <%= link_to webinar do %>
       <div class="side-image-content">  
@@ -41,6 +42,7 @@
       </div>
     </div>
   </div>
+</article>
   <% end %>
 <% end %>
 If you can’t make any of the listed dates, drop us an email and we’ll arrange a webinar just for you.

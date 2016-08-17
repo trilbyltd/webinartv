@@ -81,7 +81,7 @@ button.clear {
 }
 .join-form {
   @include media($medium-screen){
-    @include span-columns(8);  
+    @include span-columns(6);  
   }
 }
 .multiple-select-wrapper {

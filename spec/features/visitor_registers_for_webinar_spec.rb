@@ -5,9 +5,9 @@ feature "Visitor registers for webinar" do
   
   scenario "with valid details and valid email" do
     visit join_webinar_path(webinar)
-    fill_in "Name", with: "John Smith"
+    fill_in "Name", with: "John Smith", match: :prefer_exact
     fill_in "Email", with: "john@example.com" 
-    fill_in "School name", with: "Fake School"
+    fill_in "School Name", with: "Fake School"
     fill_in "Contact number", with: "01234 567890"
     click_button(t("webinars.show.submit"))
 
