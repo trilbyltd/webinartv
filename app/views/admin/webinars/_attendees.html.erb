@@ -1,24 +1,23 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Email</th>
     <th>School/Company</th>
     <th>Attended?</th>
     <th>Telephone</th>
     <th>Notes</th>
     <th>Mark as Attended</th>
   </tr>
-  <% if !@attendees.nil? %>
-    <% @webinar.attendees.each do |attendee| %>
+  <% if !webinar.attendees.nil? %>
+    <% webinar.attendees.each do |attendee| %>
       <tr>
-        <td><%= attendee.name %></td>
-        <td><%= attendee.email %>&nbsp;<%= link_to image_tag('email.jpg'), "mailto:#{attendee.email}" %></td>
+        <td><%= attendee.name %> <%= link_to raw('<i class="fa fa-envelope" aria-hidden="true"></i>
+'), "mailto:#{attendee.email}?Subject=TrilbyTV%20Webinar - #{webinar.title}" %></td>
         <td><%= attendee.school_name %></td>
         <td><%= attendee.attended?(@webinar) %></td>
         <td><%= attendee.contact_number %></td>
         <td><%= attendee.notes %></td>
-        <td><% if @webinar.attendable(attendee) %>
-              <%= form_for :mark_as_attended, url: webinar_attendee_attended_path(attendee.webinar_attendance(@webinar)), html: { method: :patch } do |form| %>
+        <td><% if webinar.attendable(attendee) %>
+              <%= form_for :mark_as_attended, url: webinar_attendee_attended_path(attendee, webinar), html: { method: :patch } do |form| %>
               <%= form.submit "Mark attended" %>
               <% end %>
           <% end %>
@@ -37,4 +36,3 @@
     </tr>
   </table>
 <% end %>
-

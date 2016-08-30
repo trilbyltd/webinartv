@@ -50,7 +50,7 @@ class Webinar < ActiveRecord::Base
   end
 
   def attendable(attendee)
-    return true if live_date.past? && WebinarAttendee.find(attendee: attendee, webinar: self).attended == false
+    return true if live_date.past? && WebinarAttendee.where(attendee_id: attendee.id, webinar_id: self.id).first.attended == false
   end
   
   def to_ics

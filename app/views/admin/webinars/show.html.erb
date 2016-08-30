@@ -15,9 +15,9 @@
     <%= simple_form_for([:admin, @webinar], url: admin_webinar_publish_path(@webinar)) do |f| %>
       <%= f.button :submit, t(".publish") %>
     <% end %>
-    <% end %>
-  <% else %>
-  <%= render 'admin/webinars/attendees' %>
+  <% end %>
+<% else %>
+  <%= render 'admin/webinars/attendees', webinar: @webinar %>
 <% end %>
 </section>
 <%= button_to t('helpers.links.destroy'), [:admin, @webinar], method: :delete, data: { confirm: 'Are you sure you want to delete this record?' }, class: "btn btn-danger" %>

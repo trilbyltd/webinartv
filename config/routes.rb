@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get '/join(/:id)', to: 'webinars#show', as: :join_webinar
-  get '/admin' => redirect("/admin/webinars")  
+  get '/admin' => redirect("/admin/webinars") 
+  get '/webinars/:id/attendees' => 'webinars#show' 
   
   if Clearance.configuration.allow_sign_up?
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'

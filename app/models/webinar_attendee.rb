@@ -12,6 +12,6 @@ class WebinarAttendee < ActiveRecord::Base
   end
 
   def registered?(webinar, attendee)
-    return false if WebinarAttendee.find(webinar: webinar, attendee: self).empty?
+    return false if WebinarAttendee.find(webinar: webinar, attendee: attendee).empty?
   end
 end
