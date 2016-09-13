@@ -31,12 +31,26 @@ p {
   line-height: 1.4;
 }
 header {
+  nav {
+    padding: 20px 0;
+    @include outer-container(1200px);
+  }
 
 }
 
-header nav {
-  display: block; 
+menu {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid $brand-green;
+  nav{
+    padding: 4px;
+  }
+}
+nav {
+  display: block;
   padding: 20px 0;
+  background-color: #ffffff;
   @include outer-container(1200px);
   @include media($large-screen-down) {
     margin-left: 20px;
@@ -50,18 +64,17 @@ header nav {
    display: inline; 
   }
   ul {
-    padding-top: 28px;
     width: auto;
   }
   ul li.nav-link {
     display: inline; 
     // line-height: 60px;
     overflow: hidden;
-    padding: 40px 1em 40px 1em;
+    padding-right: 1em;
     text-align: right;
     width: 100%;
     z-index: 9999;
-    color: #fff;
+    color: $brand-green;
     a {
       display: inline-block;
       outline: none;

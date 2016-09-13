@@ -13,6 +13,7 @@
 // $brand-grey: #edf0f5;
 // $brand-grey-dark: #cdcfd1;
 // $brand-red: #e05f5f;
+// $brand-yellow: #f3b043;
 
 @charset "utf-8";
 
@@ -96,4 +97,23 @@
 .help-hint {
   font-size: 0.875em;
   margin-bottom: 0;
+}
+
+.env{
+  text-align: center;
+  color: #ffffff;
+  display: block;
+  padding: 24px;
+  &-development {
+    background-color: $brand-yellow;
+  }
+  &-staging {
+    background-color: $brand-red;
+  }
+  &-test {
+    background-color: $brand-yellow;
+  }
+  &-production {
+    display: none;
+  }
 }
