@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Webinar < ActiveRecord::Base
   has_many :attendees, through: :webinar_attendees
   has_many :webinar_attendees, dependent: :destroy
@@ -12,16 +13,16 @@ class Webinar < ActiveRecord::Base
     validates :presenter_id, presence: true
     validates :webinar_url, presence: true
     validates :description, presence: true
-  end  
+  end
 
   default_scope { order('live_date asc') }
   scope :active, -> { where active: true }
 
   def to_s
     if live_date?
-      "#{title} (#{live_date.strftime("%d/%m/%Y")})"
+      "#{title} (#{live_date.strftime('%d/%m/%Y')})"
     else
-      "#{title}"
+      title.to_s
     end
   end
 
@@ -50,20 +51,20 @@ class Webinar < ActiveRecord::Base
   end
 
   def attendable(attendee)
-    return true if live_date.past? && WebinarAttendee.where(attendee_id: attendee.id, webinar_id: self.id).first.attended == false
+    return true if live_date.past? && WebinarAttendee.where(attendee_id: attendee.id, webinar_id: id).first.attended == false
   end
-  
+
   def to_ics
     calendar = Icalendar::Calendar.new
     event = Icalendar::Event.new
-    event.dtstart = self.live_date
+    event.dtstart = live_date
     event.dtend = event.dtstart + 1.hour
-    event.summary = self.title + " (Webinar)"
-    event.description = self.description
+    event.summary = title + ' (Webinar)'
+    event.description = description
     event.alarm do |a|
-        a.action = "DISPLAY"
-        a.trigger = "-P0DT0H15M0S"
-        a.description = "Reminder"
+      a.action = 'DISPLAY'
+      a.trigger = '-P0DT0H15M0S'
+      a.description = 'Reminder'
     end
     calendar.add_event(event)
     calendar.to_ical
@@ -73,7 +74,7 @@ class Webinar < ActiveRecord::Base
 
   def webinar_cant_be_in_the_past
     if live_date.present? && live_date < Time.now
-      errors.add(:live_date, "can't schedule a webinar in the past") 
+      errors.add(:live_date, "can't schedule a webinar in the past")
     end
   end
 end

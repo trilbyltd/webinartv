@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WebinarRegistrationJob < ActiveJob::Base
   queue_as :mailers
 

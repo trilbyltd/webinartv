@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WebinarAttendee < ActiveRecord::Base
   belongs_to :webinar
   belongs_to :attendee
