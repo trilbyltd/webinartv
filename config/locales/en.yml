@@ -1,6 +1,6 @@
 en:
   application:
-    header:
+    nav_bar:
       webinars: "Webinars"
       presenters: "Presenters"
       attendees: "Attendees"

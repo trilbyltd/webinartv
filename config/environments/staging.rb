@@ -5,5 +5,5 @@ Mail.register_interceptor(
 )
 
 Rails.application.configure do
-
+  config.assets.compile = true
 end
