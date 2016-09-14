@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WebinarAttendeesController < ApplicationController
   before_action :set_webinar_attendee, only: [:show, :edit, :update, :destroy, :attended]
   before_action :require_login, except: [:new, :create]
@@ -23,19 +24,20 @@ class WebinarAttendeesController < ApplicationController
       redirect_to webinar_path(@webinar)
     end
   end
-  
+
   def destroy
     @webinar_attendee.destroy
     redirect_to webinar_attendees_url, notice: 'Webinar attendee was successfully destroyed.'
   end
-  
+
   def attended
     @webinar_attendee = WebinarAttendee.find(params[:webinar_attendee_id])
     @webinar_attendee.update!(attended: true)
     redirect_to admin_webinar_path(@webinar_attendee.webinar), notice: 'Attendee marked as attended'
   end
-  
+
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_webinar_attendee
     @webinar_attendee = WebinarAttendee.find(params[:id]) if params[:id]
@@ -43,6 +45,6 @@ class WebinarAttendeesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def webinar_attendee_params
-    params.require(:webinar_attendee).permit(:webinar_id, :attendee_id, :attended, attendees_attributes: [:id, :name, :email, :school_name, :active] )
+    params.require(:webinar_attendee).permit(:webinar_id, :attendee_id, :attended, attendees_attributes: [:id, :name, :email, :school_name, :active])
   end
 end

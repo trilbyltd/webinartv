@@ -7,9 +7,9 @@
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
-  $side-image-background-top: $brand-green;
-  $side-image-background-bottom: $brand-green;
-  $side-image-content-background: $brand-green;
+  $side-image-background-top: $trilbytv-green;
+  $side-image-background-bottom: $trilbytv-green;
+  $side-image-content-background: $trilbytv-green;
   $side-image-content-background-image: image-url("webinar_img_1.png");
   $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
   background: $side-image-content-background;

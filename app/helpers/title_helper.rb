@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 module TitleHelper
   def page_title
     t page_title_translation_key,
-      page_title_context.merge(:default => :"title.default")
+      page_title_context.merge(default: :"title.default")
   end
 
   def page_title_translation_key

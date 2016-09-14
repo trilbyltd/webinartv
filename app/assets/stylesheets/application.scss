@@ -6,115 +6,32 @@
 */
 
 // Brand Colors
-// $brand-green: #49aea3;
-// $brand-green-dark: #29615b;
-// $brand-aqua: #b3f9f1;
-// $brand-aqua-dark: #5ee1d2;
-// $brand-grey: #edf0f5;
-// $brand-grey-dark: #cdcfd1;
-// $brand-red: #e05f5f;
-// $brand-yellow: #f3b043;
+// $trilbytv-green: #49aea3;
+// $trilbytv-green-dark: #29615b;
+// $trilbytv-aqua: #b3f9f1;
+// $trilbytv-aqua-dark: #5ee1d2;
+// $trilbytv-grey: #edf0f5;
+// $trilbytv-grey-dark: #cdcfd1;
+// $trilbytv-red: #e05f5f;
+// $trilbytv-yellow: #f3b043;
 
 @charset "utf-8";
-
 @import "normalize-rails";
-
 @import "bourbon";
 @import "neat";
-
 @import "base/base";
-@import "refills/flashes";
+//@import "refills/flashes";
 @import "font-awesome";
 
-@import "font-awesome";
+// TrilbyTV Generics
+@import "trilbytv";
 
 @import "global";
 @import "clearance";
-@import "trilbytv";
+
+// App custom CSS
 @import "navigation";
 @import "utilities";
 @import "webinars";
 @import "prefooter";
 @import "custom_form";
-
-.page-title {
-  margin: 50px 0;
-  text-align: center;
-}
-
-.title, .page-title {
-  font-size: 50px;
-  color: #49aea3;
-  margin: 0 0 20px 0;
-  padding: 0;
-  font-weight: 300;
-}
-
-.line-title-container {
-  overflow: hidden;
-}
-
-.line-title {
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  position: relative;
-  margin-bottom: 50px;
-
-  span {
-  font-size: 15px;
-  letter-spacing: 5px;
-  display: inline-block;
-  position: relative;
-  text-transform: uppercase;
-  }
-  &::before {
-    right: 100%;
-    margin-right: 15px;
-  }
-  &::after { 
-    left: 100%;
-    margin-left: 15px;
-  }
-  &::before, &::after {
-    border-top: 1px solid #49aea3;
-    display: block;
-    height: 1px;
-    content: " ";
-    width: 420px;
-    position: absolute;
-    top: 10px;
-    width: 600px;
-  }
-}
-
-.clearblock, .colourblock, .prefooter {
-    width: 100%;
-    margin: 0;
-    display: block;
-}
-
-// Simple Form Overides
-.help-hint {
-  font-size: 0.875em;
-  margin-bottom: 0;
-}
-
-.env{
-  text-align: center;
-  color: #ffffff;
-  display: block;
-  padding: 24px;
-  &-development {
-    background-color: $brand-yellow;
-  }
-  &-staging {
-    background-color: $brand-red;
-  }
-  &-test {
-    background-color: $brand-yellow;
-  }
-  &-production {
-    display: none;
-  }
-}

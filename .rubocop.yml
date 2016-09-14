@@ -9,9 +9,12 @@ AllCops:
     - 'script/**/*'
     - 'spec/**/*'
     - 'rspec/**/*'
+    - 'vendor/**/*'
 Metrics/LineLength:
   Enabled: false
 Documentation: 
   Enabled: false
 TrailingBlankLines:
   Enabled: true
+MethodLength:
+  Enabled: false

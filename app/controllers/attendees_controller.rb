@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AttendeesController < ApplicationController
   before_action :set_attendee, only: [:show, :update, :destroy]
   before_action :require_login, except: [:new, :create]
@@ -22,7 +23,7 @@ class AttendeesController < ApplicationController
       @attendee.register_and_email(@webinar)
       redirect_to webinar_path(@webinar), notice: "Thanks for registering. A confirmation email has been sent to: #{@attendee.email}"
     else
-      render 'webinars/show', notice: "Unable to complete registration. Please try again."
+      render 'webinars/show', notice: 'Unable to complete registration. Please try again.'
     end
   end
 
@@ -40,21 +41,21 @@ class AttendeesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendee
-      @attendee = Attendee.find(params[:id]) if params[:id]
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def attendee_params
-      params.require(:attendee).
-      permit(:name, 
-        :email, 
-        :active_user, 
-        :school_name, 
-        :contact_number,
-        :notes,
-        :webinar_id
-        )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attendee
+    @attendee = Attendee.find(params[:id]) if params[:id]
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def attendee_params
+    params.require(:attendee)
+          .permit(:name,
+                  :email,
+                  :active_user,
+                  :school_name,
+                  :contact_number,
+                  :notes,
+                  :webinar_id)
+  end
 end

@@ -5,7 +5,7 @@ header.navigation {
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
   $navigation-padding: 1em;
-  $navigation-background: $brand-green;
+  $navigation-background: $trilbytv-green;
 
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: #ffffff;
@@ -34,7 +34,7 @@ header.navigation {
     @include clearfix;
     position: relative;
     z-index: 9999;
-    border-top: 1px solid $brand-green;
+    border-top: 1px solid $trilbytv-green;
   }
 
   // Mobile view
@@ -63,7 +63,7 @@ header.navigation {
     background-color: #ffffff;
     padding: 0;
     margin: 0;
-    border-top: 1px solid $brand-green;
+    border-top: 1px solid $trilbytv-green;
     nav{
       padding: 4px;
     }

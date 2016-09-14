@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PresentersController < ApplicationController
   before_action :set_presenter, only: [:show, :edit, :update, :destroy]
   before_action :require_login
@@ -40,11 +41,12 @@ class PresentersController < ApplicationController
   end
 
   private
-    def set_presenter
-      @presenter = Presenter.find(params[:id]) if params[:id]
-    end
 
-    def presenter_params
-      params.require(:presenter).permit(:name, :email, :bio)
-    end
+  def set_presenter
+    @presenter = Presenter.find(params[:id]) if params[:id]
+  end
+
+  def presenter_params
+    params.require(:presenter).permit(:name, :email, :bio)
+  end
 end
