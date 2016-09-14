@@ -3,12 +3,12 @@ html, body {
 }
 body {
   @include outer-container(100%);
-  background-color: $brand-grey;
+  background-color: $trilbytv-grey;
   font-weight: 200;
   // min-height: 100vh;
 }
 h1, h2, h3, h4 {
-  color: $brand-green-dark;
+  color: $trilbytv-green-dark;
   font-weight: 300;
 }
 h1 {
@@ -46,14 +46,17 @@ section {
   padding-bottom: 40px;
 
   @include reset-display();
+  //@include clearfix;
   
-  .first {
-    padding-top: 0;
+  &:first-child {
+    padding: 0;
   }
-  .content {
-    height: 100%;
+  &:last-child {
+    padding: 0;
+  }
+  &.content {
+    height: auto;
     min-height: 100%;
-    margin-bottom: -120px;
     @include media($large-screen-down) {
       padding-left: 20px;
       padding-right: 20px;
@@ -72,7 +75,7 @@ section .content:after {
     height: 120px; 
 }
 .site-footer {
-  background-color: $brand-green-dark;
+  background-color: $trilbytv-green-dark;
   color: #ffffff;
   font-weight:200;
   font-size: 12px;
@@ -80,20 +83,19 @@ section .content:after {
 }
 
 footer {
-  padding-bottom: 20px;
   height: 45px;
 }
 
 .flashes {
   @include outer-container(1200px);
-  color: $brand-aqua;
+  color: $trilbytv-aqua;
   .flash-notice {
-    border: 1px solid $brand-aqua;
+    border: 1px solid $trilbytv-aqua;
   }
 }
 
 .btn {
-    background-color: $brand-green;
+    background-color: $trilbytv-green;
     color: #ffffff;
     min-width: $clear-button-width;
     border-radius: 20px;
@@ -102,12 +104,95 @@ footer {
     margin-right: 10px;
 }
 .btn-danger {
-  background-color: $brand-red;
+  background-color: $trilbytv-red;
   &:hover {
-    background-color: darken($brand-red, 25%)
+    background-color: darken($trilbytv-red, 25%)
   }
 }
 
 label {
   font-weight: 400;
+}
+
+
+.page-title {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.title, .page-title {
+  font-size: 50px;
+  color: #49aea3;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.line-title-container {
+  overflow: hidden;
+}
+
+.line-title {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+
+  span {
+  font-size: 15px;
+  letter-spacing: 5px;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  }
+  &::before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  &::after { 
+    left: 100%;
+    margin-left: 15px;
+  }
+  &::before, &::after {
+    border-top: 1px solid #49aea3;
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 420px;
+    position: absolute;
+    top: 10px;
+    width: 600px;
+  }
+}
+
+.clearblock, .colourblock, .prefooter {
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+
+// Simple Form Overides
+.help-hint {
+  font-size: 0.875em;
+  margin-bottom: 0;
+}
+
+.env{
+  text-align: center;
+  color: #ffffff;
+  display: block;
+  padding: 24px;
+  &-development {
+    background-color: $trilbytv-yellow;
+  }
+  &-staging {
+    background-color: $trilbytv-red;
+  }
+  &-test {
+    background-color: $trilbytv-yellow;
+  }
+  &-production {
+    display: none;
+  }
 }
