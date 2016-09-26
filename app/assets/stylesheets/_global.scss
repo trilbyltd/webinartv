@@ -1,39 +1,52 @@
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
+
 body {
   @include outer-container(100%);
   background-color: $trilbytv-grey;
   font-weight: 200;
   // min-height: 100vh;
 }
-h1, h2, h3, h4 {
+
+h1,
+h2,
+h3,
+h4 {
   color: $trilbytv-green-dark;
   font-weight: 300;
 }
+
 h1 {
   font-size: 1.75em;
   font-weight: 300;
   line-height: 40px;
   margin-bottom: 20px;
 }
+
 h2 {
-  font-weight: 300;
   font-size: 1.5em;
+  font-weight: 300;
 }
+
 h3 {
   font-size: 1.25em;
 }
+
 h4 {
   font-size: 1em;
 }
+
 p {
   line-height: 1.4;
 }
+
 header.application-header {
   nav {
     @include outer-container(1200px);
     padding: 20px 0;
+
     @include media($large-screen-down) {
       margin: 0 20px;
     }
@@ -42,43 +55,48 @@ header.application-header {
 
 section {   
   @include outer-container(1200px);
-  padding-top: 40px;
-  padding-bottom: 40px;
-
   @include reset-display();
-  //@include clearfix;
   
+  padding-bottom: 40px;
+  padding-top: 40px;
+
   &:first-child {
     padding: 0;
   }
+  
   &:last-child {
     padding: 0;
   }
+  
   &.content {
     height: auto;
     min-height: 100%;
+  
     @include media($large-screen-down) {
       padding-left: 20px;
       padding-right: 20px;
     }
   }
 }
+
 section .full-width {
- @include outer-container(100%); 
+  @include outer-container(100%);
 }
 
 section .content:after {
-  content: "";
+  content: '';
   display: block;
 }
+
 .site-footer, section .content:after {
-    height: 120px; 
+  height: 120px;
 }
+
 .site-footer {
   background-color: $trilbytv-green-dark;
   color: #ffffff;
-  font-weight:200;
   font-size: 12px;
+  font-weight: 200;
   text-align: center;
 }
 
@@ -89,24 +107,27 @@ footer {
 .flashes {
   @include outer-container(1200px);
   color: $trilbytv-aqua;
+
   .flash-notice {
     border: 1px solid $trilbytv-aqua;
   }
 }
 
 .btn {
-    background-color: $trilbytv-green;
-    color: #ffffff;
-    min-width: $clear-button-width;
-    border-radius: 20px;
-    height: 40px;
-    padding: 10px 36px;
-    margin-right: 10px;
+  background-color: $trilbytv-green;
+  border-radius: 20px;
+  color: #ffffff;
+  height: 40px;
+  margin-right: 10px;
+  min-width: $clear-button-width;
+  padding: 10px 36px;
 }
+
 .btn-danger {
   background-color: $trilbytv-red;
+
   &:hover {
-    background-color: darken($trilbytv-red, 25%)
+    background-color: darken($trilbytv-red, 25%);
   }
 }
 
@@ -140,58 +161,67 @@ label {
   margin-bottom: 50px;
 
   span {
-  font-size: 15px;
-  letter-spacing: 5px;
-  display: inline-block;
-  position: relative;
-  text-transform: uppercase;
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 5px;
+    position: relative;
+    text-transform: uppercase;
   }
+  
   &::before {
     right: 100%;
     margin-right: 15px;
   }
+  
   &::after { 
     left: 100%;
     margin-left: 15px;
   }
+  
   &::before, &::after {
     border-top: 1px solid #49aea3;
+    content: ' ';
     display: block;
     height: 1px;
-    content: " ";
-    width: 420px;
     position: absolute;
     top: 10px;
-    width: 600px;
+    width: 420px;
+    // width: 600px;
   }
 }
 
-.clearblock, .colourblock, .prefooter {
-    width: 100%;
-    margin: 0;
-    display: block;
+.clearblock,
+.colourblock,
+.prefooter {
+  display: block;
+  margin: 0;
+  width: 100%;
 }
 
 // Simple Form Overides
 .help-hint {
-  font-size: 0.875em;
+  font-size: .875em;
   margin-bottom: 0;
 }
 
-.env{
-  text-align: center;
+.env {
   color: #ffffff;
   display: block;
   padding: 24px;
+  text-align: center;
+
   &-development {
     background-color: $trilbytv-yellow;
   }
+
   &-staging {
     background-color: $trilbytv-red;
   }
+
   &-test {
     background-color: $trilbytv-yellow;
   }
+
   &-production {
     display: none;
   }

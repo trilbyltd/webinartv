@@ -20,6 +20,7 @@
   head.appendChild(script);
 })();
 
+// Date Picker formats
 $(function() {
   $('.date_time').datetimepicker({
   format: 'd-m-Y H:i'

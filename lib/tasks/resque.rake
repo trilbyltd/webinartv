@@ -4,13 +4,13 @@ require 'resque/scheduler/tasks'
 require 'resque/scheduler/server'
 
 namespace :resque do
-  task :setup  => :environment do
-    require 'resque'  
+  task setup: :environment do
+    require 'resque'
     ENV['QUEUE'] ||= '*'
     Resque.redis = 'localhost:6379' if Rails.env == 'development'
   end
 
-  task :setup_schedule => :setup do
+  task setup_schedule: :setup do
     require 'resque-scheduler'
 
     # If you want to be able to dynamically change the schedule,
@@ -32,8 +32,8 @@ namespace :resque do
     # So, something like this:
     # require 'jobs'
   end
-  task :scheduler => :setup_schedule
+  task scheduler: :setup_schedule
 end
 
-desc "Alias for resque:work (To run workers on Heroku)"
-task "jobs:work" => "resque:work"
+desc 'Alias for resque:work (To run workers on Heroku)'
+task 'jobs:work' => 'resque:work'
