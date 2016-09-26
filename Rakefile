@@ -17,4 +17,3 @@ if defined? RSpec
 end
 
 task default: 'bundler:audit'
-RuboCop::RakeTask.new
