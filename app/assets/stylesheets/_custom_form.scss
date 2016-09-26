@@ -1,13 +1,18 @@
+// Copyright (c) 2016 Trilby Multimedia Ltd
+
 .input {
-  margin-bottom: $small-spacing;    
+  margin-bottom: $small-spacing;
 }
+
 #{$all-text-inputs},
 select[multiple] {
   margin-bottom: 0;
 }
+
 div.field_with_errors {
   input {border-color: #e05f5f;}
 }
+
 .form_required {
-  border: none;
+  border: 0;
 }

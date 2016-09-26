@@ -16,8 +16,6 @@ class WebinarsController < ApplicationController
   def set_webinar
     @webinar = Webinar.find(params[:id]) if params[:id]
   rescue ActiveRecord::RecordNotFound
-    # @webinar = Webinar.new(title: 'Webinar Not Found', live_date: Time.now)
-    # render 'error'
     redirect_to webinars_path, alert: "Sorry, we can't find that any details for that webinar. It may have already passed. Please select from the available webinars below"
   end
 end
