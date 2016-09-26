@@ -47,12 +47,12 @@ group :development, :test do
   gem 'bundler-audit', '>= 0.5.0', require: false
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
-  gem 'faker', git: 'https://github.com/stympy/faker.git' #forcing https because bundle-audit fails git://
+  gem 'faker', git: 'https://github.com/stympy/faker.git' # forcing https because bundle-audit fails git://
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4.0'
   gem 'rspec_junit_formatter', '0.2.2'
-  gem 'rubocop'
+  gem 'rubocop', require: false
 end
 
 group :development, :staging do

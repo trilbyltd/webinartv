@@ -2,6 +2,8 @@ AllCops:
   Include:
     - '**/Rakefile'
     - '**/config.ru'
+    - '**/*.rake'
+    - '**/Gemfile'
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
@@ -17,4 +19,14 @@ Documentation:
 TrailingBlankLines:
   Enabled: true
 MethodLength:
+  Enabled: false
+Style/AlignHash:
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+Style/Copyright:
+  Notice: '^Copyright (\(c\) )?2[0-9]{3} .+'
+  AutocorrectNotice: '# Copyright (c) 2016 Trilby Multimedia Ltd'
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+Style/FrozenStringLiteralComment:
   Enabled: false

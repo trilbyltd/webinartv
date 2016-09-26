@@ -1,8 +1,10 @@
+// Copyright (c) 2016 Trilby Multimedia Ltd
+
 .application-header {
   background-color: #ffffff;
 }
 
-.side-image {  
+.side-image {
   $base-line-height: 1.4em !default;
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
@@ -10,11 +12,12 @@
   $side-image-background-top: $trilbytv-green;
   $side-image-background-bottom: $trilbytv-green;
   $side-image-content-background: $trilbytv-green;
-  $side-image-content-background-image: image-url("webinar_img_1.png");
-  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+  $side-image-content-background-image: image-url('webinar_img_1.png');
+  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, .8), 30%);
   background: $side-image-content-background;
   margin: 16px 0;
   min-height: 250px;
+
   @include media($large-screen) {
     @include row(table);
   }
@@ -25,8 +28,8 @@
     background-size: cover;
     border-bottom: $side-image-border;
     display: block;
-    min-height: 8em;
     max-height: 250px;
+    min-height: 8em;
     padding: 20px;
 
     @include media($large-screen) {
@@ -40,15 +43,17 @@
 
   .side-image-content {
     @include span-columns(12);
-    font: $base-font-family;
     color: #ffffff;
+    font: $base-font-family;
 
     @include media($large-screen) {
       @include span-columns(8);
     }
+
     h2 {
       color: #ffffff;
     }
+
     p {
       color: $base-font-color;
       line-height: $base-line-height;
@@ -57,18 +62,13 @@
   }
 
   .webinar-content-wrapper {
-    background-color: #fff;
-    padding: 1em 1em 1em 1em;
+    background-color: #ffffff;
+    padding: 1em;
 
     @include media($large-screen) {
       @include span-columns(12);
-      padding: 1.1111em 1.1111em 1.1111em 1.1111em;
+      padding: 1.1111em;
     }
-    
-    .webinar-content {
-    }
-
-  @include reset-display();
   }
 
   @include reset-display();
@@ -76,20 +76,24 @@
 
 button.clear {
   @include position(absolute, 5px 5px auto auto);
-  font-size: 0.7em;
+  font-size: .7em;
   max-width: $clear-button-width;
 }
+
 .join-form {
-  @include media($medium-screen){
-    @include span-columns(6);  
+  @include media($medium-screen) {
+    @include span-columns(6);
   }
 }
+
 .multiple-select-wrapper {
   display: inline-block;
 }
+
 .webinars .not-found {
-  min-height: 250px;
   margin: 0 auto;
+  min-height: 250px;
+
   h2 {
     margin-bottom: 36px;
   }

@@ -15,23 +15,23 @@
 // $trilbytv-red: #e05f5f;
 // $trilbytv-yellow: #f3b043;
 
-@charset "utf-8";
-@import "normalize-rails";
-@import "bourbon";
-@import "neat";
-@import "base/base";
-//@import "refills/flashes";
-@import "font-awesome";
+@charset 'utf-8';
+@import 'normalize-rails';
+@import 'bourbon';
+@import 'neat';
+@import 'base/base';
+//@import 'refills/flashes';
+@import 'font-awesome';
 
 // TrilbyTV Generics
-@import "trilbytv";
+@import 'trilbytv';
 
-@import "global";
-@import "clearance";
+@import 'global';
+@import 'clearance';
 
 // App custom CSS
-@import "navigation";
-@import "utilities";
-@import "webinars";
-@import "prefooter";
-@import "custom_form";
+@import 'navigation';
+@import 'utilities';
+@import 'webinars';
+@import 'prefooter';
+@import 'custom_form';

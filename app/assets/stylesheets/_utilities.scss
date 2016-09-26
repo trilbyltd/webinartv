@@ -3,19 +3,20 @@
 
 .error {
   color: #e05f5f;
-  font-size:0.9em;
+  font-size: 0.9em;
   font-style: italic;
 }
 .label {
   color: $trilbytv-green-dark;
   font-weight: 400;
 }
+
 .mtop-30 { margin-top: 30px; }
 
-.colorblock{ 
-    background-color: #edf0f5;
-    border-bottom: 1px solid #e1e4e9;
-    border-top: 1px solid #e1e4e9;
+.colorblock {
+  background-color: #edf0f5;
+  border-bottom: 1px solid #e1e4e9;
+  border-top: 1px solid #e1e4e9;
 }
 
 img.cover {
