@@ -1,10 +1,10 @@
 <%= simple_form_for :session, url: session_path do |f| %>
   <div class="text-field">
-    <%= f.input :email %>
+    <%= f.input :email, autocomplete: :email %>
   </div>
 
   <div class="password-field">
-    <%= f.input :password %>
+    <%= f.input :password, autocomplete: 'current-password' %>
   </div>
 
   <div class="submit-field">

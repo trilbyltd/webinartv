@@ -11,8 +11,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email  %>
+    <%= f.input :name, input_html: { autocomplete: 'name-full'} %>
+    <%= f.input :email, input_html: { autocomplete: 'email' } %>
     <%= f.input :school_name, label: "School Name"  %>
     <%= f.input :contact_number, hint: "In case we need to call you with joining instructions or provide any webinar assistance" %>
     <%= f.input :notes, input_html: { rows: 3 } %>
