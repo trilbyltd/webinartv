@@ -15,7 +15,7 @@ class Webinar < ActiveRecord::Base
     validates :description, presence: true
   end
 
-  default_scope { order('live_date asc') }
+  scope :by_live_date, -> { order('live_date asc') }
   scope :active, -> { where active: true }
 
   def to_s

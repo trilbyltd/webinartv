@@ -5,5 +5,6 @@ Mail.register_interceptor(
 )
 
 Rails.application.configure do
+  config.force_ssl = true
   config.assets.compile = true
 end

@@ -7,6 +7,7 @@ Clearance.configure do |config|
   config.routes = false
   # config.httponly = false
   config.mailer_sender = ENV.fetch("SMTP_FROM")
+  config.rotate_csrf_on_sign_in = true
   # config.password_strategy = Clearance::PasswordStrategies::BCrypt
   # config.redirect_url = '/'
   # config.secure_cookie = false
