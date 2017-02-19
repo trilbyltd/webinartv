@@ -7,8 +7,8 @@ gem 'bourbon', '5.0.0.beta.5'
 gem 'clearance', '~> 1.13'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'email_validator'
-gem 'font-awesome-rails'
 gem 'flutie'
+gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'icalendar'
 gem 'jquery-rails'
@@ -22,8 +22,8 @@ gem 'rack-canonical-host'
 gem 'rails', '~> 4.2.0'
 gem 'recipient_interceptor'
 gem 'resque'
-gem 'resque-scheduler'
 gem 'resque-rollbar'
+gem 'resque-scheduler'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
@@ -34,13 +34,13 @@ gem 'title'
 gem 'uglifier'
 
 group :development do
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'refills'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'web-console'
-  gem 'pry-byebug'
-  gem 'pry-rails'
 end
 
 group :development, :test do
@@ -60,8 +60,8 @@ group :development, :staging do
 end
 
 group :test do
-  gem 'capybara-webkit', '~> 1.10.1'
   gem 'capybara-email'
+  gem 'capybara-webkit', '~> 1.10.1'
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
@@ -72,8 +72,8 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'rails_stdout_logging'
   gem 'rack-timeout'
+  gem 'rails_stdout_logging'
 end
 
 gem 'redactor-rails', git: 'https://github.com/glyph-fr/redactor-rails'

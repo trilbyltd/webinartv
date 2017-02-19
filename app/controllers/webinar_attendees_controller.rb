@@ -19,10 +19,9 @@ class WebinarAttendeesController < ApplicationController
   end
 
   def show
-    unless current_user.admin?
-      @webinar = Webinar.find(params[:attendee][:webinar_id])
-      redirect_to webinar_path(@webinar)
-    end
+    return if current_user.admin?
+    @webinar = Webinar.find(params[:attendee][:webinar_id])
+    redirect_to webinar_path(@webinar)
   end
 
   def destroy

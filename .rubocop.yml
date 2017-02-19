@@ -30,3 +30,5 @@ Style/HashSyntax:
   EnforcedStyle: ruby19
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
