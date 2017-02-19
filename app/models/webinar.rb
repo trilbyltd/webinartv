@@ -15,7 +15,7 @@ class Webinar < ActiveRecord::Base
     validates :description, presence: true
   end
 
-  default_scope { order('live_date asc') }
+  scope :by_live_date, -> { order('live_date asc') }
   scope :active, -> { where active: true }
 
   def to_s
@@ -73,8 +73,7 @@ class Webinar < ActiveRecord::Base
   private
 
   def webinar_cant_be_in_the_past
-    if live_date.present? && live_date < Time.now
-      errors.add(:live_date, "can't schedule a webinar in the past")
-    end
+    return unless live_date.present? && live_date < Time.now
+    errors.add(:live_date, "can't schedule a webinar in the past")
   end
 end

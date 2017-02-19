@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.3'
 
 gem 'autoprefixer-rails'
 gem 'bourbon', '5.0.0.beta.5'
 gem 'clearance', '~> 1.13'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'email_validator'
-gem 'font-awesome-rails'
 gem 'flutie'
+gem 'font-awesome-rails'
 gem 'high_voltage'
 gem 'icalendar'
 gem 'jquery-rails'
@@ -22,8 +22,8 @@ gem 'rack-canonical-host'
 gem 'rails', '~> 4.2.0'
 gem 'recipient_interceptor'
 gem 'resque'
-gem 'resque-scheduler'
 gem 'resque-rollbar'
+gem 'resque-scheduler'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
@@ -34,6 +34,8 @@ gem 'title'
 gem 'uglifier'
 
 group :development do
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'refills'
   gem 'spring'
@@ -48,8 +50,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git' # forcing https because bundle-audit fails git://
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4.0'
   gem 'rspec_junit_formatter', '0.2.2'
   gem 'rubocop', require: false
@@ -60,8 +60,8 @@ group :development, :staging do
 end
 
 group :test do
-  gem 'capybara-webkit', '~> 1.10.1'
   gem 'capybara-email'
+  gem 'capybara-webkit', '~> 1.10.1'
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
@@ -72,8 +72,8 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'rails_stdout_logging'
   gem 'rack-timeout'
+  gem 'rails_stdout_logging'
 end
 
 gem 'redactor-rails', git: 'https://github.com/glyph-fr/redactor-rails'
