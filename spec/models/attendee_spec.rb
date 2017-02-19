@@ -59,7 +59,7 @@ describe Attendee do
       end
       open_email(attendee.email)
       expect(current_email).to have_content(webinar.title)
-      expect(current_email).to have_content(l(webinar.live_date, format: :default))
+      expect(current_email).to have_content(l(webinar.live_date, format: :long))
     end
   end
 
