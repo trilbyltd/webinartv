@@ -39,6 +39,8 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'web-console'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development, :test do
@@ -48,8 +50,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git' # forcing https because bundle-audit fails git://
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4.0'
   gem 'rspec_junit_formatter', '0.2.2'
   gem 'rubocop', require: false
