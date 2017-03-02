@@ -56,17 +56,25 @@ class Webinar < ActiveRecord::Base
 
   def to_ics
     calendar = Icalendar::Calendar.new
-    event = Icalendar::Event.new
-    event.dtstart = live_date
-    event.dtend = event.dtstart + 1.hour
-    event.summary = title + ' (Webinar)'
-    event.description = description
-    event.alarm do |a|
-      a.action = 'DISPLAY'
-      a.trigger = '-P0DT0H15M0S'
-      a.description = 'Reminder'
+    calendar.event do |e|
+      e.summary = title + ' (Webinar)'
+      e.description = description
+      e.dtstart = Icalendar::Values::DateTime.new(live_date)
+      e.dtend = Icalendar::Values::DateTime.new(live_date + 1.hour)
+      e.alarm do |a|
+        a.action = 'DISPLAY'
+        a.trigger = '-P0DT0H15M0S'
+        a.description = 'Reminder'
+      end
     end
-    calendar.add_event(event)
+    calendar.timezone do |t|
+      t.tzid = 'Europe/London'
+      
+      t.daylight do |d|
+        d.tzname = 'BST'
+        d.dtstart = Icalendar::Values::DateTime.new(live_date)
+      end
+    end
     calendar.to_ical
   end
 

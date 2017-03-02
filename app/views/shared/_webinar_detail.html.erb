@@ -1,7 +1,7 @@
 <p><%= @webinar.description %></p>
 
 <p><span class="label">Live date:</span>
-  <time><%= l(@webinar.live_date, format: :long) %></time>
+  <time><%= l(@webinar.live_date, format: :full_tz) %></time>
 </p>
 
 <p><span class="label">Presenter:</span>
