@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <% if ENV['RAILS_ENV'] != 'production' %>
+  <% if !Rails.env.production? %>
     <div class="env env-<%= ENV['RAILS_ENV'] %>">Environment: <%= ENV['RAILS_ENV'] %></div>
   <% end %>
   <%= render "header" %>

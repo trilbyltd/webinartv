@@ -57,9 +57,17 @@ describe Attendee do
         expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq 0
         expect { attendee.register_and_email(webinar) }.to change { ActionMailer::Base.deliveries.count }.by(2)
       end
+    end
+
+    it "email should contain title and date" do
+      ActiveJob::Base.queue_adapter = :test
+      
+      perform_enqueued_jobs do
+        attendee.register_and_email(webinar)
+      end
       open_email(attendee.email)
       expect(current_email).to have_content(webinar.title)
-      expect(current_email).to have_content(l(webinar.live_date, format: :long))
+      expect(current_email).to have_content(l(webinar.live_date, format: :full_tz))
     end
   end
 

@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.timezone = 'Europe/London'
   config.assets.raise_runtime_errors = true
   config.cache_classes = true
   config.eager_load = false

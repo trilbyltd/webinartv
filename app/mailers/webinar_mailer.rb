@@ -19,6 +19,7 @@ class WebinarMailer < ApplicationMailer
     attachments.inline['twitter.png'] = File.read('app/assets/images/email/twitter_icon.png')
     mail(
       to: ENV['INTERNAL_EMAIL'],
+      cc: @webinar.presenter.email,
       subject: "Webinar Registration: #{@webinar.title} (#{l(webinar.live_date, format: :short)})"
     )
   end

@@ -57,7 +57,7 @@ module Admin
 
     def update
       if @webinar.update(webinar_params)
-        redirect_to admin_webinar_path(@webinar), notice: 'Webinar was successfully updated.'
+        redirect_to admin_webinar_path(@webinar), notice: t(".update_success")
       else
         render :edit
       end

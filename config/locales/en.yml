@@ -70,6 +70,8 @@ en:
       edit:
         submit: "Save"
         publish: "Publish"
+      update:
+        update_success: 'Webinar was successfully updated.'
       form:
         submit: "Save"
       attendees:
