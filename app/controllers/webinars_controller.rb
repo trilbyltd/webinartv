@@ -8,6 +8,12 @@ class WebinarsController < ApplicationController
 
   def show
     @attendee = @webinar.attendees.new
+    respond_to do |format|
+      format.html
+      format.ics do
+        render text: ''.html_safe + @webinar.to_ics
+      end
+    end
   end
 
   private

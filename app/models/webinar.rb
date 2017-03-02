@@ -69,7 +69,6 @@ class Webinar < ActiveRecord::Base
     end
     calendar.timezone do |t|
       t.tzid = 'Europe/London'
-      
       t.daylight do |d|
         d.tzname = 'BST'
         d.dtstart = Icalendar::Values::DateTime.new(live_date)

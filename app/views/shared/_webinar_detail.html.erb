@@ -7,3 +7,5 @@
 <p><span class="label">Presenter:</span>
   <%= @webinar.presenter.name if @webinar.presenter.present? %>
 </p>
+
+<%= link_to t("webinars.show.ics"), {controller: 'webinars', action: :show, format: :ics}, class: 'btn' %>

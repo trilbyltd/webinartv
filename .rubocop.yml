@@ -6,6 +6,7 @@ AllCops:
     - '**/Gemfile'
   Exclude:
     - 'bin/**/*'
+    - 'tmp/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
@@ -14,6 +15,8 @@ AllCops:
     - 'vendor/**/*'
 Metrics/LineLength:
   Enabled: false
+Metrics/AbcSize:
+  Enabled: False
 Documentation: 
   Enabled: false
 TrailingBlankLines:
