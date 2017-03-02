@@ -2,10 +2,10 @@
 <%= link_to t("admin.webinars.new"), new_admin_webinar_path, class: 'btn' %>
 <section class="first">
   <h2>Upcoming Webinars</h2>
-  <%= render 'admin/webinars/live', webinars: @webinars.upcoming %>
+  <%= render 'admin/webinars/live', webinars: @webinars.upcoming.newest %>
 </section>
 
 <section>
   <h2>Past Webinars</h2>
-  <%= render 'admin/webinars/past', webinars: @webinars.past %>
+  <%= render 'admin/webinars/past', webinars: @webinars.past.oldest %>
 </section>

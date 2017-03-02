@@ -3,7 +3,7 @@ class WebinarsController < ApplicationController
   before_action :set_webinar, only: :show
 
   def index
-    @webinars = Webinar.active.upcoming.includes(:presenter).by_live_date
+    @webinars = Webinar.active.upcoming.includes(:presenter).newest
   end
 
   def show
