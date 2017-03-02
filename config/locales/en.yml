@@ -70,6 +70,8 @@ en:
       edit:
         submit: "Save"
         publish: "Publish"
+      update:
+        update_success: 'Webinar was successfully updated.'
       form:
         submit: "Save"
       attendees:
@@ -85,6 +87,7 @@ en:
       active_user: "Do you already have a TrilbyTV user account?"
       submit: "Register Me" 
       back: "Back to webinars list"
+      ics: "Add to my calendar"
     columns:
       date: "%a %d/%m/%y"  
 

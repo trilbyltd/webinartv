@@ -1,3 +1,3 @@
 <p>Hi <%= @attendee.name %></p>
-<p>You are now registered for the <%= @webinar.title %> webinar on <%= l(@webinar.live_date, format: :long) %></p>
+<p>You are now registered for the <%= @webinar.title %> webinar on <%= l(@webinar.live_date, format: :full_tz) %></p>
 <p>We will email you the day before the webinar with joining instructions. We use Google Hangouts so there is nothing for you to install. You just need a web browser (we recommend Google Chrome).</p>

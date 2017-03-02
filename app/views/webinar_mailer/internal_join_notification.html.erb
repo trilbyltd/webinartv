@@ -1,5 +1,5 @@
 <p>FOR INFORMATION ONLY</p>
-<p><%= @attendee.name %> registered for the <%= @webinar.title %> webinar on <%= l(@webinar.live_date, format: :default) %></p>
+<p><%= @attendee.name %> registered for the <%= @webinar.title %> webinar on <%= l(@webinar.live_date, format: :full_tz) %></p>
   <b>Name:</b> <%= @attendee.name %><br />
   <b>School:</b> <%= @attendee.school_name %><br />
   <b>Email:</b> <%= @attendee.email %><br />
