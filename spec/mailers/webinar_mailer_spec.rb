@@ -30,7 +30,7 @@ RSpec.describe WebinarMailer, type: :mailer do
     let(:mail) { WebinarMailer.webinar_registration(attendee, webinar) }
 
     it 'renders the subject' do
-      expect(mail.subject).to have_text('Your Webinar Registration')
+      expect(mail.subject).to have_text(webinar.title)
     end
 
     it 'renders the receiver email' do
