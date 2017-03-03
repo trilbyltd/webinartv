@@ -8,7 +8,7 @@ class WebinarMailer < ApplicationMailer
     attachments['event.ics'] = { mime_type: 'application/ics', content: @webinar.to_ics }
     mail(
       to: "#{@attendee.name} <#{@attendee.email}>",
-      subject: "Your Webinar Registration: #{@webinar.title}"
+      subject: "Your TrilbyTV Webinar: #{@webinar.title}"
     )
   end
 
