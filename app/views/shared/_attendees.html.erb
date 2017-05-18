@@ -1,22 +1,25 @@
 <h2>Attendees</h2>
 <table>
-  <tr> 
-    <th>Name</th>
-    <th>Email</th>
-    <th>School Name</th>
-  </tr>
-<tbody>
-<% if !@attendees.nil? %>
-  <% for @attendees.each do |attendee| %>
-    <tr>
-      <td><%= attendee.name %></td>
-      <td><%= attendee.email %></td>
-      <td><%= attendee.school_name %></td>
+  <thead>
+    <tr> 
+      <th>Name</th>
+      <th>Email</th>
+      <th>School Name</th>
     </tr>
+  </thead>
+  <tbody>
+  <% if !@attendees.nil? %>
+    <% for @attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.name %></td>
+        <td><%= attendee.email %></td>
+        <td><%= attendee.school_name %></td>
+      </tr>
+    <% end %>
+  <% elsif @attendees.nil? %>
+      <tr>
+        <td colspan="3">No attendees registered</td>
+      </tr>
   <% end %>
-<% elsif @attendees.nil? %>
-    <tr>
-      <td colspan="3">No attendees registered</td>
-    </tr>
-<% end %>
+  </tbody>
 </table>
