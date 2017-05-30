@@ -40,6 +40,16 @@ Rollbar.configure do |config|
   #  Thread.new { Rollbar.process_from_async_handler(payload) }
   # }
 
+  # Ignore commmon urls scanned by bots
+  config.exception_level_filters.merge!('ActionController::RoutingError' => lambda { |e|
+  e.message =~ %r(No route matches \[[A-Z]+\] "/(.+)")
+  case $1.split("/").first.to_s.downcase
+  when *%w(myadmin phpmyadmin w00tw00t pma cgi-bin xmlrpc.php wp wordpress wp-admin cfide .well-known)
+    'ignore'
+  else
+    'warning'
+  end
+})
 
   # If you run your staging application instance in production environment then
   # you'll want to override the environment reported by `Rails.env` with an

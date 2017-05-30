@@ -1,0 +1,14 @@
+{
+  "name": "TrilbyTV - Switch on your Signage",
+  "short_name": "TrilbyTV",
+  "theme_color": "#49aea3",
+  "start_url": "/app",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "\/apple-icon-1024x1024.png",
+      "sizes": "1024x1024",
+      "type": "image\/png"
+    }
+  ]
+}
