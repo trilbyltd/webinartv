@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: webinartv_development
+  database: webinartv_heroku
   encoding: utf8
   min_messages: warning
   pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
