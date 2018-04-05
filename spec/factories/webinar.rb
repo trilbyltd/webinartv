@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :webinar do
     sequence(:title) { |i| "Webinar #{i}" }
     live_date Faker::Date.between(1.day.from_now, 3.months.from_now)

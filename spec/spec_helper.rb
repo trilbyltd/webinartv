@@ -9,7 +9,6 @@ end
 
 require File.expand_path("../../config/environment", __FILE__)
 
-require 'support/factory_girl'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'webmock/rspec'

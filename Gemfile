@@ -16,7 +16,7 @@ gem 'jquery-ui-rails'
 gem 'neat', '~> 1.7.0'
 gem 'newrelic_rpm', '>= 3.9.8'
 gem 'normalize-rails', '~> 3.0.0'
-gem 'pg'
+gem 'pg', '~> 0.21.0'
 gem 'puma'
 gem 'rack-canonical-host'
 gem 'rails', '~> 4.2.0'
@@ -48,7 +48,7 @@ group :development, :test do
   gem 'bullet'
   gem 'bundler-audit', '>= 0.5.0', require: false
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git' # forcing https because bundle-audit fails git://
   gem 'rspec-rails', '~> 3.4.0'
   gem 'rspec_junit_formatter', '0.2.2'
