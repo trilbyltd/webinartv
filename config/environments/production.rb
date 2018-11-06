@@ -10,7 +10,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=3600' }
+  config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=3600' }
   config.middleware.use Rack::Deflater
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
