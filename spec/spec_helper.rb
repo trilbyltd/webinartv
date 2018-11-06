@@ -8,14 +8,16 @@ if ENV.fetch("COVERAGE", false)
 end
 
 require File.expand_path("../../config/environment", __FILE__)
-
+require 'database_cleaner'
+require 'shoulda-matchers'
+require 'formulaic'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'webmock/rspec'
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
-
+  ActiveJob::Base.queue_adapter = :test
   config.include Formulaic::Dsl, type: :feature
 
   config.expect_with :rspec do |expectations|
