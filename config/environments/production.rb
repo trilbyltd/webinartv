@@ -25,7 +25,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = { host: ENV.fetch("APPLICATION_HOST") }
 end
-Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
 # Clearance.configure do |config|
 #   config.allow_sign_up = true
 #   config.cookie_domain = ENV.fetch('APPLICATION_HOST')
