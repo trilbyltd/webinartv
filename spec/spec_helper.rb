@@ -1,3 +1,4 @@
+ENV["RAILS_ENV"] = 'test'
 if ENV.fetch("COVERAGE", false)
   require "simplecov"
   if ENV["CIRCLE_ARTIFACTS"]
@@ -7,7 +8,7 @@ if ENV.fetch("COVERAGE", false)
   SimpleCov.start "rails"
 end
 
-require File.expand_path("../../config/environment", __FILE__)
+require_relative '../config/environment'
 require 'database_cleaner'
 require 'shoulda-matchers'
 require 'formulaic'
@@ -35,6 +36,3 @@ RSpec.configure do |config|
   # Capybara.javascript_driver = :webkit
   WebMock.disable_net_connect!(allow_localhost: true)
 end
-
-
-

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -25,9 +24,8 @@ ActiveRecord::Schema.define(version: 20160524125615) do
     t.datetime "updated_at",                  null: false
     t.string   "contact_number", default: ""
     t.text     "notes",          default: ""
+    t.index ["email"], name: "index_attendees_on_email", unique: true, using: :btree
   end
-
-  add_index "attendees", ["email"], name: "index_attendees_on_email", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -41,10 +39,9 @@ ActiveRecord::Schema.define(version: 20160524125615) do
     t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+    t.index ["queue"], name: "delayed_jobs_queue", using: :btree
   end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-  add_index "delayed_jobs", ["queue"], name: "delayed_jobs_queue", using: :btree
 
   create_table "presenters", force: :cascade do |t|
     t.string   "name"
@@ -62,10 +59,9 @@ ActiveRecord::Schema.define(version: 20160524125615) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128,                 null: false
     t.boolean  "admin",                          default: false, null: false
+    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "webinar_attendees", force: :cascade do |t|
     t.integer  "webinar_id",                  null: false
@@ -73,11 +69,10 @@ ActiveRecord::Schema.define(version: 20160524125615) do
     t.boolean  "attended",    default: false, null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["attendee_id"], name: "index_webinar_attendees_on_attendee_id", using: :btree
+    t.index ["webinar_id", "attendee_id"], name: "index_webinar_attendees_on_webinar_id_and_attendee_id", unique: true, using: :btree
+    t.index ["webinar_id"], name: "index_webinar_attendees_on_webinar_id", using: :btree
   end
-
-  add_index "webinar_attendees", ["attendee_id"], name: "index_webinar_attendees_on_attendee_id", using: :btree
-  add_index "webinar_attendees", ["webinar_id", "attendee_id"], name: "index_webinar_attendees_on_webinar_id_and_attendee_id", unique: true, using: :btree
-  add_index "webinar_attendees", ["webinar_id"], name: "index_webinar_attendees_on_webinar_id", using: :btree
 
   create_table "webinars", force: :cascade do |t|
     t.datetime "live_date",                    null: false

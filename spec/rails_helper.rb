@@ -1,12 +1,14 @@
-ENV["RACK_ENV"] = "test"
-
-require File.expand_path("../../config/environment", __FILE__)
-abort("DATABASE_URL environment variable is set") if ENV["DATABASE_URL"]
+ENV["RAILS_ENV"] = 'test'
+require_relative 'spec_helper'
+require_relative '../config/environment'
 
 require "rspec/rails"
 require "clearance/rspec"
 require "capybara/webkit"
 require "capybara/email/rspec"
+
+abort("DATABASE_URL environment variable is set") if Rails.env.production?
+abort("This isn't the test environment. We're in #{Rails.env}") if !Rails.env.test?
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
 
@@ -24,4 +26,4 @@ RSpec.configure do |config|
   Capybara.default_selector = :css
 end
 
-ActiveRecord::Migration.maintain_test_schema!
+# ActiveRecord::Migration.maintain_test_schema!

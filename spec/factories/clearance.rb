@@ -5,9 +5,9 @@ FactoryBot.define do
 
   factory :user do
     email
-    password "password"
+    password { "password" }
     trait :admin do
-      admin true
+      admin { true }
     end
   end
 end
