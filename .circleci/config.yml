@@ -3,16 +3,17 @@ jobs:
   build:
     working_directory: ~/webinartv
     docker:
-            - image: circleci/ruby:2.4.1
-            environment:
-                RAILS_ENV: test
-                PGHOST: localhost
-                PGUSER: webinartv
-            - image: postgres:9.5
-              environment:
-                POSTGRES_USER: webinartv
-                POSTGRES_DB: webinartv
-                POSTGRES_PASSWORD: ""
+      - image: circleci/ruby:2.4.1
+      environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: webinartv
+          TEST_REPORTS: /tmp/test-reports
+      - image: postgres:9.5
+        environment:
+          POSTGRES_USER: webinartv
+          POSTGRES_DB: webinartv
+          POSTGRES_PASSWORD: ""
   steps:
     - checkout
     # Restore Cached Dependencies
@@ -37,6 +38,6 @@ jobs:
     - run: rake db:setup
     - run: bin/rake dev:prime
     # run the test suite
-    - run: COVERAGE=true bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o test-results/rspec/results.xml
+    - run: COVERAGE=true bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $(TEST_REPORTS)/rspec/results.xml
     - store_test_results:
-        path:  test-results
+        path:  /tmp/test-results
