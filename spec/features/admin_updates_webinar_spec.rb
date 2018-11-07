@@ -9,6 +9,7 @@ feature "Admin creates a webinar" do
   scenario "with basic details then updates and publishes", js: true, :driver => :webkit do 
     presenter = create(:presenter)
     webinar = create(:webinar)
+
     sign_in_with(user.email, user.password)
     visit edit_admin_webinar_path(webinar)
     fill_in "Webinar URL", with: "http://www.google.com"

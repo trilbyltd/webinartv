@@ -25,12 +25,12 @@ RSpec.describe Admin::WebinarsController do
     before (:each) do
       sign_in_as(user)
     end
-  
+
     it 'should respond to ics download' do
       # get :show, id: webinar.id, format: :ics
       # expect(response.body).to have_content('BEGIN:VCALENDAR')
     end
-  end 
+  end
 
   describe "POST create" do
     let(:user) {create(:user, admin: true) }
@@ -40,11 +40,13 @@ RSpec.describe Admin::WebinarsController do
     end
 
     it "creates a new webinar" do
-      post :create, webinar: attributes_for(:webinar)
+      attrs = attributes_for(:webinar)
+      post :create, webinar: attrs
       expect(Webinar.count).to eq(1)
     end
     it 'redirects to the "show" action for the new post' do
-      post :create, webinar: attributes_for(:webinar)
+      attrs = attributes_for(:webinar)
+      post :create, webinar: attrs
       expect(response).to redirect_to admin_webinar_path(assigns(:webinar))
     end
   end

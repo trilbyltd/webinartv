@@ -15,7 +15,7 @@
 </head>
 <body class="<%= body_class %>">
   <% if !Rails.env.production? %>
-    <div class="env env-<%= ENV['RAILS_ENV'] %>">Environment: <%= ENV['RAILS_ENV'] %></div>
+    <div class="env env-<%= Rails.env %>">Environment: <%= Rails.env %></div>
   <% end %>
   <%= render "header" %>
   <%= render "flashes" %>

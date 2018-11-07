@@ -1,3 +1,4 @@
+ENV["RAILS_ENV"] = 'test'
 if ENV.fetch("COVERAGE", false)
   require "simplecov"
   if ENV["CIRCLE_ARTIFACTS"]
@@ -7,16 +8,17 @@ if ENV.fetch("COVERAGE", false)
   SimpleCov.start "rails"
 end
 
-require File.expand_path("../../config/environment", __FILE__)
-
-require 'support/factory_girl'
+require_relative '../config/environment'
+require 'database_cleaner'
+require 'shoulda-matchers'
+require 'formulaic'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'webmock/rspec'
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
-
+  ActiveJob::Base.queue_adapter = :test
   config.include Formulaic::Dsl, type: :feature
 
   config.expect_with :rspec do |expectations|
@@ -34,6 +36,3 @@ RSpec.configure do |config|
   # Capybara.javascript_driver = :webkit
   WebMock.disable_net_connect!(allow_localhost: true)
 end
-
-
-

@@ -55,7 +55,7 @@ header.application-header {
 
 section {   
   @include outer-container(1200px);
-  @include reset-display();
+  // @include reset-display();
   
   padding-bottom: 40px;
   padding-top: 40px;

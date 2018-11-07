@@ -9,8 +9,8 @@ Rails.application.configure do
   config.eager_load = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.static_cache_control = "public, max-age=31557600"
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=3600' }
   config.middleware.use Rack::Deflater
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
@@ -25,7 +25,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = { host: ENV.fetch("APPLICATION_HOST") }
 end
-Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
 # Clearance.configure do |config|
 #   config.allow_sign_up = true
 #   config.cookie_domain = ENV.fetch('APPLICATION_HOST')
