@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.1'
 
 gem 'autoprefixer-rails'
 gem 'mini_racer', platforms: :ruby
@@ -61,7 +61,7 @@ end
 
 group :test do
   gem 'capybara-email'
-  gem 'capybara-webkit', '~> 1.10.1'
+  gem 'capybara-webkit', '~> 1.15.1'
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
