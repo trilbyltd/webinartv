@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 gem 'autoprefixer-rails'
+gem 'mini_racer', platforms: :ruby
 gem 'bourbon', '5.0.0.beta.5'
 gem 'clearance', '~> 1.13'
 gem 'coffee-rails', '~> 4.2.2'
