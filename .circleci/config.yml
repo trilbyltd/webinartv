@@ -3,8 +3,8 @@ jobs:
   build:
     working_directory: ~/webinartv
     docker:
-      - image: circleci/ruby:2.4.1
-      environment:
+      - image: circleci/ruby:2.4.1-node
+        environment:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: webinartv
@@ -14,30 +14,30 @@ jobs:
           POSTGRES_USER: webinartv
           POSTGRES_DB: webinartv
           POSTGRES_PASSWORD: ""
-  steps:
-    - checkout
-    # Restore Cached Dependencies
-    - type: cache-restore
-      name: Restore bundle cache
-      key: webinartv-{{ checksum "Gemfile.lock" }}
+    steps:
+      - checkout
+      # Restore Cached Dependencies
+      - type: cache-restore
+        name: Restore bundle cache
+        key: webinartv-{{ checksum "Gemfile.lock" }}
 
-    # Bundle install dependencies
-    - run: bundle install --path vendor/bundle
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
 
-    # Cache Dependencies
-    - type: cache-save
-      name: Store bundle cache
-      key: webinartv-{{ checksum "Gemfile.lock" }}
-      paths:
-        - vendor/bundle
+      # Cache Dependencies
+      - type: cache-save
+        name: Store bundle cache
+        key: webinartv-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
 
-    # Wait for DB
-    - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      # Wait for DB
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-    # Setup the database
-    - run: rake db:setup
-    - run: bin/rake dev:prime
-    # run the test suite
-    - run: COVERAGE=true bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $(TEST_REPORTS)/rspec/results.xml
-    - store_test_results:
-        path:  /tmp/test-results
+      # Setup the database
+      - run: rake db:setup
+      - run: bin/rake dev:prime
+      # run the test suite
+      - run: COVERAGE=true bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $(TEST_REPORTS)/rspec/results.xml
+      - store_test_results:
+          path:  /tmp/test-results
